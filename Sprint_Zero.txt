@@ -1,0 +1,74 @@
+Definition of Done
+DoD
+•	Product Owner accepts the User Stories
+•	Requirements adjusted during development are met
+•	Criteria of User Stories are met
+•	Code is written for all features and reviewed
+•	Bugs have been fixed and system has been properly tested
+•	Application works on desired platforms
+•	Product Owner is happy with the results
+•	The application is cyber-secure
+
+User Stories
+
+As a User of the system
+I can login with email and password
+So that I can see my profile and settings
+
+As a User of the system
+I can change my password
+So that I have access to the system if I forget it
+
+As a Developer
+I can login with special credentials
+So that I can test the features and fix bugs
+
+As a Student
+I can see a scoreboard
+So that I can see how I am doing
+
+As a Student
+I can add/see friends
+So that I can view and compete against their scores
+
+As a Student
+I can engage in many minigames
+So that I am entertained while interacting with the system
+
+As a Student
+I can repeat minigames multiple times
+So that I can review material and engage with the system again
+
+As a Student
+I can get in game feedback
+So that I can learn from my mistakes
+
+As a member of Staff
+I can monitor my student’s scores
+So that I can identify students at risk
+
+
+
+As a member of Staff
+I can login
+So that I can access my special privileges
+
+As a member of Staff
+I can retrieve a print copy of student’s results
+To create a reference
+
+Group Rules
+1.	Decisions should be made as a group.
+2.	Be on time for all the meetings.
+3.	Document the changes that you make.
+4.	Maintain the GitLab project area.
+5.	All group members should do an equal amount of work.
+6.	All group members must understand the task that needs to be completed.
+7.	Everyone should share the same responsibility of the tasks.
+8.	Share ideas even if you think they are “bad” ideas.
+9.	Keep on task during working hours.
+10.	During scheduled meetings only one person will speak at one time.
+11.	Members will alert the rest of the team about their progress.
+12.	All meetings will follow an agenda planned before the meeting.
+13.	Everyone should be honest throughout the project.
+14.	The team will speak about their perspectives and experience not the other members.

@@ -1,0 +1,41 @@
+Interactive Games for First Year BSc Computer Science Education
+
+Overview of the Project
+The COVID-19 pandemic has introduced a number of challenges to delivering university education.
+The overall disruption caused has had a number of direct and indirect effects to first year 
+university students, and the way the university monitors engagement. This project aims to develop
+educational games which help beginners to learn basic Computer Science concepts, starting at a
+basic level before moving on to more advanced concepts (feel free to select a module to focus on),
+and to support the department in identifying students who are at risk and require additional support.
+
+Client
+The project is proposed by Dr John Drake who will act as your customer. This is not a project for
+an external client, but “product” idea with the aim to create an attractive, usable system that
+could be launched for use by our future students.
+
+Constraints
+The system must be something that students can play on their own devices.
+It therefore probably needs to be available on mobile devices and/or laptops.
+It can either be an app or a website.
+
+Requirements
+As this project will be managed through a product backlog there are no fixed requirements.
+The stories for this project will be discovered and adjusted throughout.
+However, an initial set of stories could be based on the following features.
+These can be elaborated upon, split up, adjusted and added to. 
+1.	Students can personalise a profile and login via email.
+2.	Attempt to force entry locks account.
+3.	Ability to set and change account password.
+4.	Gamify the different components of the module (E.g., games can be multiple-choice selections, blocks of text
+	could be made into puzzle pieces to put back together). Largely the mini games will be left up to your discretion.
+5.	There should be a scoring system or leaderboard.
+6.	Students can choose which section of the course they want to work on and will be given the choice of the games to play.
+7.	Each of the mini games should take be no longer than 2 minutes to complete.
+8.	For each mini game, it must be easy to add new scenarios, without editing the source code. 
+9.	The system must be visually engaging and accessible for a range of students. 
+10.	A student can complete an exercise more than once.
+11.	Answers are only visible to admins, the logged in user & logged in user’s friends
+12.	A user can create a mini-league of friends to compare results
+13.	A user can see their score and the scores of their friends for each exercise they have completed
+14.	Provide engagement and attainment monitoring and reporting to admin to help to identify at risk students.
+15.	A print ability get PDF and paper copies of these reports for reference.
