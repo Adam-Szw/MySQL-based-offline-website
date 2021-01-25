@@ -1,0 +1,12 @@
+This is a proposition for general overview of the project implementation.
+This is to be reviewed by project owner.
+
+- The games are accessed on a website, made using HTML and CSS.
+- Central hub, where the users log in and select minigames to play.
+- Minigames are implemented using Javascript, that's embedded in HTML.
+- Minigames revolve around topics from year one.
+- User scores and reports use Java Persistence API and databases.
+- User log-in information is hashed and stored in a database.
+- Minigames are connected to database as well, to prevent cheating.
+- Logging and scoring API is done through Java application.
+- Finished project is given to the client, which then hosts it.

@@ -47,8 +47,6 @@ As a member of Staff
 I can monitor my student’s scores
 So that I can identify students at risk
 
-
-
 As a member of Staff
 I can login
 So that I can access my special privileges
