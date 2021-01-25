@@ -6,3 +6,9 @@
 -	Current ideas = Scalable text + Dark/Light mode
 5.	Should the student be notified if they have become an at-risk student?
 6.	Should the student receive less points on subsequent attempts of an exercise.
+
+7.  What should the student reports contain?
+8.  Will a server be provided to store the student results/details on?
+9.  What should the profile contain? -> Username/Picture...
+10. Which requirement is the most important?
+11. How many users will have access to the system? -> Server load
