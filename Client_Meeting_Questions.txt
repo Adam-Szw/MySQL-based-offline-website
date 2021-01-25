@@ -1,0 +1,8 @@
+1.	What would you view as a successful product?
+2.	Point 8 -> For each mini game, it must be easy to add new scenarios, without editing the source code. 
+-   Should the students be allowed to create their own scenarios?
+3.	What would you view as an at-risk student?
+4.	What accessibility features would you like to see?
+-	Current ideas = Scalable text + Dark/Light mode
+5.	Should the student be notified if they have become an at-risk student?
+6.	Should the student receive less points on subsequent attempts of an exercise.
