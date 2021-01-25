@@ -6,3 +6,7 @@
 6.	Matching squares -> 16 squares, 8 matches
 7.	Code rush -> 2 mins -> Complete as many short questions as possible
 8.	Hangman
+9.  Falling code questions -> Complete the question before it gets to the bottom of the screen
+10. Icy Tower style game
+11. Sorting game -> 20 pieces of code -> Sort into a number of piles
+12. A binary/hexadecimal/decimal game -> Convert between them
