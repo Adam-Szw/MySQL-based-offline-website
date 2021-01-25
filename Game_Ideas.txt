@@ -1,0 +1,8 @@
+1.	Multiple choice questions
+2.	Fill in the blank questions
+3.	Calculate the input
+4.	Ordering the steps
+5.	Spot the difference -> Two HTML pages which elements are different?
+6.	Matching squares -> 16 squares, 8 matches
+7.	Code rush -> 2 mins -> Complete as many short questions as possible
+8.	Hangman
