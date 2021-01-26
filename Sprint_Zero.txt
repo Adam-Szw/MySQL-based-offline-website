@@ -1,13 +1,13 @@
 Definition of Done
 DoD
-•	Product Owner accepts the User Stories
-•	Requirements adjusted during development are met
-•	Criteria of User Stories are met
-•	Code is written for all features and reviewed
-•	Bugs have been fixed and system has been properly tested
-•	Application works on desired platforms
-•	Product Owner is happy with the results
-•	The application is cyber-secure
+•	Criteria of the User Story is met
+•	Product Owner accepts the User Story.
+•	Code is written for the feature and reviewed.
+•	Bugs have been fixed and the User Story has been properly tested.
+•	The User Story works on the desired platforms.
+•	The User Story is cyber-secure.
+•	Product Owner is happy with the results.
+•	Requirements adjusted during development are met.
 
 User Stories
 
