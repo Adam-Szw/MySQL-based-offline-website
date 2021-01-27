@@ -19,10 +19,6 @@ As a User of the system
 I can change my password
 So that I have access to the system if I forget it
 
-As a Developer
-I can login with special credentials
-So that I can test the features and fix bugs
-
 As a Student
 I can see a scoreboard
 So that I can see how I am doing
@@ -54,6 +50,10 @@ So that I can access my special privileges
 As a member of Staff
 I can retrieve a print copy of student’s results
 To create a reference
+
+As a User
+I want to have access to central hub
+So I can select minigames to play
 
 Group Rules
 1.	Decisions should be made as a group.
