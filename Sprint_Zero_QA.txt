@@ -1,0 +1,30 @@
+Scrum Zero Q&A:
+
+1.	What would you view as a successful product?
+-	Answer -> Product that allows students to play educational games.
+2.	Should the students be allowed to create their own scenarios?
+-	Answer -> Just the teachers
+3.	What would you view as an at-risk student?
+-	Answer -> A student who performs poorly -> Sensible threshold.
+4.	What accessibility features would you like to see?
+-	Answer -> Available on as my devices as possible -> Laptop / Mobile
+5.	Should the students be notified if they have become an at-risk student?
+-	Answer -> It should be hidden from the student -> See their scores only.
+6.	Should the student receive less points on subsequent attempts of an exercise?
+-	Answer -> It shouldn’t matter.
+7.	What should the student report contain?
+-	Answer -> Email functionality but prefer to immediate access to the leaderboard and information. Sorting methods -> Number of attempts + Averages + Successfully answered questions.
+8.	Will a server be provided to store the student results/details on?
+-	Answer -> Don’t worry about the external servers.
+9.	What should the profile contain? -> Username / Picture
+-	Answer -> Basic information-> Name / Visible Name / Profile Picture / Size of the text / Font / Personalisation
+10.	Which requirement is the most important?
+-	Answer ->
+11.	How many users will have access to the system? -> Server load
+-	Answer -> Doesn’t matter.
+12.	Do you have any preferences regarding the technologies used? -> Language / API?
+-	Answer -> Spring Boot -> Run it on localhost and it should be downloadable.
+
+Extra Notes:
+- no user stories about developer
+- user st. measurable chunks
