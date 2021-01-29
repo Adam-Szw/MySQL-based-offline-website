@@ -1,5 +1,5 @@
-Definition of Done
-DoD
+Definition of Done (DoD):
+
 •	Criteria of the User Story is met
 •	Product Owner accepts the User Story.
 •	Code is written for the feature and reviewed.
@@ -9,7 +9,9 @@ DoD
 •	Product Owner is happy with the results.
 •	Requirements adjusted during development are met.
 
-User Stories
+-----------------------------------------------------------
+
+User Stories:
 
 As a User of the system
 I can login with email and password
@@ -55,7 +57,9 @@ As a User
 I want to have access to central hub
 So I can select minigames to play
 
-Group Rules
+-----------------------------------------------------------
+
+Group Rules:
 1.	Decisions should be made as a group.
 2.	Be on time for all the meetings.
 3.	Document the changes that you make.

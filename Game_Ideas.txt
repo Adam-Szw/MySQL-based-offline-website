@@ -1,3 +1,5 @@
+Game Ideas:
+
 1.	Multiple choice questions
 2.	Fill in the blank questions
 3.	Calculate the input

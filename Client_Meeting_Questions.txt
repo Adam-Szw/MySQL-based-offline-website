@@ -1,3 +1,5 @@
+Client Meeting Questions: Sprint Zero:
+
 1.	What would you view as a successful product?
 2.	Point 8 -> For each mini game, it must be easy to add new scenarios, without editing the source code. 
 -   Should the students be allowed to create their own scenarios?
