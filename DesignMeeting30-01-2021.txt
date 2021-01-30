@@ -1,0 +1,23 @@
+Scrum Masters: Chose the week you would like:
+
+Week 1: Oliver
+Week 2: 
+Week 3: 
+Week 4:
+Week 5:
+Week 6:
+Week 7: 
+Week 8:
+
+Final Design:
+
+- Taskbar on the left side
+- Search/Filter -> Tasks not completed filter for example
+- Tabs -> Scoreboard + Profile/Friends + Games + Login/Logout + Settings + Contacts/About
+- Settings -> Dark mode / Light mode + Font size + Font colour
+- Each seperate game has an image and text
+
+
+
+
+
