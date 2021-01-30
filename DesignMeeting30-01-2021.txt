@@ -17,6 +17,13 @@ Final Design:
 - Settings -> Dark mode / Light mode + Font size + Font colour
 - Each seperate game has an image and text
 
+Tabs:
+- Games Tab = Oliver
+- Login Tab = Adam
+- Scoreboard Tab = Taran
+- Settings Tab = Reece
+- Profile Tab = Jaynik
+- About Tab = Umaid
 
 
 
