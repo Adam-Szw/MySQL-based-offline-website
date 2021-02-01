@@ -57,6 +57,16 @@ As a User
 I want to have access to central hub
 So I can select minigames to play
 
+New User Stories -> 1/2/2021
+
+As a User
+I can change the website settings
+So that I can edit the site appearance to my needs
+
+As a User
+I want to easily navigate through the site
+So that I can quickly access the features and data I need with ease
+
 -----------------------------------------------------------
 
 Group Rules:
