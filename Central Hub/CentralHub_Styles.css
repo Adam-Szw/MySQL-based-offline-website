@@ -1,17 +1,22 @@
+body {
+  font-family: 'Darker Grotesque', sans-serif;
+}
+
 .sidenav {
   height: 100%;
-  width: 160px;
+  width: 200px;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
   background-color: #111;
   overflow-x: hidden;
-  padding-top: 20px;
+  padding-top: 90px;
+  border-right: 3px solid #818181;
 }
 
 .sidenav a {
-  padding: 6px 8px 6px 16px;
+  padding: 6px 8px 20px 36px;
   text-decoration: none;
   font-size: 25px;
   color: #818181;
@@ -22,3 +27,84 @@
   color: #f1f1f1;
 }
 
+/*This is the Cascading Style Sheet for the Central Hub*/
+
+table, th, td {
+ 
+margin-left: 16%;
+}
+
+td, th {
+  text-align: center;
+  padding-top:8px;
+  padding-bottom:12px;
+  font-size: 15px;
+}
+
+#GameScreen {
+  width: 150px;
+  height: 150px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+#TopBox {
+  border: 1px solid black;
+  height: 110px;
+  margin-bottom: 10px;
+  margin-left:110px;
+  background-color: #111;
+  margin-top: -22px;
+  margin-right: -25px;
+  border-bottom: 3px solid #818181;
+}
+
+form{
+  margin-top:50px;
+  float: right;
+  margin-right: 50px;
+}
+
+form.example button {
+  width: 10%;
+  padding-left: 10px;
+  padding-top: 14px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+  
+}
+
+#SortBy {
+  color: #818181;
+  margin-left: 125px;
+  margin-top:35px;
+  float:left
+}
+
+#FilterBy {
+  color: #818181;
+  margin-right: 575px;
+  float: right;
+  margin-top: 35px;
+}
+
+td:hover {
+  color: #818181;
+}
+
+#GameScreen:hover {
+  border: 1px solid #818181;
+}
+
+#SideBar{
+  width: 20px;
+  height: 20px;
+  float: left;
+  padding-top: 10px;
+  padding-left: 8px;
+}
