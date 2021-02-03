@@ -29,18 +29,6 @@ body {
 
 /*This is the Cascading Style Sheet for the Central Hub*/
 
-table, th, td {
- 
-margin-left: 16%;
-}
-
-td, th {
-  text-align: center;
-  padding-top:8px;
-  padding-bottom:12px;
-  font-size: 15px;
-}
-
 #GameScreen {
   width: 150px;
   height: 150px;
@@ -71,7 +59,7 @@ form.example button {
   padding-top: 14px;
   padding-right: 10px;
   padding-bottom: 5px;
-  color: white;
+  color:#818181;
   font-size: 17px;
   border: 1px solid grey;
   border-left: none; /* Prevent double borders */
@@ -82,15 +70,17 @@ form.example button {
 #SortBy {
   color: #818181;
   margin-left: 125px;
-  margin-top:35px;
-  float:left
+  margin-top:50px;
+  float:left;
+  font-size: 14px;
 }
 
 #FilterBy {
   color: #818181;
-  margin-right: 575px;
+  margin-right: 500px;
   float: right;
-  margin-top: 35px;
+  margin-top: 50px;
+  font-size:14px;
 }
 
 td:hover {
@@ -107,4 +97,44 @@ td:hover {
   float: left;
   padding-top: 10px;
   padding-left: 8px;
+}
+
+select {
+  background-color: #111;
+  color: #818181;
+  border: 0px;
+  font-size: 14px;
+}
+
+select:active {
+  border: 1px;
+}
+
+input {
+  background-color:#111;
+  font-size: 15px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border: 0px;
+  color:#818181;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  column-gap: 20px;
+  row-gap: 20px;
+  padding: 10px;
+  margin-left:250px;
+  margin-right:20px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  font-size: 15px;
+}
+
+.grid-container div:hover {
+  color: #818181;
 }

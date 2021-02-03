@@ -4,6 +4,17 @@
     <title>Games</title>
     <link rel="stylesheet" href="CentralHub_Styles.css">
     <link rel="icon" href="">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#SortBox").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#GameSort div").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 </head>
 <body>
     <div class="sidenav">
@@ -15,55 +26,53 @@
         <img id="SideBar" src="Images/About.png"><a href="about.html">About</a>
     </div>
     <section id="TopBox">
-        <form class="example" action="action_page.php">
-            <input type="text" placeholder="Search.." name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-        <p><div id ="SortBy">Sort by: Date</div><div id="FilterBy">Filter: Not complete</div></p>
+        <form class="example">
+          <input type="text" id="SortBox" onkeyup="myFunction()" placeholder="Search:" autocomplete="off">
+           <!--<button type="submit"><i class="fa fa-search"></i></button>-->
+       </form>
+
+          <div id="SortBy">
+            <label>Sort by:</label>
+            <select>
+              <option value="0">Options</option>
+              <option value="DateD">Date Desc</option>
+              <option value="DateA">Date Asc</option>
+              <option value="LenD">Length Desc</option>
+              <option value="LenA">Length Asc</option>
+            </select></div>
+
+            <div id="FilterBy">
+            <label>Filter by:</label>
+            <select>
+              <option value="0">Filters</option>
+              <option value="Fin">Finished</option>
+              <option value="NFin">Not Finished</option>
+            </select></div>
     </section>
-    <table style="width:83.5%">
-        <tr>
-          <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>Python Game 1</td>
-          <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Java" href=""><br>Java Game 1</td>
-          <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="HTML" href=""><br>HTML Game 1</td>
-          <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="HTML" href=""><br>CSS Game 1</td>
-        </tr>
-        <tr>
-          <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>Python Game 2</td>
-          <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Java" href=""><br>Java Game 2</td>
-          <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="HTML" href=""><br>HTML Game 2</td>
-          <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="HTML" href=""><br>CSS Game 2</td>
-        </tr>
-        <tr>
-          <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>Python Game 3</td>
-          <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Java" href=""><br>Java Game 3</td>
-          <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="HTML" href=""><br>HTML Game 3</td>
-          <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="HTML" href=""><br>CSS Game 3</td>
-        </tr>
-        <tr>
-          <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>Python Game 4</td>
-          <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Java" href=""><br>Java Game 4</td>
-          <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="HTML" href=""><br>HTML Game 4</td>
-          <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="HTML" href=""><br>CSS Game 4</td>
-        </tr>
-        <tr>
-            <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>Python Game 5</td>
-            <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Java" href=""><br>Java Game 5</td>
-            <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="HTML" href=""><br>HTML Game 5</td>
-            <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="HTML" href=""><br>CSS Game 5</td>
-          </tr>
-        <tr>
-            <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>Python Game 6</td>
-            <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Java" href=""><br>Java Game 6</td>
-            <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="HTML" href=""><br>HTML Game 6</td>
-            <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="HTML" href=""><br>CSS Game 6</td>
-        </tr>
-        <tr>
-            <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>Python Game 7</td>
-            <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Java" href=""><br>Java Game 7</td>
-            <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="HTML" href=""><br>HTML Game 7</td>
-            <td><img id="GameScreen" src="Images/GameImages/template.jpg" alt="HTML" href=""><br>CSS Game 7</td>
-        </tr>
-      </table>
+
+    <div id="GameSort">
+      <div class="grid-container">
+        <div><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>Python Game 1</div>
+        <div><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>HTML Game 1</div>
+        <div><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>CSS Game 1</div>  
+        <div><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>Java Game 1</div>
+        <div><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>Python Game 2</div>
+        <div><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>HTML Game 2</div>
+        <div><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>CSS Game 2</div>  
+        <div><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>Java Game 2</div>
+        <div><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>Python Game 3</div>
+        <div><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>HTML Game 3</div>
+        <div><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>CSS Game 3</div>  
+        <div><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>Java Game 3</div>
+        <div><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>Python Game 4</div>
+        <div><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>HTML Game 4</div>
+        <div><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>CSS Game 4</div>  
+        <div><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>Java Game 4</div>
+        <div><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>Python Game 5</div>
+        <div><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>HTML Game 5</div>
+        <div><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>CSS Game 5</div>  
+        <div><img id="GameScreen" src="Images/GameImages/template.jpg" alt="Python" href=""><br>Java Game 5</div>
+      </div>
+    </div>
 </body>
 </html>
