@@ -3,7 +3,10 @@
 <head>
     <title>Profile</title>
     <link rel="stylesheet" href="CentralHub_Styles.css">
-    <link rel="icon" href="Images/Profile.png">
+    <link rel="stylesheet" href="Profile_Styles.css">
+    <link rel="icon" href="">
+    <script src="https://kit.fontawesome.com/ec00a021e5.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="sidenav">
@@ -14,6 +17,129 @@
         <img id="SideBar" src="Images/Settings.png"><a href="settings.html">Settings</a>
         <img id="SideBar" src="Images/About.png"><a href="about.html">About</a>
     </div>
-    <p>Profile</p>
+    <div class="container">
+        <div class="profileHeader">
+            <div class=profileImage>
+                <img src="Images/male-avatar.jpg" alt="">
+            </div>
+            <div class="profile-nav">
+                <h3 id="username">Username</h3>
+
+            </div>
+            
+        </div>
+        <div class="main-bd">
+            <div class="left-side">
+                <div class="profile-side">
+                    <h1 id="full-name">John Smith</h1>
+                    <div class="user-info">
+                        <p id="mobile-no"><i class="fas fa-phone"></i>+447534xxxx546</p>
+                        <p id="user-mail"><i class="fas fa-envelope"></i>someone@example.com</p>
+                    </div>
+                    <div class="user-bio">
+                        <h3>Bio</h3>
+                        <p id="bio">
+                            Some text Some text Some text
+                            Some text Some text Some text
+                            Some text Some text Some text
+                            Some text Some text Some text
+                            Some text Some text Some text
+                        </p>
+
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="right-side">
+                <div class="profile-tabs">
+                    <ul>
+                        <li onclick="tabs(0)" class="user-stats active">Stats</li>
+                        <li onclick="tabs(1)" class="user-friends">Friends</li>
+                        <li onclick="tabs(2)" class="user-settings">Settings</li>
+                    </ul>
+                </div>
+                <div class="profile-body">
+                    <div class="profile-stats tab">
+                        <h1>Your Statistics</h1>
+                        <p>Some text Some text Some text
+                            Some text Some text Some text
+                            Some text Some text Some text
+                            Some text Some text Some text
+                            Some text Some text Some text
+                            Some text Some text Some text
+                            Some text Some text Some text
+                            Some text Some text Some text
+                            Some text Some text Some text
+                            Some text Some text Some text
+                        </p>
+
+                    </div>
+                    <div class="profile-friends tab">
+                        <h1>Your Friends</h1>
+                        <p>Some text Some text Some text
+                            Some text Some text Some text
+                            Some text Some text Some text
+                            Some text Some text Some text
+                            Some text Some text Some text
+                            Some text Some text Some text
+                            Some text Some text Some text
+                            Some text Some text Some text
+                            Some text Some text Some text
+                            Some text Some text Some text
+                        </p>
+
+                       
+                    </div>
+                    <div class="profile-settings tab">
+                        <div class="profile-settings-body">
+                            <h1>Your Settings</h1>
+                            <div class="pro-bg-box">
+                                <p>Change the colour of your side profile:</p>
+                                <select class="profile-backgorund" name="bgcolor">
+                                    <option value="#daf5cf">lime-green</option>
+                                    <option value="red">red</option>
+                                    <option value="blue">blue</option>
+                                    <option value="green">green</option>
+                                </select>
+                            
+                                <br>
+
+                                <p>Change the colour of your profile text:</p>
+                                <select class="profile-text" name="textcolor">
+                                    <option value="black">black</option>
+                                    <option value="red">red</option>
+                                    <option value="blue">blue</option>
+                                    <option value="green">green</option>
+                                    <option value="#daf5cf">lime-green</option>
+                                </select>
+                                <br>
+
+                                <p>Change the colour of your profile header:</p>
+                                <select class="profile-header-colour" name="headercolor">
+                                    <option value="#daf5cf">lime-green</option>
+                                    <option value="red">red</option>
+                                    <option value="blue">blue</option>
+                                    <option value="green">green</option>
+                                </select>
+                           </div>
+                            
+                        </div>
+                            
+
+                        </div>
+                        
+                        
+                        
+                    </div>
+                   
+                
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="profileMain.js"></script>
+    
 </body>
 </html>
