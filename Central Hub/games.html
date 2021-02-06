@@ -6,41 +6,41 @@
     <link rel="icon" href="Images/Games.png">
     <a href="#" id="back-to-top" class="back-to-top" style="display: inline;">^</a>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-var link = document.getElementById("back-to-top");
-    var amountScrolled = 250;
-  
-    window.addEventListener('scroll', function(e) {
-        if ( window.pageYOffset > amountScrolled ) {
-            link.classList.add('show');
-        } else {
-            link.className = 'back-to-top';
-        }
-    });
-    document.addEventListener("DOMContentLoaded", function(event) { 
-            var scrollpos = localStorage.getItem('scrollpos');
-            if (scrollpos) window.scrollTo(0, scrollpos);
+    <script>
+    var link = document.getElementById("back-to-top");
+        var amountScrolled = 250;
+      
+        window.addEventListener('scroll', function(e) {
+            if ( window.pageYOffset > amountScrolled ) {
+                link.classList.add('show');
+            } else {
+                link.className = 'back-to-top';
+            }
         });
+        document.addEventListener("DOMContentLoaded", function(event) { 
+                var scrollpos = localStorage.getItem('scrollpos');
+                if (scrollpos) window.scrollTo(0, scrollpos);
+            });
 
-        window.onbeforeunload = function(e) {
-            localStorage.setItem('scrollpos', window.scrollY);
-        };
+            window.onbeforeunload = function(e) {
+                localStorage.setItem('scrollpos', window.scrollY);
+            };
 
-$(document).ready(function(){
-  $("#SortBox").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#GameSort div").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    $(document).ready(function(){
+      $("#SortBox").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#GameSort div").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
     });
-  });
-});
-</script>
+    </script>
 </head>
 <body>
     <div class="sidenav">
-		<img id="SideBar" src="Images/Signin.png"><a href="signin.html">Sign-in</a>
+	      <img id="SideBar" src="Images/Signin.png"><a href="signin.html">Sign-in</a>
         <img id="SideBar" src="Images/Games.png"><a href="games.html">Games</a>
         <img id="SideBar" src="Images/Profile.png"><a href="profile.html">Profile</a>
         <img id="SideBar" src="Images/Leaderboard.png"><a href="scoreboard.html">Scoreboard</a>
@@ -48,11 +48,10 @@ $(document).ready(function(){
         <img id="SideBar" src="Images/About.png"><a href="about.html">About</a>
     </div>
     <div id="RightSide">
-    <div id="TopBox">
+      <div id="TopBox">
         <form class="example">
           <input type="text" id="SortBox" onkeyup="myFunction()" placeholder="Search:" autocomplete="off">
-           <!--<button type="submit"><i class="fa fa-search"></i></button>-->
-       </form>
+        </form>
 
           <div id="SortBy">
             <label>Sort by:</label>
@@ -64,7 +63,7 @@ $(document).ready(function(){
               <option value="LenA">Length Asc</option>
             </select></div>
 
-            <div id="FilterBy">
+          <div id="FilterBy">
             <label>Filter by:</label>
             <select>
               <option value="0">Filters</option>
@@ -97,6 +96,6 @@ $(document).ready(function(){
         <div><img id="GameScreen" src="Images/Java.jpg" alt="Java" href=""><br>Java Game 5</div>
       </div>
     </div>
-    </div>
+  </div>
 </body>
 </html>
