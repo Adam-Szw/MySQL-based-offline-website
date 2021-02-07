@@ -28,8 +28,18 @@ body {
   color: #f1f1f1;
 }
 
-/*This is the Cascading Style Sheet for the Central Hub*/
+/*Styles for the sidebar icons*/
+#SideBar{
+  width: 20px;
+  height: 20px;
+  float: left;
+  padding-top: 14px;
+  padding-left: 8px;
+}
 
+/*-----------------------------Start-Of-Game-Page-Styles-----------------------------*/
+
+/*Styles for the grid images*/
 #GameScreen {
   width: 150px;
   height: 150px;
@@ -38,6 +48,12 @@ body {
   box-shadow: 0px 3px 5px #4b4a4a;
 }
 
+/*Hovering over the grid image styles*/
+#GameScreen:hover {
+  border: 1px solid #818181;
+}
+
+/*Styles for the top section*/
 #TopBox {
   height: 65px;
   margin-bottom: 10px;
@@ -49,26 +65,14 @@ body {
   color:black;
 }
 
+/*Styles for the search box*/
 form{
   margin-top:25px;
   float: right;
   margin-right: 50px;
 }
 
-form.example button {
-  width: 10%;
-  padding-left: 10px;
-  padding-top: 14px;
-  padding-right: 10px;
-  padding-bottom: 5px;
-  color:black;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none; /* Prevent double borders */
-  cursor: pointer;
-  
-}
-
+/*Styles for the sort by selection box*/
 #SortBy {
   color: black;
   margin-left: 50px;
@@ -78,6 +82,7 @@ form.example button {
   font-weight: bold;
 }
 
+/*Styles for the filter by selection box*/
 #FilterBy {
   color:  black;
   margin-right: 480px;
@@ -87,24 +92,7 @@ form.example button {
   font-weight: bold;
 }
 
-td:hover {
-  color: #818181;
-}
-
-#GameScreen:hover {
-  border: 1px solid #818181;
-}
-
-#SideBar{
-  width: 20px;
-  height: 20px;
-  float: left;
-  padding-top: 14px;
-  padding-left: 8px;
-}
-
-
-
+/*Styles for the input search box*/
 input {
   background-color:rgba(230, 238, 222);
   font-size: 15px;
@@ -118,6 +106,7 @@ input {
   margin-top: -5px;
 }
 
+/*Styles for the grid*/
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto auto;
@@ -127,17 +116,19 @@ input {
   margin-right:20px;
 }
 
+/*More styles for the grid*/
 .grid-container > div {
   background-color:rgba(230, 238, 222);
   text-align: center;
   font-size: 15px;
 }
 
+/*Styles when you hover over the grid*/
 .grid-container div:hover {
   color: #818181;
 }
 
-/*CSS styles for the return to the top button on each page*/
+/*Styles for the return to the top button*/
 .back-to-top {
   background-color: rgb(218, 245, 207);
   opacity: 0;
@@ -168,14 +159,15 @@ a.back-to-top {
   box-shadow: 0px 3px 5px #4b4a4a;
  }
   
-
+/*More styles for the return to the top button*/
 .back-to-top:hover, .back-to-top:focus, .back-to-top:visited {
   color: #818181;}
 
+/*More styles for the return to the top button*/
 .back-to-top.show {
   opacity: 1;}
 
-/* Fading animation */
+/*Fading animation -> Used by the return to the top button*/
 .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
@@ -190,16 +182,13 @@ a.back-to-top {
   from {opacity: .4}
   to {opacity: 1}}
 
+/*Styles for the div that contains the grid of games*/
 #GameSort {
   background-color:rgba(230, 238, 222);
-  margin-left: 200px;
-  
+  margin-left: 200px; 
 }
 
-.select { 
-  border-radius: 200px;
-}
-
+/*Filter and sort dropdown styles*/
 select {
   background-color: rgb(218, 245, 207);
   color: black;
@@ -207,13 +196,18 @@ select {
   font-size: 14px;
 }
 
+/*Filter and sort dropdown styles*/
 select option {
   font-family: 'Poppins', sans-serif;
 }
 
+/*Filter and sort dropdown styles*/
 select:active {
   border: 1px;
 }
+
+/*-----------------------------End-Of-Game-Page-Styles-----------------------------*/
+
 /* Css for Scoreboard*/
 .scoreboard{
 background-color: rgba(252, 184, 58, 0.466);
