@@ -1,7 +1,7 @@
 Game Ideas:
 
 1.	Multiple choice questions
-2.	Fill in the blank questions
+2.	Fill in the blank questions -> Made a design (OG) 7/2/2021
 3.	Calculate the input
 4.	Ordering the steps -> Made a design (OG) 5/2/2021
 5.	Spot the difference -> Two HTML pages which elements are different?
