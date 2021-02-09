@@ -4,10 +4,13 @@
     <title>Games</title>
     <link rel="stylesheet" href="CentralHub_Styles.css">
     <link rel="icon" href="Images/Games.png">
+    <!--This is the link that takes the user to the top of the page-->
     <a href="#" id="back-to-top" class="back-to-top" style="display: inline;">^</a>
+    <!--External fonts are used these are linked here-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--The script contains the code for the back to the top button-->
     <script>
     var link = document.getElementById("back-to-top");
         var amountScrolled = 250;
@@ -39,6 +42,7 @@
     </script>
 </head>
 <body>
+    <!--The sidenav contains all of the links to the other pages-->
     <div class="sidenav">
 	      <img id="SideBar" src="Images/Signin.png"><a href="signin.html">Sign-in</a>
         <img id="SideBar" src="Images/Games.png"><a href="games.html">Games</a>
@@ -47,22 +51,23 @@
         <img id="SideBar" src="Images/Settings.png"><a href="settings.html">Settings</a>
         <img id="SideBar" src="Images/About.png"><a href="about.html">About</a>
     </div>
+    <!--The right side is the majority of the page's content-->
     <div id="RightSide">
       <div id="TopBox">
         <form class="example">
           <input type="text" id="SortBox" onkeyup="myFunction()" placeholder="Search:" autocomplete="off">
         </form>
-
+          <!--Sort by selection area-->
           <div id="SortBy">
             <label>Sort by:</label>
             <select>
               <option value="0">Options</option>
-              <option value="DateD">Date Desc</option>
-              <option value="DateA">Date Asc</option>
+              <option value="AZSort">A-Z</option>
+              <option value="ZASort">Z-A</option>
               <option value="LenD">Length Desc</option>
               <option value="LenA">Length Asc</option>
             </select></div>
-
+          <!--Filter by selection are-->
           <div id="FilterBy">
             <label>Filter by:</label>
             <select>
@@ -72,9 +77,10 @@
             </select></div>
           </div>
 
+    <!--This contains the code for the game grid-->
     <div id="GameSort">
       <div class="grid-container">
-        <div><a href="../Games/BitCrush/BitCrush.html"><img id="GameScreen" src="Images/Python.png" alt="Bit Crush Game"/></a><br>BitCrush</div>
+        <div><a href="../Games/BitCrush/BitCrush.html"><img id="GameScreen" src="Images/cpu_full.png" alt="Bit Crush Game"/></a><br>BitCrush</div>
         <div><img id="GameScreen" src="Images/HTML.png" alt="HTML" href=""><br>HTML Game 1</div>
         <div><img id="GameScreen" src="Images/CSS.png" alt="CSS" href=""><br>CSS Game 1</div>  
         <div><img id="GameScreen" src="Images/Java.jpg" alt="Java" href=""><br>Java Game 1</div>

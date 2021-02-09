@@ -1,6 +1,12 @@
 body {
   font-family: 'Poppins', sans-serif;
   background-color:rgba(230, 238, 222);
+  min-width: 1000px;
+}
+
+.v-generated-body {
+  min-width: 2000px;
+  overflow: auto;
 }
 
 .sidenav {
@@ -85,8 +91,8 @@ form{
 /*Styles for the filter by selection box*/
 #FilterBy {
   color:  black;
-  margin-right: 480px;
-  float: right;
+  margin-left: 50px;
+  float: left;
   margin-top: 25px;
   font-size:14px;
   font-weight: bold;
