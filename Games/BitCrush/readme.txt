@@ -8,7 +8,22 @@ How to add assignments/questions/missions to the game:
 - there can be any number of targets that must be picked
 
 Below is a list for all possible targets (refer to the H&P CPU image):
-- ALU
-- DataMemory
-- SignExtender
-- ShiftLeft2
+"PC"
+"InstructionMemory"
+"AddLeft"
+"Instruction2521"
+"Instruction2016"
+"Instruction1511"
+"Instruction150"
+"Instruction50"
+"Registers"
+"SignExtend"
+"ShiftLeft2"
+"AddRight"
+"ALU"
+"ALUControl"
+"DataMemory"
+"MuxLeft"
+"MuxTopRight"
+"MuxBottomRight"
+"MuxMiddle"
