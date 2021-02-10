@@ -6,6 +6,7 @@ Select ALU and Data Memory | ALU, DataMemory
 Select all multiplexors | MuxLeft, MuxTopRight, MuxBottomRight, MuxMiddle
 Select Registers | Registers
 Select Instruction bits 25-21 | Instruction2521
+Select all components | Registers, SignExtend
 
 `;
 
