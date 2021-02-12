@@ -1,0 +1,186 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color:rgba(230, 238, 222);
+    min-width: 1000px;
+  }
+  
+  .v-generated-body {
+    min-width: 2000px;
+    overflow: auto;
+  }
+  
+  .sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 90px;
+    border-right: 3px solid #818181;
+  }
+  
+  .sidenav a {
+    padding: 6px 8px 20px 36px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  /*Styles for the sidebar icons*/
+  #SideBar{
+    width: 20px;
+    height: 20px;
+    float: left;
+    padding-top: 14px;
+    padding-left: 8px;
+  }
+.scoreboard{
+    background-color: rgba(252, 184, 58, 0.466);
+    }
+    .wrapper{
+      margin-left: 400px;
+      margin-top: 20px;
+      width: 1000px;  
+    }
+    
+    .rows {
+      display: grid;
+      grid-template-columns: 10% 20% 14% 14% 14%;
+      column-gap: 2px;
+      row-gap: 12px;
+      margin-right:5px;
+    }
+    
+    .rows > div {
+      /*background-color: rgba(255, 217, 0, 0.785);*/
+      background-color: rgb(255, 217, 0);
+      height: 50px;
+      text-align: center;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      padding: 6px;
+      border-radius: 10px;
+      box-shadow: 0px 3px 5px red;
+    
+    }
+    
+    #crowns {
+      width: 45px;
+      height: 45px solid transparent;
+      border-radius: 4px;
+      box-shadow: 0px 3px 5px #050505;
+     
+    }
+    #userImg {
+      width: 45px;
+      height: 45px solid transparent;
+      border-radius: 4px;
+      box-shadow: 0px 3px 5px #050505;
+      position: absolute;
+      left: 520px;
+    }
+    .scorePic{
+    margin-left: 270px;
+    margin-right: 425px;
+    margin-top: 10px;
+    
+    }
+    #ScoreboardPic{
+      height: 100px;
+      width: 100px;
+    }
+    #rightPic{
+      width: 35px;
+      height: 35px solid transparent;
+      border-radius: 4px;
+      box-shadow: 0px 3px 5px #050505;
+      position: absolute;
+      left: 720px;
+    }
+    #wrongPic{
+      width: 35px;
+      height: 35px solid transparent;
+      border-radius: 4px;
+      box-shadow: 0px 3px 5px #050505;
+      position: absolute;
+      left: 860px; 
+    }
+    #scorePic{
+      width: 35px;
+      height: 35px solid transparent;
+      border-radius: 4px;
+      box-shadow: 0px 3px 5px #050505;
+      position: absolute;
+      left: 1000px; 
+    }
+    .extras {
+      display: grid;
+      grid-template-columns:20% 14% 14% 14%;
+      column-gap: 2px;
+      row-gap: 12px;
+      margin-right:5px;
+    }
+    .extraWrapper{
+      margin-left: 500px;
+      margin-top: 40px;
+      width: 1000px; 
+    }
+    
+    .extras > div {
+      /*background-color: rgba(255, 217, 0, 0.785);*/
+      background-color: rgb(134, 153, 170);
+      height: 50px;
+      text-align: center;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      padding: 6px;
+      border-radius: 10px;
+      box-shadow: 0px 3px 5px red;
+    
+    }
+    .topRow {
+      display: grid;
+      grid-template-columns:10% 20% 14% 14% 14%;
+      column-gap: 2px;
+      row-gap: 12px;
+      margin-right:5px;
+    }
+    .header{
+      margin-left: 400px;
+      margin-top: 40px;
+      width: 1000px; 
+    }
+    
+    .topRow > div {
+      /*background-color: rgba(255, 217, 0, 0.785);*/
+      background-color: rgb(222, 227, 231);
+      height: 50px;
+      text-align: center;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      padding: 6px;
+      border-radius: 10px;
+      box-shadow: 0px 3px 5px red;
+    }
+    
+    #ScoreboardPic{
+      margin-left: 300px;
+    }
+    #SortByGames{
+     margin-left: 940px; 
+    
+    }
