@@ -47,8 +47,26 @@ var tasks = [];
 var selected = [];
 
 var selectionEnabled = false;
+var gameEnd = false;
+
+var score = 0;
+var responseScore = [];
+var questionCount = 0;
 
 function startGame() {
+
+	elementButtons = [];
+	missions = [];
+	clock = startingTime;
+	difficulty = 0;
+	tasks = [];
+	selected = [];
+	gameEnd = false;
+	selectionEnabled = true;
+	score = 0;
+	responseScore = [];
+	questionCount = 0;
+	
 	document.getElementById("img").style.display = "none";
 	document.getElementById("img2").style.display = "block";
 	var introText = document.getElementsByClassName("descriptionText");
@@ -65,7 +83,6 @@ function startGame() {
 	loadMissions();
 	loadButtons();
 	createMission();
-	selectionEnabled = true;
 	updateClock();
 }
 
@@ -117,30 +134,71 @@ function loadMissions() {
 				targetsArr[j] = targetsArr[j].trim();
 			}
 			missions.push([missionsStr, targetsArr]);
+			questionCount += 1;
 		}
 	}
 }
 
+function scoreScreen() {
+	gameEnd = true;
+	selectionEnabled = false;
+	document.getElementById("img").style.display = "block";
+	document.getElementById("img2").style.display = "none";
+	var introText = document.getElementsByClassName("gameText");
+	for(var i = 0; i < introText.length; i++)
+	{
+		introText[i].style.display = "none";
+	}
+	document.getElementById("StartButton").style.display = "block";
+	
+	var totalResponse = 0.0;
+	for(var i = 0; i < responseScore.length; i++)
+	{
+		totalResponse += responseScore[i];
+	}
+	var avgResponse = totalResponse / questionCount * 100;
+	avgResponse = Math.round(avgResponse*100)/100;
+	var avgResponseScore = Math.round((100-avgResponse)*100)/100;
+	
+	var t = document.getElementById("scoreScreenText");
+	t.innerHTML = "Game finished!"+
+	"<br>You answered "+responseScore.length+"/"+questionCount+" questions."+
+	"<br>Your score was: "+score+
+	"<br>Your average response time was: "+avgResponseScore+"% of time given"+
+	"<br>This brings your total leaderboard score to: "+score*avgResponse/100+
+	"<br>Click start game to play again.";
+	t.style.display = "block";
+}
+
 function createMission() {
-	var seed = Math.floor(Math.random() * missions.length)
-	document.getElementById("mission").innerHTML = missions[seed][0];
-	tasks = missions[seed][1];
-	clock = Math.max(startingTime - (difficulty*decreaseTime), 3);
-	difficulty += 1;
-	document.getElementById("timer").innerHTML = clock;
+	if(missions.length > 0)
+	{
+		var seed = Math.floor(Math.random() * missions.length)
+		document.getElementById("mission").innerHTML = missions[seed][0];
+		tasks = missions[seed][1];
+		missions.splice(seed, 1);
+		clock = Math.max(startingTime - (difficulty*decreaseTime), 3);
+		difficulty += 1;
+		document.getElementById("timer").innerHTML = clock;
+	}
+	else
+	{
+		scoreScreen();
+	}
 }
 
 function updateClock() {
 	clock = Math.round(clock*10-1)/10;
 	document.getElementById("timer").innerHTML = clock;
 	checkWinConditions();
-	if(clock > 0)
+	if(clock > 0 && !gameEnd)
 	{
 		setTimeout(updateClock, 100);
 	}
 	else
 	{
-		console.log("lost");
+		console.log("game over");
+		scoreScreen();
 	}
 }
 
@@ -152,7 +210,11 @@ function checkWinConditions() {
 	}
 	if(tasksArr.sort().join(',') === selected.sort().join(','))
 	{
-		console.log("win");
+		console.log("correct");
+		var a = parseFloat(clock/Math.max(startingTime - (difficulty*decreaseTime), 3));
+		a = Math.round(a*100)/100;
+		responseScore.push(a);
+		score += parseFloat(10);
 		removeAllSelection();
 		createMission();
 	}
