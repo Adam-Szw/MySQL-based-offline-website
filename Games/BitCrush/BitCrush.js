@@ -1,4 +1,30 @@
 
+//NAME | LEFT, TOP, WIDTH, HEIGHT
+var buttonsConfig = `
+
+PC | 23.35, 40, 2, 16
+InstructionMemory | 27.1, 44.5, 6.4, 22.3
+AddLeft | 28.9, 13.8, 4.8, 20.7
+Instruction2521 | 34.3, 42.6, 8.3, 3.1
+Instruction2016 | 34.3, 49.7, 8.4, 3.1
+Instruction1511 | 34.3, 61.2, 7.9, 3.1
+Instruction150 | 34.3, 77.9, 8.1, 3.1
+Instruction50 | 45.1, 90.8, 7.2, 3.1
+Registers | 44.5, 42.2, 8.7, 30.1
+SignExtend | 48.3, 73.4, 4.1, 15.6
+ShiftLeft2 | 55.5, 31.2, 3.5, 11.1
+AddRight | 59.6, 20.2, 6.3, 20.8
+ALU | 58.6, 46.8, 6.3, 20.8
+ALUControl | 56.5, 75.1, 4.4, 15.4
+DataMemory | 66.4, 51.9, 7.3, 26.4
+MuxLeft | 42.3, 54.4, 2.4, 12.9
+MuxTopRight | 68.2, 16, 2.1, 16.7
+MuxBottomRight | 75.3, 57, 2.1, 12.7
+MuxMiddle | 55.8, 57.5, 2.1, 12.8
+
+`
+
+//DESCRIPTION | ELEMENT1, ELEMENT2, ELEMENT3...
 var missionsConfig = `
 
 Select ALU | ALU
@@ -6,15 +32,13 @@ Select ALU and Data Memory | ALU, DataMemory
 Select all multiplexors | MuxLeft, MuxTopRight, MuxBottomRight, MuxMiddle
 Select Registers | Registers
 Select Instruction bits 25-21 | Instruction2521
-Select all components | Registers, SignExtend
 
 `;
-
 
 var startingTime = 15.0;
 var decreaseTime = 1.0;
 
-
+var elementButtons = [];
 
 var missions = [];
 var clock = startingTime;
@@ -39,9 +63,44 @@ function startGame() {
 		introText[i].style.display = "block";
 	}
 	loadMissions();
+	loadButtons();
 	createMission();
 	selectionEnabled = true;
 	updateClock();
+}
+
+function loadButtons() {
+	var lines = buttonsConfig.split("\n");
+	for(var i = 0; i < lines.length; i++)
+	{
+		if(lines[i]!="")
+		{
+			var splitStr = lines[i].split("|");
+			var elementName = splitStr[0];
+			elementName.trim();
+			var elementCoords = splitStr[1].split(",");
+			for(var j = 0; j < elementCoords.length; j++)
+			{
+				elementCoords[j] = elementCoords[j].trim();
+			}
+			elementButtons.push([elementName, elementCoords]);
+		}
+	}
+	
+	for(var i = 0; i < elementButtons.length; i++)
+	{
+		var elemButton = document.createElement("div");
+		elemButton.classList.add("ClickBox");
+		elemButton.setAttribute("id", "Click"+(elementButtons[i][0]).trim());
+		elemButton.style.left = elementButtons[i][1][0]+"%";
+		elemButton.style.top = elementButtons[i][1][1]+"%";
+		elemButton.style.width = elementButtons[i][1][2]+"%";
+		elemButton.style.height = elementButtons[i][1][3]+"%";
+		elemButton.setAttribute("onmouseover", "selectElement("+i+")");
+		elemButton.setAttribute("onmouseleave", "deselectElements()");
+		elemButton.setAttribute("onmousedown", "addSelection("+i+")");
+		document.getElementById("ImageBox").appendChild(elemButton);
+	}
 }
 
 function loadMissions() {
@@ -100,148 +159,20 @@ function checkWinConditions() {
 }
 
 function encodeElement(elem) {
-	switch(elem){
-	case "PC":
-		return 0;
-	case "InstructionMemory":
-		return 1;
-	case "AddLeft":
-		return 2;
-	case "Instruction2521":
-		return 3;
-	case "Instruction2016":
-		return 4;
-	case "Instruction1511":
-		return 5;
-	case "Instruction150":
-		return 6;
-	case "Instruction50":
-		return 7;
-	case "MuxLeft":
-		return 8;
-	case "Registers":
-		return 9;
-	case "SignExtend":
-		return 10;
-	case "ShiftLeft2":
-		return 11;
-	case "AddRight":
-		return 12;
-	case "ALU":
-		return 13;
-	case "ALUControl":
-		return 14;
-	case "DataMemory":
-		return 15;
-	case "MuxTopRight":
-		return 16;
-	case "MuxBottomRight":
-		return 17;
-	case "MuxMiddle":
-		return 18;
+	for(var i = 0; i < elementButtons.length; i++)
+	{
+		if(elementButtons[i][0].trim() == elem)
+		{
+			return i;
+		}
 	}
 }
 
 function selectElement(elem) {
 	if(selectionEnabled)
 	{
-		switch(elem){
-		case 0:
-			//PC
-			document.getElementById("Click-PC").style.backgroundColor = "rgb(204, 0, 0)";
-			document.getElementById("Click-PC").style.opacity = 0.7;
-			break;
-		case 1:
-			//InstructionMemory
-			document.getElementById("Click-InstructionMemory").style.backgroundColor = "rgb(204, 0, 0)";
-			document.getElementById("Click-InstructionMemory").style.opacity = 0.7;
-			break;
-		case 2:
-			//AddLeft
-			document.getElementById("Click-AddLeft").style.backgroundColor = "rgb(204, 0, 0)";
-			document.getElementById("Click-AddLeft").style.opacity = 0.7;
-			break;
-		case 3:
-			//Instruction2521
-			document.getElementById("Click-Instruction2521").style.backgroundColor = "rgb(204, 0, 0)";
-			document.getElementById("Click-Instruction2521").style.opacity = 0.7;
-			break;
-		case 4:
-			//Instruction2016
-			document.getElementById("Click-Instruction2016").style.backgroundColor = "rgb(204, 0, 0)";
-			document.getElementById("Click-Instruction2016").style.opacity = 0.7;
-			break;
-		case 5:
-			//Instruction1511
-			document.getElementById("Click-Instruction1511").style.backgroundColor = "rgb(204, 0, 0)";
-			document.getElementById("Click-Instruction1511").style.opacity = 0.7;
-			break;
-		case 6:
-			//Instruction150
-			document.getElementById("Click-Instruction150").style.backgroundColor = "rgb(204, 0, 0)";
-			document.getElementById("Click-Instruction150").style.opacity = 0.7;
-			break;
-		case 7:
-			//Instruction50
-			document.getElementById("Click-Instruction50").style.backgroundColor = "rgb(204, 0, 0)";
-			document.getElementById("Click-Instruction50").style.opacity = 0.7;
-			break;
-		case 8:
-			//MuxLeft
-			document.getElementById("Click-MuxLeft").style.backgroundColor = "rgb(204, 0, 0)";
-			document.getElementById("Click-MuxLeft").style.opacity = 0.7;
-			break;
-		case 9:
-			//Registers
-			document.getElementById("Click-Registers").style.backgroundColor = "rgb(204, 0, 0)";
-			document.getElementById("Click-Registers").style.opacity = 0.7;
-			break;
-		case 10:
-			//SignExtend
-			document.getElementById("Click-SignExtend").style.backgroundColor = "rgb(204, 0, 0)";
-			document.getElementById("Click-SignExtend").style.opacity = 0.7;
-			break;
-		case 11:
-			//ShiftLeft2
-			document.getElementById("Click-ShiftLeft2").style.backgroundColor = "rgb(204, 0, 0)";
-			document.getElementById("Click-ShiftLeft2").style.opacity = 0.7;
-			break;
-		case 12:
-			//AddRight
-			document.getElementById("Click-AddRight").style.backgroundColor = "rgb(204, 0, 0)";
-			document.getElementById("Click-AddRight").style.opacity = 0.7;
-			break;
-		case 13:
-			//ALU
-			document.getElementById("Click-ALU").style.backgroundColor = "rgb(204, 0, 0)";
-			document.getElementById("Click-ALU").style.opacity = 0.7;
-			break;
-		case 14:
-			//ALUControl
-			document.getElementById("Click-ALUControl").style.backgroundColor = "rgb(204, 0, 0)";
-			document.getElementById("Click-ALUControl").style.opacity = 0.7;
-			break;
-		case 15:
-			//DataMemory
-			document.getElementById("Click-DataMemory").style.backgroundColor = "rgb(204, 0, 0)";
-			document.getElementById("Click-DataMemory").style.opacity = 0.7;
-			break;
-		case 16:
-			//MuxTopRight
-			document.getElementById("Click-MuxTopRight").style.backgroundColor = "rgb(204, 0, 0)";
-			document.getElementById("Click-MuxTopRight").style.opacity = 0.7;
-			break;
-		case 17:
-			//MuxBottomRight
-			document.getElementById("Click-MuxBottomRight").style.backgroundColor = "rgb(204, 0, 0)";
-			document.getElementById("Click-MuxBottomRight").style.opacity = 0.7;
-			break;
-		case 18:
-			//MuxMiddle
-			document.getElementById("Click-MuxMiddle").style.backgroundColor = "rgb(204, 0, 0)";
-			document.getElementById("Click-MuxMiddle").style.opacity = 0.7;
-			break;
-		}
+		document.getElementById("Click"+(elementButtons[elem][0]).trim()).style.backgroundColor = "rgb(204, 0, 0)";
+		document.getElementById("Click"+(elementButtons[elem][0]).trim()).style.opacity = 0.7;
 	}
 }
 
@@ -253,7 +184,6 @@ function deselectElements()
 		for(var i = 0; i < clickBoxes.length; i++)
 		{
 			clickBoxes[i].style.backgroundColor = "transparent";
-			document.getElementById("Click-InstructionMemory").style.opacity = 0.0;
 		}
 		for(var i = 0; i < selected.length; i++)
 		{
