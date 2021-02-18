@@ -1,0 +1,11 @@
+#BinaryRightSide {
+    /*These styles cover the entire right side of the page*/
+    background-color: powderblue;
+    width:86.2%;
+    height:100vh;
+    margin-left: 14.4%;
+    margin-top: -10px;
+    margin-right: -20px;
+    margin-bottom: -25px;
+    padding-bottom: 2px;
+}

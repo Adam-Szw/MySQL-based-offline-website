@@ -35,10 +35,105 @@
       $("#SortBox").on("keyup", function() {
         var value = $(this).val().toLowerCase();
         $("#GameSort div").filter(function() {
+          document.getElementById("FilterBy2").value = "0";
           $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
       });
     });
+
+    function Sort() {
+      var vb = document.getElementById("SortBy2").value;
+      document.getElementById("FilterBy2").value = "0";
+      Filter();
+        var arr=[];
+        var anchors = document.getElementsByClassName("grid-item");
+        for(var i = 0; i < anchors.length; i++){
+        arr.push(anchors[i].innerHTML);
+        }
+
+        var arr2=[];
+        var anchors2 = document.getElementsByClassName("grid-item");
+        for(var i = 0; i < anchors2.length; i++){
+        arr2.push(anchors2[i].textContent);
+        }
+        
+        var names = []
+        var nameList = []
+        var elements = document.getElementsByClassName('grid-item');
+        var x = document.getElementsByClassName('grid-item').innerHTML;
+        for(var i=0; i<elements.length; i++) names.push(elements[i].textContent)
+        {
+        nameList = names}
+        if (vb=="AZSort") {
+          nameList.sort();
+        }
+        else if (vb=="ZASort") {
+          nameList.sort();
+          nameList.reverse();
+        }
+        for (var y =0; y<nameList.length; y++) {
+          for (var b = 0; b < elements.length; b++) {
+
+            if (arr2[b] == nameList[y]) {
+              
+              var temp = anchors[y].innerHTML;
+              anchors[y].innerHTML = arr[b];
+              arr[b] = temp;
+              break;
+            }
+      }
+    }
+  }
+
+  function Filter() {
+      var vb = document.getElementById("FilterBy2").value;
+      
+      if (vb=="Fin") {
+        var x = document.getElementsByClassName("grid-item");
+        Reappear();
+        var vb3=document.getElementsByClassName("SortBy2")
+        var vb2 = document.getElementsByName("NFin");
+        var i;
+        for (var y =0; y<vb2.length; y++) {
+          for (var b = 0; b < x.length; b++) {
+            if (x[b].textContent == vb2[y].textContent) {
+              
+              x[b].style.display="none";
+              break;
+            }
+      }
+    }
+      }
+      else if (vb=="NFin") {
+        var x = document.getElementsByClassName("grid-item");
+        Reappear();
+        var vb3=document.getElementsByClassName("SortBy2")
+        vb3.disabled =true;
+        var vb2 = document.getElementsByName("Fin");
+        var i;
+        for (var y =0; y<vb2.length; y++) {
+          for (var b = 0; b < x.length; b++) {
+
+            if (x[b].textContent == vb2[y].textContent) {
+              
+              x[b].style.display="none";
+              break;
+            }
+      }}}   
+      else if (vb=="0") {
+        var vb3=document.getElementsByClassName("SortBy2")
+        vb3.disabled=false;
+        Reappear();
+      }
+  }
+
+  function Reappear() {
+    var x = document.getElementsByClassName("grid-item");
+        var i;
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display="block";
+        }
+  }
     </script>
 </head>
 <body>
@@ -60,17 +155,15 @@
           <!--Sort by selection area-->
           <div id="SortBy">
             <label>Sort by:</label>
-            <select>
+            <select id ="SortBy2" onchange="Sort()">
               <option value="0">Options</option>
-              <option value="AZSort">A-Z</option>
+              <option value="AZSort" >A-Z</option>
               <option value="ZASort">Z-A</option>
-              <option value="LenD">Length Desc</option>
-              <option value="LenA">Length Asc</option>
             </select></div>
           <!--Filter by selection are-->
           <div id="FilterBy">
             <label>Filter by:</label>
-            <select>
+            <select id="FilterBy2" onchange="Filter()">
               <option value="0">Filters</option>
               <option value="Fin">Finished</option>
               <option value="NFin">Not Finished</option>
@@ -78,28 +171,29 @@
           </div>
 
     <!--This contains the code for the game grid-->
+    <!--The sorting works if the grid names are unique-->
     <div id="GameSort">
       <div class="grid-container">
-        <div><a href="../Games/BitCrush/BitCrush.html"><img id="GameScreen" src="Images/cpu_full.png" alt="Bit Crush Game"/></a><br>BitCrush</div>
-        <div><img id="GameScreen" src="Images/HTML.png" alt="HTML" href=""><br>HTML Game 1</div>
-        <div><img id="GameScreen" src="Images/CSS.png" alt="CSS" href=""><br>CSS Game 1</div>  
-        <div><img id="GameScreen" src="Images/Java.jpg" alt="Java" href=""><br>Java Game 1</div>
-        <div><img id="GameScreen" src="Images/Python.png" alt="Python" href=""><br>Python Game 2</div>
-        <div><img id="GameScreen" src="Images/HTML.png" alt="HTML" href=""><br>HTML Game 2</div>
-        <div><img id="GameScreen" src="Images/CSS.png" alt="CSS" href=""><br>CSS Game 2</div>  
-        <div><img id="GameScreen" src="Images/Java.jpg" alt="Java" href=""><br>Java Game 2</div>
-        <div><img id="GameScreen" src="Images/Python.png" alt="Python" href=""><br>Python Game 3</div>
-        <div><img id="GameScreen" src="Images/HTML.png" alt="HTML" href=""><br>HTML Game 3</div>
-        <div><img id="GameScreen" src="Images/CSS.png" alt="CSS" href=""><br>CSS Game 3</div>  
-        <div><img id="GameScreen" src="Images/Java.jpg" alt="Java" href=""><br>Java Game 3</div>
-        <div><img id="GameScreen" src="Images/Python.png" alt="Python" href=""><br>Python Game 4</div>
-        <div><img id="GameScreen" src="Images/HTML.png" alt="HTML" href=""><br>HTML Game 4</div>
-        <div><img id="GameScreen" src="Images/CSS.png" alt="CSS" href=""><br>CSS Game 4</div>  
-        <div><img id="GameScreen" src="Images/Java.jpg" alt="Java" href=""><br>Java Game 4</div>
-        <div><img id="GameScreen" src="Images/Python.png" alt="Python" href=""><br>Python Game 5</div>
-        <div><img id="GameScreen" src="Images/HTML.png" alt="HTML" href=""><br>HTML Game 5</div>
-        <div><img id="GameScreen" src="Images/CSS.png" alt="CSS" href=""><br>CSS Game 5</div>  
-        <div><img id="GameScreen" src="Images/Java.jpg" alt="Java" href=""><br>Java Game 5</div>
+        <div class="grid-item"><div name="Fin"><a href="../Games/BitCrush/BitCrush.html"><img id="GameScreen" src="Images/cpu_full.png" alt="Bit Crush Game"/></a><br>BitCrush</div></div>
+        <div class="grid-item"><div name="NFin"><a href="../Games/BinaryBlitz/BinaryBlitz.html"><img id="GameScreen" src="Images/BinaryImage.jpg" alt="BinaryBlitz Game"/></a><br>BinaryBlitz</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/CSS.png" alt="CSS" href=""><br>CSS Game 1</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/Java.jpg" alt="Java" href=""><br>Java Game 1</div></div>
+        <div class="grid-item"><div name="NFin"><img id="GameScreen" src="Images/Python.png" alt="Python" href=""><br>Python Game 1</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/HTML.png" alt="HTML" href=""><br>HTML Game 2</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/CSS.png" alt="CSS" href=""><br>CSS Game 2</div></div>
+        <div class="grid-item"><div name="NFin"><img id="GameScreen" src="Images/Java.jpg" alt="Java" href=""><br>Java Game 2</div></div>
+        <div class="grid-item"><div name="NFin"><img id="GameScreen" src="Images/Python.png" alt="Python" href=""><br>Python Game 2</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/HTML.png" alt="HTML" href=""><br>HTML Game 3</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/CSS.png" alt="CSS" href=""><br>CSS Game 3</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/Java.jpg" alt="Java" href=""><br>Java Game 3</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/Python.png" alt="Python" href=""><br>Python Game 3</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/HTML.png" alt="HTML" href=""><br>HTML Game 4</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/CSS.png" alt="CSS" href=""><br>CSS Game 4</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/Java.jpg" alt="Java" href=""><br>Java Game 4</div></div>
+        <div class="grid-item"><div name="NFin"><img id="GameScreen" src="Images/Python.png" alt="Python" href=""><br>Python Game 4</div></div>
+        <div class="grid-item"><div name="NFin"><img id="GameScreen" src="Images/HTML.png" alt="HTML" href=""><br>HTML Game 5</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/CSS.png" alt="CSS" href=""><br>CSS Game 5</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/Java.jpg" alt="Java" href=""><br>Java Game 5</div></div>
       </div>
     </div>
   </div>

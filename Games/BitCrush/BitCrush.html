@@ -26,31 +26,15 @@
 	</div>
 	<div class="TopBox" id="Game">
 		<div id="ImageBox">
-			<img id="img" src="Images/cpu_full.png">
-			<img id="img2" src="Images/cpu_empty.png">
-			<div class="ClickBox" id="Click-PC" onmouseover="selectElement(0)" onmouseleave="deselectElements()" onmousedown="addSelection(0)"></div>
-			<div class="ClickBox" id="Click-InstructionMemory" onmouseover="selectElement(1)" onmouseleave="deselectElements()" onmousedown="addSelection(1)"></div>
-			<div class="ClickBox" id="Click-AddLeft" onmouseover="selectElement(2)" onmouseleave="deselectElements()" onmousedown="addSelection(2)"></div>
-			<div class="ClickBox" id="Click-Instruction2521" onmouseover="selectElement(3)" onmouseleave="deselectElements()" onmousedown="addSelection(3)"></div>
-			<div class="ClickBox" id="Click-Instruction2016" onmouseover="selectElement(4)" onmouseleave="deselectElements()" onmousedown="addSelection(4)"></div>
-			<div class="ClickBox" id="Click-Instruction1511" onmouseover="selectElement(5)" onmouseleave="deselectElements()" onmousedown="addSelection(5)"></div>
-			<div class="ClickBox" id="Click-Instruction150" onmouseover="selectElement(6)" onmouseleave="deselectElements()" onmousedown="addSelection(6)"></div>
-			<div class="ClickBox" id="Click-Instruction50" onmouseover="selectElement(7)" onmouseleave="deselectElements()" onmousedown="addSelection(7)"></div>
-			<div class="ClickBox" id="Click-MuxLeft" onmouseover="selectElement(8)" onmouseleave="deselectElements()" onmousedown="addSelection(8)"></div>
-			<div class="ClickBox" id="Click-Registers" onmouseover="selectElement(9)" onmouseleave="deselectElements()" onmousedown="addSelection(9)"></div>
-			<div class="ClickBox" id="Click-SignExtend" onmouseover="selectElement(10)" onmouseleave="deselectElements()" onmousedown="addSelection(10)"></div>
-			<div class="ClickBox" id="Click-ShiftLeft2" onmouseover="selectElement(11)" onmouseleave="deselectElements()" onmousedown="addSelection(11)"></div>
-			<div class="ClickBox" id="Click-AddRight" onmouseover="selectElement(12)" onmouseleave="deselectElements()" onmousedown="addSelection(12)"></div>
-			<div class="ClickBox" id="Click-ALU" onmouseover="selectElement(13)" onmouseleave="deselectElements()" onmousedown="addSelection(13)"></div>
-			<div class="ClickBox" id="Click-ALUControl" onmouseover="selectElement(14)" onmouseleave="deselectElements()" onmousedown="addSelection(14)"></div>
-			<div class="ClickBox" id="Click-DataMemory" onmouseover="selectElement(15)" onmouseleave="deselectElements()" onmousedown="addSelection(15)"></div>
-			<div class="ClickBox" id="Click-MuxTopRight" onmouseover="selectElement(16)" onmouseleave="deselectElements()" onmousedown="addSelection(16)"></div>
-			<div class="ClickBox" id="Click-MuxBottomRight" onmouseover="selectElement(17)" onmouseleave="deselectElements()" onmousedown="addSelection(17)"></div>
-			<div class="ClickBox" id="Click-MuxMiddle" onmouseover="selectElement(18)" onmouseleave="deselectElements()" onmousedown="addSelection(18)"></div>
+			<img id="img" src="Images/picture_full.png">
+			<img id="img2" src="Images/picture_empty.png">
 		</div>
 		<p class="descriptionText">Welcome to BitCrush! The purpose of this game is to test knowledge in Computer Architecture.</p>
 		<p class="descriptionText">Click "Start" to begin the game. You will have limited time to pick correct components of a MIPS CPU.</p>
+		<p class="descriptionText">To achieve maximum score, answer all questions. Every question is worth 10 points. The response time matters, but only for leaderboard score.</p>
+		<p class="descriptionText">Your leaderboard score will be your question points adjusted by response time.</p>
 		<p class="descriptionText">The image is from Hennesy & Patterson book covered in the module</p>
+		<p class="descriptionText" id="scoreScreenText"></p>
 		<button id="StartButton" onclick="startGame()">Start</button>
 		<p class="gameText" id="mission"></p>
 		<p class="gameText" id="timer"></p>
