@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Scoreboard</title>
     <link rel="stylesheet" href="scoreboard.css">
     <link rel="icon" href="Images/Leaderboard.png">
 </head>
 
-<body class="scoreboard">
+<body>
     <div class="sidenav">
 		<img id="SideBar" src="Images/Signin.png"><a href="signin.html">Sign-in</a>
 		<img id="SideBar" src="Images/Games.png"><a href="games.html">Games</a>
@@ -17,6 +18,8 @@
     </div>
 
     <img id="ScoreboardPic" src="Images/scores.png">
+
+<div class="header">
     <div id="SortByGames">
         <label>Sort by games:</label>
         <select>
@@ -25,8 +28,11 @@
             <option value="css">CSS</option>
             <option value="java">Java</option>
         </select></div>
-
-<div class="header">
+    <div class ="scoreFilter">
+        <button class="top10">Top 10</button>
+        <button class="friends">Friends</button>
+        <button class="allscores">All Scores</button>
+    </div>
     <div class="topRow">
         <div>Rank</div>
         <div>Name</div>
@@ -35,6 +41,7 @@
         <div>Total Scores</div>
     </div>
 </div>
+
 <div class="wrapper">
     <div class="rows">
         <div><img id="crowns" src="Images/Crown 1.png"></div>
@@ -60,6 +67,7 @@
 <div class="extraWrapper">
     
     <div class="extras">
+        <div>4th</div>
         <div><img id="userImg" src="Images/userPic.jpg">Student D</div>
         <div><img id="rightPic" src="Images/right.png">200</div>
         <div><img id="wrongPic" src="Images/wrong.jpg">35</div>

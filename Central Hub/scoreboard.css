@@ -1,11 +1,12 @@
 body {
     font-family: 'Poppins', sans-serif;
-    background-color:rgba(230, 238, 222);
-    min-width: 1000px;
+    background-color:rgba(252, 184, 58, 0.466);
+    overflow-x: hidden;
+    padding-top: 0px;
+    box-sizing: border-box;
   }
   
   .v-generated-body {
-    min-width: 2000px;
     overflow: auto;
   }
   
@@ -42,11 +43,8 @@ body {
     padding-top: 14px;
     padding-left: 8px;
   }
-.scoreboard{
-    background-color: rgba(252, 184, 58, 0.466);
-    }
     .wrapper{
-      margin-left: 400px;
+      margin-left: 260px;
       margin-top: 20px;
       width: 1000px;  
     }
@@ -87,10 +85,9 @@ body {
       border-radius: 4px;
       box-shadow: 0px 3px 5px #050505;
       position: absolute;
-      left: 520px;
+      left: 380px;
     }
     .scorePic{
-    margin-left: 270px;
     margin-right: 425px;
     margin-top: 10px;
     
@@ -105,7 +102,7 @@ body {
       border-radius: 4px;
       box-shadow: 0px 3px 5px #050505;
       position: absolute;
-      left: 720px;
+      left: 580px;
     }
     #wrongPic{
       width: 35px;
@@ -113,7 +110,7 @@ body {
       border-radius: 4px;
       box-shadow: 0px 3px 5px #050505;
       position: absolute;
-      left: 860px; 
+      left: 720px; 
     }
     #scorePic{
       width: 35px;
@@ -121,17 +118,17 @@ body {
       border-radius: 4px;
       box-shadow: 0px 3px 5px #050505;
       position: absolute;
-      left: 1000px; 
+      left: 860px; 
     }
     .extras {
       display: grid;
-      grid-template-columns:20% 14% 14% 14%;
+      grid-template-columns:10% 20% 14% 14% 14%;
       column-gap: 2px;
       row-gap: 12px;
       margin-right:5px;
     }
     .extraWrapper{
-      margin-left: 500px;
+      margin-left: 260px;
       margin-top: 40px;
       width: 1000px; 
     }
@@ -158,8 +155,7 @@ body {
       margin-right:5px;
     }
     .header{
-      margin-left: 400px;
-      margin-top: 40px;
+      margin-left: 260px; 
       width: 1000px; 
     }
     
@@ -178,9 +174,32 @@ body {
     }
     
     #ScoreboardPic{
-      margin-left: 300px;
+      margin-left: 210px;
     }
     #SortByGames{
-     margin-left: 940px; 
-    
+     margin-left: 54%; 
+     margin-bottom: 7px;
     }
+    .scoreFilter{
+      display: grid;
+      grid-template-columns: 13% 13% 13%;
+      column-gap: 2px;
+      margin-bottom: 2px;
+    }
+   .scoreFilter > button{
+    border-radius: 8px;
+    background-color: rgb(223, 231, 224);
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    justify-items: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    box-shadow: 0px 3px 5px black;
+   }
+   .scoreFilter > button:hover{
+     background-color: rgb(98, 98, 158);
+   }
+  
