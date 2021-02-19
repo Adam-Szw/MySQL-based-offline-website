@@ -1,11 +1,101 @@
-#BinaryRightSide {
-    /*These styles cover the entire right side of the page*/
-    background-color: powderblue;
-    width:86.2%;
-    height:100vh;
-    margin-left: 14.4%;
-    margin-top: -10px;
-    margin-right: -20px;
-    margin-bottom: -25px;
-    padding-bottom: 2px;
+#Game, #ImageBox {
+	position: relative;
+    padding-left: 10px;
+}
+
+label {
+    font-size: 20px;
+}
+
+#TitleDiv label {
+    font-size: 30px;
+}
+
+#Highlight {
+    font-size: 15px;
+    color: red;
+}
+
+ol li {
+    font-size:15px;
+}
+
+button {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    border: 0;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0px 3px 5px #4b4a4a;
+    margin-right: 5px;
+    outline: none;
+    cursor:pointer;
+}
+
+#EasyGame:hover {
+    background-color: #f4f959;
+}
+
+#MediumGame:hover {
+    background-color: #eea526;
+}
+
+#HardGame:hover {
+    background-color: #f03d31;
+}
+
+#ExtraInfo:hover {
+    color: green;
+}
+
+#ExtraInfo {
+    text-decoration: none;
+    padding-bottom: 5px;
+}
+
+#Icon {
+    width: 40px;
+    margin-top: 15px;
+    cursor:pointer;
+}
+
+#TimerDiv {
+    float: right;
+    margin-top:-30px;
+    padding-right: 50px;
+}
+
+#ScoreDiv {
+    padding-left: 830px;
+    margin-top: -40px;
+}
+
+#TitleDiv {
+    padding-left: 20px;
+}
+
+#Title {
+    padding-left: 5px;
+}
+
+#DifficultyLabel {
+    padding-top: 5px;
+}
+
+#EasyGameDiv {
+    display: none;
+}
+
+#MediumGameDiv {
+    display: none;
+}
+
+#HardGameDiv {
+    display: none;
+}
+
+#HardGameContent, #MediumGameContent, #EasyGameContent {
+    padding-top: 5px;
 }

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="BinaryBlitz.css">
 	<link rel="stylesheet" href="../GamesStyles.css">
     <script src = "BinaryBlitz.js"></script>
-    <link rel="icon" href="Images/Games.png">
+    <link rel="icon" href="../../Central Hub/Images/Games.png">
     <!--This is the link that takes the user to the top of the page-->
     <a href="#" id="back-to-top" class="back-to-top" style="display: inline;">^</a>
     <!--External fonts are used these are linked here-->
@@ -33,23 +33,65 @@
             window.onbeforeunload = function(e) {
                 localStorage.setItem('scrollpos', window.scrollY);
             };
+
 </script>
 </head>
 <body>
-    <!--The sidenav contains all of the links to the other pages-->
     <div class="sidenav">
-	      <img id="SideBar" src="../../Central Hub/Images/Signin.png"><a href="../../Central Hub/signin.html">Sign-in</a>
+		<img id="SideBar" src="../../Central Hub/Images/Signin.png"><a href="../../Central Hub/signin.html">Sign-in</a>
         <img id="SideBar" src="../../Central Hub/Images/Games.png"><a href="../../Central Hub/games.html">Games</a>
         <img id="SideBar" src="../../Central Hub/Images/Profile.png"><a href="../../Central Hub/profile.html">Profile</a>
         <img id="SideBar" src="../../Central Hub/Images/Leaderboard.png"><a href="../../Central Hub/scoreboard.html">Scoreboard</a>
         <img id="SideBar" src="../../Central Hub/Images/Settings.png"><a href="../../Central Hub/settings.html">Settings</a>
         <img id="SideBar" src="../../Central Hub/Images/About.png"><a href="../../Central Hub/about.html">About</a>
     </div>
-
-    <!--The right side is the majority of the page's content-->
-    <div id="BinaryRightSide">
-
-   
-    </div>
+	<div id="TopBox">
+        <div id="TitleDiv"><img id="Icon" onclick="ResetPage()" src="Images/BinaryBlitzIcon.png"><label id="Title">BinaryBlitz</label></div>
+		<div id="ScoreDiv"><label>Score: 5</label></div>
+        <div id="TimerDiv"><label>Time Left: </label><label id="timer">67.2</label></div>
+	</div>
+	<div class="TopBox" id="Game">
+        <div id="PregameContent">
+        <label id="DifficultyLabel">Please select a difficulty:</label><br>
+        <button id="EasyGame" onclick="HideShowEasy()">Easy: 4 Bit Conversions</button>
+        <button id="MediumGame" onclick="HideShowMedium()">Medium: 8 Bit Conversions</button>
+        <button id="HardGame" onclick="HideShowHard()">Hard: 12 Bit Conversions</button>
+        
+        <div id="ExampleQuestion"><label id="ExampleQuestionTitle">Example Conversion: 10110111 to Decimal:</label>
+            <p>
+                10110111 is an 8 bit binary (Base 2) number therefore the maximum value can be calculated using (2^8)-1 = 255<br>
+                Each value in the binary number represents a power of 2 number <br>
+                When calculating a binary number you start on the right-hand side, the first bit has a value of (2^0) which equals 1<br>
+                <ol>
+                <li>First bit: 2^0 = 1 -> 1011011<label id="Highlight">1</label>-> 1</li>
+                <li>Second bit: 2^1 = 2 -> 101101<label id="Highlight">1</label>1 -> 2</li>
+                <li>Third bit: 2^2 = 4 -> 10110<label id="Highlight">1</label>11 -> 4</li>
+                <li>Fourth bit: 2^3 = 8 -> 1011<label id="Highlight">0</label>111 -> 0</li>
+                <li>Fifth bit: 2^4 = 16 -> 101<label id="Highlight">1</label>0111 -> 16</li>
+                <li>Sixth bit: 2^5 = 32 -> 10<label id="Highlight">1</label>10111 -> 32</li>
+                <li>Seventh bit: 2^6 = 64 -> 1<label id="Highlight">0</label>110111 -> 0</li>
+                <li>Eight bit: 2^7 = 128 -> <label id="Highlight">1</label>0110111 -> 128</li>
+                </ol>
+                Therefore 10110111 is equal to 1 + 2 + 4 + 0 + 16 + 32 + 0 + 128 = <strong style="font-size: 18px;">183</strong><br>
+                Useful Resource: <a  id="ExtraInfo" href="https://www.khanacademy.org/computing/computers-and-internet/xcae6f4a7ff015e7d:digital-information/xcae6f4a7ff015e7d:binary-numbers/a/bits-and-binary">Khan Academy: Binary Numbers</a>
+            </p>
+        </div>
+        </div>
+        <div id="EasyGameDiv">
+            <p id="EasyGameContent">You have selected the easy difficulty... Good Luck!<br>
+                These questions will feature 4 bit binary conversions
+            </p>
+        </div>
+        <div id="MediumGameDiv">
+            <p id="MediumGameContent">You have selected the medium difficulty... Good Luck!<br>
+                These questions will feature 8 bit binary conversions
+            </p>
+        </div>
+        <div id="HardGameDiv">
+            <p id="HardGameContent">You have selected the hard difficulty... Good Luck!<br>
+                These questions will feature 12 bit binary conversions
+            </p>
+        </div>
+	</div>
 </body>
 </html>
