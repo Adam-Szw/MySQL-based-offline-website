@@ -30,6 +30,9 @@ function startGame()
 	}
 	currentMission.CSSCode.push(exampleCSS);
 	
+	var a = document.getElementById("Game");
+	console.log(a.innerHTML);
+	
 	generateMission();
 }
 
