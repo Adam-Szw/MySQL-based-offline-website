@@ -149,3 +149,31 @@ input {
 #SubmitButton:hover {
     background-color: #f4f959;
 }
+
+.TimeLeft {
+    float: right;
+    padding-top: 5px;
+    padding-right: 10px;
+    font-size: medium;
+}
+
+#BackButton:hover {
+    background-color: #f4f959;
+}
+
+.AnswerLabel {
+    margin-top:10px;
+    font-size: medium;
+}
+
+#CustomGame:hover {
+    background-color:#ff0000 ;
+}
+
+#EndGameDiv {
+    display: none;
+}
+
+#CustomGameDiv {
+    display: none;
+}
