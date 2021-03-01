@@ -1,48 +1,96 @@
+var missionsConfig = `
+++++HTML++++
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<title>StylezzTest</title>
+    <link rel="stylesheet" href="myCss.css">
+</head>
+<body>
+	<div class="divClass1">
+		<p class="textClass" id="myTextA">This is a paragraph!</p>
+		<p class="textClass" id="myTextB">This is a paragraph!</p>
+		<button class="ButtonClass" id="StartButton">Button</button>
+	</div>
+</body>
+</html>
+++++CSS++++
+.divClass1 {
+	font-size: 20px;
+	float: left;
+}
+.textClass {
+	color: blue;
+}
+#myTextB {
+	color: yellow;
+}
++++++++++++
+`
 
-//container for mission
-var currentMission = {
-	HTMLCode:[],
-	CSSCode:[]
-};
+
+
+var missions = [];
 
 function startGame()
 {
-	//example Structure
-	var exampleHTML = {
-		type:"div",
-		clas:"class_a",
-		id:"id_a"
-	}
-	var exampleHTML2 = {
-		type:"p",
-		clas:"class_a",
-		id:"id_b",
-		value:"This is a paragraph!"
-	}
-	currentMission.HTMLCode.push(exampleHTML);
-	currentMission.HTMLCode.push(exampleHTML2);
-	
-	var exampleCSS = {
-		type:"class",
-		name:"class_a",
-		property:"padding",
-		value:"5px"
-	}
-	currentMission.CSSCode.push(exampleCSS);
-	
-	var a = document.getElementById("Game");
-	console.log(a.innerHTML);
-	
-	generateMission();
+	generateMissions();
 }
 
-function generateMission()
+function loadMissions()
 {
-	//first, clear current mission and reset win conditions
-	currentMission = {
-		HTMLCode:[],
-		CSSCode:[]
+	var lines = missionsConfig.split("\n");
+	var newMissionHTML = [];
+	var newMissionCSS = [];
+	var codeSwitch = true; //true = HTML, false = CSS
+	var CSSproperty = {
+		type = "",		//class or id
+		name = "",		//name of the class or id
+		proprties = [],	//the properties as strings
+		values = []		//values of all properties
 	}
-	
-
+	for(var i = 0; i < lines.length; i++)
+	{
+		var line = lines[i];
+		line = line.trim();
+		if(line!="")
+		{
+			if(line != "+++++++++++")
+			{
+				//continue mission
+				if(line == "++++HTML++++")
+				{
+					codeSwitch = true
+				}
+				else if(line == "++++CSS++++")
+				{
+					codeSwitch = false
+				}
+				else
+				{
+					if(codeSwitch)
+					{
+						newMissionHTML.push(line);
+					}
+					else
+					{
+						if(line == "}")
+						{
+							
+						}
+					}
+				}
+			}
+			else
+			{
+				var newMission = {
+					HTML : newMissionHTML,
+					CSS : newMissionCSS
+				}
+				missions.push(newMission)
+				newMissionHTML = [];
+				newMissionCSS = [];
+			}
+		}
+	}
 }
