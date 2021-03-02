@@ -68,6 +68,7 @@
         <button id="MediumGame" onclick="HideShowMedium()">Medium: 8 Bit Conversions</button>
         <button id="HardGame" onclick="HideShowHard()">Hard: 12 Bit Conversions</button>
         <button id="CustomGame" onclick="HideShowCustom()">Custom: Lecturer Created Mode</button>
+        <button id="CustomGame" onclick="HideShowLecturerOption()">Lecturer: Change Settings</button>
         
         <div id="ExampleQuestion"><label id="ExampleQuestionTitle">Example Conversion: 10110111 to Decimal:</label>
             <p>
@@ -161,11 +162,26 @@
                 <label id="QuestionLabel">Convert...</label><br>
                 Enter your answer here: <input><button id="SubmitButton">Submit</button>
             </p>
-
         </div>
         <div id="EndGameDiv">
-            <label>Well Done! -> Thanks for playing the game</label>
+            <label style="font-size: larger;">Well Done! -> Thanks for playing the game<br>
+            You got a score of <label id="FinalScore">0</label><br>
+            <label id="EndGameMain">Press the button below to return to the game homepage</label><br>
+            <button id="EndGameButton" onclick="ResetPage()">End Game</button><br>   
         </div>
+        <div id="LecturerGameDiv">
+            <label id="LecturerCustoms">This is the Lecturer work area:
+            <br>Here you can customise the questions for the students.</label><br>
+            <button id="AddQuestion" onclick="AddQuestion()">Add question:</button>
+            <div id="QuestionArea">
+                <label>Question Addition:</label><br>
+                <label>Conversion Type:</label><select><option>Binary to Decimal</option><option>Decimal to Binary</option></select><br>
+                <label>Enter a number:</label><input><br>
+                <button id="QuestionSave">Submit Button</button>
+            </div>
+        </div>
+        
 	</div>
+    
 </body>
 </html>

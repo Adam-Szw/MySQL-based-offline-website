@@ -146,7 +146,7 @@ input {
     margin-bottom: 10px;
 }
 
-#SubmitButton:hover {
+#SubmitButton:hover, #EndGameButton:hover, #AddQuestion:hover {
     background-color: #f4f959;
 }
 
@@ -175,5 +175,14 @@ input {
 }
 
 #CustomGameDiv {
+    display: none;
+}
+
+#EndGameMain {
+    font-size: x-large;
+    padding-left: 50px;
+}
+
+#LecturerGameDiv {
     display: none;
 }
