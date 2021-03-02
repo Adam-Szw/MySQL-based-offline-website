@@ -45,3 +45,31 @@ $('.profile-header-colour').change(function () {
     $('.profileHeader').css('background-color', color);
 }).change();
 
+function fasterPreview(uploader){
+    if(uploader.files && uploader.files[0]){
+        $('#profile-pic').attr('src', window.URL.createObjectURL(uploader.files[0]));
+    }
+}
+
+$('#imageUpload').change(function(){
+    fasterPreview(this);
+});
+
+
+
+function saveUserData(){
+    var name = document.getElementById('user-name').value;
+    var surname = document.getElementById('user-surname').value;
+    document.getElementById('full-name').innerHTML = "";
+    $("#full-name").append(name+" "+surname);
+
+    var email = document.getElementById('user-email').value;
+    document.getElementById('user-mail').innerHTML = "";
+    $("#user-mail").append(email);
+
+    var phone = document.getElementById('user-phone').value;
+    document.getElementById('mobile-no').innerHTML = "";
+    $("#mobile-no").append(phone);
+
+
+}
