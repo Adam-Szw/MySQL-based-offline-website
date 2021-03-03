@@ -209,12 +209,14 @@
   box-sizing: border-box;
 }
 
-.grid-container{
+.grid-profile-container{
   display: grid;
   grid-template-columns: 1fr 1fr;
   box-sizing: border-box;
   width: 100%;
   grid-gap: 20px;
+  color: #ffffff;
+  background-color: #ffffff;
 }
 
 .save-details{
@@ -231,9 +233,7 @@
   font-size: 14px;
 }
 
-.save-details:hover{
-  background-color: #a6d6b2;
-}
+
 
 
 .form-group{
@@ -243,6 +243,7 @@
   padding-right: 15px;
   width: 100%;
   box-sizing: border-box;
+  background-color: #ffffff;
   display: block; 
 }
 
@@ -253,6 +254,7 @@
   font-weight: 400;
   max-width: 100%;
   margin-bottom: 5px;
+  background-color: #ffffff;
   float: left;
 }
 
@@ -264,6 +266,7 @@
   height: 40px;
   line-height: 20px;
   border: 2px solid #e9e9e9;
+  background-color: #ffffff;
   box-sizing: border-box;
 }
 
