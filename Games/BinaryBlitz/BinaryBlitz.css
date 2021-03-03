@@ -146,7 +146,7 @@ input {
     margin-bottom: 10px;
 }
 
-#SubmitButton:hover, #EndGameButton:hover, #AddQuestion:hover {
+#SubmitButton:hover, #EndGameButton:hover, #AddQuestion:hover, #QuestionSave:hover{
     background-color: #f4f959;
 }
 

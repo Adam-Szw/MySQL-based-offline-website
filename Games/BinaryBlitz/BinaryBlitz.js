@@ -260,3 +260,19 @@ function AddQuestion() {
     $("#QuestionArea").append(" <label>Question Addition:</label><br><label>Conversion Type:</label><select><option>Binary to Decimal</option><option>Decimal to Binary</option></select><br>")  
 }
 
+function SaveQuestion() {
+    var choice = document.getElementById("Conversion").value;
+    var text = parseInt(document.getElementById("Question").value);
+    if (typeof text == 'number') {
+        if (choice =="Binary to Decimal") {
+           
+        }
+        else { /*Decimal to Binary Option*/
+            
+        }
+    }
+    else {
+        alert("Please enter a valid number")
+    }
+}
+
