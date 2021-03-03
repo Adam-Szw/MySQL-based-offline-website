@@ -175,9 +175,9 @@
             <button id="AddQuestion" onclick="AddQuestion()">Add question:</button>
             <div id="QuestionArea">
                 <label>Question Addition:</label><br>
-                <label>Conversion Type:</label><select><option>Binary to Decimal</option><option>Decimal to Binary</option></select><br>
-                <label>Enter a number:</label><input><br>
-                <button id="QuestionSave">Submit Button</button>
+                <label>Conversion Type:</label><select id="Conversion"><option>Binary to Decimal</option><option>Decimal to Binary</option></select><br>
+                <label>Enter a number:</label><input type="number", id="Question"><br>
+                <button id="QuestionSave" onclick="SaveQuestion()">Submit Button</button>
             </div>
         </div>
         
