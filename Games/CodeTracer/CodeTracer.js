@@ -6,6 +6,7 @@ function quiz(f){
     var questionLock=false;
     var numberOfQuestions;
     var score=0;
+    var counter=1;
 
     $.getJSON(f, function(data) {
         for(i=0;i<data.quizlist.length;i++){ 
@@ -31,16 +32,18 @@ function quiz(f){
         if(rnd==2){q2=questionBank[questionNumber][1];q3=questionBank[questionNumber][2];q1=questionBank[questionNumber][3];}
         if(rnd==3){q3=questionBank[questionNumber][1];q1=questionBank[questionNumber][2];q2=questionBank[questionNumber][3];}
         
+        $(stage).append('<div id="tracker">'+(counter++)+'/'+numberOfQuestions+'<div>');
         $(stage).append('<div  class="questionText">'+questionBank[questionNumber][0]+'</div><div id="1" class="pix"><img src="img/'+q1+'"></div><div id="2" class="pix"><img src="img/'+q2+'"></div><div id="3" class="pix"><img src="img/'+q3+'"></div>');
+        
         
         $('.pix').click(function(){
             if(questionLock==false){questionLock=true;	
                 if(this.id==rnd){
-                    $(stage).append('<div class=footer><div class="feedback1">CORRECT</div><div>');
+                    $(stage).append('<div class="footer"><div class="feedback1">CORRECT</div></div>');
                     score++;
             }
             if(this.id!=rnd){
-                $(stage).append('<div class=footer><div class="feedback2">WRONG</div><div>');
+                $(stage).append('<div class="footer"><div class="feedback2">WRONG</div></div>');
             }
             setTimeout(function(){changeQuestion()},1000);
         }})
@@ -56,7 +59,7 @@ function quiz(f){
         $(stage).animate({"right": "+=800px"},"slow", function() {questionLock=false;});
     }//change question
     function displayFinalSlide(){
-        $(stage).append('<div class="questionText">You have finished the quiz!<br><br>Total questions: '+numberOfQuestions+'<br>Correct answers: '+score+'</div>');
+        $(stage).append('<div class="questionText">You have finished the quiz!<br><br>Total questions: '+numberOfQuestions+'<br>Score: '+score+'/'+numberOfQuestions+'</div>');
         $(stage).append('<div class=footer><div class="playbtn">PLAY AGAIN</div></div>');
         $('.playbtn').click(function(){
             location.reload();
