@@ -1,0 +1,9 @@
+[ ] Product Owner accepts the User Story.
+[ ] Criteria of the User Story is met.
+[ ] Code is written for the feature and reviewed.
+[ ] Code is documented with comments or readme.
+[ ] Code passed initial tests and has no critical flaws.
+[ ] Bugs have been fixed and the User Story has been properly tested.
+[ ] The User Story works on the desired platforms.
+[ ] Requirements adjusted during development are met.
+[ ] The code is committed to GitLab.
