@@ -1,3 +1,9 @@
+//where am i?
+//how many questions left/wrong/score
+//upload more questions
+//are the questions/answers randomized?
+//navigation through questions
+
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 const questionContainerElement = document.getElementById('question-container')

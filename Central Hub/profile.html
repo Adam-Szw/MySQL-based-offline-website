@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/ec00a021e5.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
-<body>
+<body class="profileBody">
     <div class="sidenav">
 		<img id="SideBar" src="Images/Signin.png"><a href="signin.html">Sign-in</a>
 		<img id="SideBar" src="Images/Games.png"><a href="games.html">Games</a>
@@ -20,7 +20,7 @@
     <div class="container">
         <div class="profileHeader">
             <div class=profileImage>
-                <img src="Images/male-avatar.jpg" alt="">
+                <img id="profile-pic" alt="">
             </div>
             <div class="profile-nav">
                 <h3 id="username">Username</h3>
@@ -33,8 +33,8 @@
                 <div class="profile-side">
                     <h1 id="full-name">John Smith</h1>
                     <div class="user-info">
-                        <p id="mobile-no"><i class="fas fa-phone"></i>+447534xxxx546</p>
-                        <p id="user-mail"><i class="fas fa-envelope"></i>someone@example.com</p>
+                        <i class="fas fa-phone"></i><p id="mobile-no">+447534xxxx546</p><br>
+                        <i class="fas fa-envelope"></i><p id="user-mail">someone@example.com</p>
                     </div>
                     <div class="user-bio">
                         <h3>Bio</h3>
@@ -92,9 +92,45 @@
                     </div>
                     <div class="profile-settings tab">
                         <div class="profile-settings-body">
-                            <h1>Your Settings</h1>
+                            <h1>Profile Settings</h1>
+                            <div class="change-details">
+                                <h3 class="section-title">
+                                    Edit Details
+                                </h3>
+                                <button type="submit" class="save-details" name="submitBtn" onclick="saveUserData()">Save</button>
+                            <div class="grid-profile-container">
+                                <div class="form-group">
+                                    <label class="form-label">Name</label>
+                                    <input type="text" id="user-name" class="form-in" placeholder="Name"/>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Surname</label>
+                                    <input type="text" id="user-surname" class="form-in" placeholder="Surname"/>
+                                </div>
+                                    
+                                <div class="form-group">
+                                    <label class="form-label">Email</label>
+                                    <input type="text" id="user-email" class="form-in" placeholder="Email"/>
+                                </div>
+                                    
+                                <div class="form-group">
+                                    <label class="form-label">Phone</label>
+                                    <input type="text" id="user-phone" class="form-in" placeholder="Phone"/>
+                                </div>
+                            </div>
+                            </div>
+
+                            <div class="change-pic">
+                                <h3 class="section-title">Upload a profile picture</h3>
+                                <label for="imageUpload" class="file-upload">
+                                     Upload
+                                </label>
+                                <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo"/>
+                            </div>
+        
                             <div class="pro-bg-box">
-                                <p>Change the colour of your side profile:</p>
+                                <h3 class="section-title">Change profile colours</h3>
+                                <p>Side profile:</p>
                                 <select class="profile-backgorund" name="bgcolor">
                                     <option value="#daf5cf">lime-green</option>
                                     <option value="red">red</option>
@@ -104,7 +140,7 @@
                             
                                 <br>
 
-                                <p>Change the colour of your profile text:</p>
+                                <p>Profile text:</p>
                                 <select class="profile-text" name="textcolor">
                                     <option value="black">black</option>
                                     <option value="red">red</option>
@@ -114,7 +150,7 @@
                                 </select>
                                 <br>
 
-                                <p>Change the colour of your profile header:</p>
+                                <p>Profile header:</p>
                                 <select class="profile-header-colour" name="headercolor">
                                     <option value="#daf5cf">lime-green</option>
                                     <option value="red">red</option>

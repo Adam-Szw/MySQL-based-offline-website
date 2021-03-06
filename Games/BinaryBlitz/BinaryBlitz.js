@@ -30,12 +30,18 @@ function HideShowCustom() {
     UpdateClock();
 }
 
+function HideShowLecturerOption() {
+    document.getElementById("PregameContent").style.display = "None";
+    document.getElementById("LecturerGameDiv").style.display = "Block"
+}
+
 function ResetPage() {
     document.getElementById("HardGameDiv").style.display = "None";
     document.getElementById("MediumGameDiv").style.display = "None";
     document.getElementById("EasyGameDiv").style.display = "None";
     document.getElementById("CustomGameDiv").style.display = "None";
     document.getElementById("EndGameDiv").style.display = "None";
+    document.getElementById("LecturerGameDiv").style.display = "None"
     document.getElementById("PregameContent").style.display = "Block";
     UserScore =0;
     document.getElementById("UserScore").textContent = UserScore;
@@ -197,7 +203,7 @@ function ConvertToDecimal(value) {
     return count;
 }
 
-var clock = 180;
+var clock = 10;
 var timeoutvariable = 100;
 
 function UpdateClock() { 
@@ -246,7 +252,27 @@ function UpdateClock() {
         document.getElementById("HardGameDiv").style.display = "None"
         document.getElementById("CustomGameDiv").style.display = "None"
         document.getElementById("EndGameDiv").style.display = "Block"
-		alert("Game over");
+		document.getElementById("FinalScore").textContent = UserScore;
 	}
+}
+
+function AddQuestion() {
+    $("#QuestionArea").append(" <label>Question Addition:</label><br><label>Conversion Type:</label><select><option>Binary to Decimal</option><option>Decimal to Binary</option></select><br>")  
+}
+
+function SaveQuestion() {
+    var choice = document.getElementById("Conversion").value;
+    var text = parseInt(document.getElementById("Question").value);
+    if (typeof text == 'number') {
+        if (choice =="Binary to Decimal") {
+           
+        }
+        else { /*Decimal to Binary Option*/
+            
+        }
+    }
+    else {
+        alert("Please enter a valid number")
+    }
 }
 
