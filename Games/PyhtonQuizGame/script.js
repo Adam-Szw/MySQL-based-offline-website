@@ -4,21 +4,40 @@ const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 const questionImg = document.getElementById('questionImg')
+const startingMinutes=03;
+const countdownEl = document.getElementById('countdown');
+let time = startingMinutes*60;
+setInterval(updateCountdown, 1000);
 
 let shuffledQuestions, currentQuestionIndex
-
+let countRightAnswer = 0;
+document.getElementById('right_answers').classList.add('hide')
 startButton.addEventListener('click', startGame)
 nextButton.addEventListener('click', () => {
   currentQuestionIndex++
   setNextQuestion()
 })
 
+function updateCountdown(){
+  const minutes = Math.floor(time/60);
+  let seconds = time%60;
+  
+  seconds = seconds< 10 ? '0' + seconds : seconds;
+
+  countdownEl.innerHTML = `${minutes}:${seconds}`;
+  time--;
+  time =  time<0 ? 0:time;
+}
+
 function startGame() {
+  countRightAnswer=0;
   startButton.classList.add('hide')
+  document.getElementById('right_answers').classList.remove('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
   questionContainerElement.classList.remove('hide')
   setNextQuestion()
+  myFunction()
 }
 
 function setNextQuestion() {
@@ -61,6 +80,11 @@ function selectAnswer(e) {
     startButton.innerText = 'Restart'
     startButton.classList.remove('hide')
   }
+  if (selectedButton.dataset=correct){
+    countRightAnswer= countRightAnswer+5;
+    document.getElementById('right_answers').innerHTML = "Scores:"+countRightAnswer;
+  }
+  
 }
 
 function setStatusClass(element, correct) {
@@ -76,6 +100,16 @@ function clearStatusClass(element) {
   element.classList.remove('correct')
   element.classList.remove('wrong')
 }
+var myVar;
+
+function myFunction() {
+  myVar = setTimeout(alertFunc, 180000);
+}
+
+function alertFunc() {
+  alert("Timeout!!!");
+}
+
 
 const questions = [
   {

@@ -28,6 +28,9 @@
     width: 800px;
     max-width: 80%;
     background-color: white;
+    justify-content: center;
+    align-items: center;
+    
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 0 10px 2px;
@@ -78,3 +81,8 @@
   .hide {
     display: none;
   }
+  /* #right_answers{
+    position: absolute;
+    margin-left: 230px;
+    margin-top: 1px;
+  } */
