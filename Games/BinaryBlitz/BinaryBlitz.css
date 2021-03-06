@@ -110,6 +110,7 @@ input {
     margin-top: 5px;
     margin-left: 10px;
     outline: none;
+    width: 200px;
 }
 
 #HelpButton:hover {
@@ -146,7 +147,7 @@ input {
     margin-bottom: 10px;
 }
 
-#SubmitButton:hover, #EndGameButton:hover, #AddQuestion:hover, #QuestionSave:hover{
+#SubmitButton:hover, #EndGameButton:hover, #AddQuestion:hover, #QuestionSave:hover, #QuestionReset:hover, #QuestionDelete:hover{
     background-color: #f4f959;
 }
 

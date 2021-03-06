@@ -203,7 +203,7 @@ function ConvertToDecimal(value) {
     return count;
 }
 
-var clock = 10;
+var clock = 180;
 var timeoutvariable = 100;
 
 function UpdateClock() { 
@@ -235,12 +235,20 @@ function UpdateClock() {
             document.getElementById("TimeLeftHard").textContent = "1 Minute Left!";
             document.getElementById("TimeLeftHard").style.color = "#eea526";
         }
-        else if (clock <= 30) {
+        else if (clock > 10) {
             document.getElementById("TimeLeftEasy").textContent = "30 Seconds Left!";
             document.getElementById("TimeLeftEasy").style.color="#f03d31"
             document.getElementById("TimeLeftMedium").textContent = "30 Seconds Left!";
             document.getElementById("TimeLeftMedium").style.color="#f03d31"
             document.getElementById("TimeLeftHard").textContent = "30 Seconds Left!";
+            document.getElementById("TimeLeftHard").style.color="#f03d31"
+        }
+        else if (clock <= 10) {
+            document.getElementById("TimeLeftEasy").textContent = "10 Seconds Left!";
+            document.getElementById("TimeLeftEasy").style.color="#f03d31"
+            document.getElementById("TimeLeftMedium").textContent = "10 Seconds Left!";
+            document.getElementById("TimeLeftMedium").style.color="#f03d31"
+            document.getElementById("TimeLeftHard").textContent = "10 Seconds Left!";
             document.getElementById("TimeLeftHard").style.color="#f03d31"
         }
 		x = setTimeout(UpdateClock, timeoutvariable);
@@ -256,23 +264,89 @@ function UpdateClock() {
 	}
 }
 
-function AddQuestion() {
-    $("#QuestionArea").append(" <label>Question Addition:</label><br><label>Conversion Type:</label><select><option>Binary to Decimal</option><option>Decimal to Binary</option></select><br>")  
-}
+var counter =0;
 
-function SaveQuestion() {
-    var choice = document.getElementById("Conversion").value;
-    var text = parseInt(document.getElementById("Question").value);
-    if (typeof text == 'number') {
-        if (choice =="Binary to Decimal") {
-           
+function AddQuestion() {
+    /*Show the number of questions here*/
+    counter=counter+1;
+    $("#QuestionArea").append('<table class="Question"><tr><td colspan="3">Question Number '+ counter +':</td></tr><tr><td>Type:</td><td>&nbsp;&nbsp;<select onchange="QuestionChange('+counter+')" class="Conversion"><option>Binary to Decimal</option><option>Decimal to Binary</option><option>Hexadecimal to Decimal</option><option>Decimal to Hexadecimal</option></select><br> </td></tr><tr><td>Input:</td><td><input class="Input"></td><td class="InputExample">&nbsp;&nbsp;Example: 101010</td></tr><tr><td>Timer:</td><td><input type="number" min="1" max="120" class="Timer"></td><td class="TimerExample">&nbsp;&nbsp;Example: 23 seconds</td></tr><tr><td>Points:</td><td><input type="number" min="1" max="100" class="Points"></td><td class="PointExample">&nbsp;&nbsp;Example: 5 points</td></tr><tr><td colspan="3"><button id="QuestionSave" onclick="SaveQuestion('+counter+')">Submit Button</button><button id="QuestionReset" onclick="ResetQuestion('+counter+')">Reset Button</button><button id="QuestionDelete" onclick="DeleteQuestion('+counter+')">Delete Last Button</button></td></tr></table>');
+}
+function SaveQuestion(ItemNumber) {
+    var choice = document.getElementsByClassName("Conversion")[ItemNumber-1].value;
+    var input = document.getElementsByClassName("Input")[ItemNumber-1].value;
+    var points = document.getElementsByClassName("Points")[ItemNumber-1].value;
+    var timer = document.getElementsByClassName("Timer")[ItemNumber-1].value; 
+    var numbers = /^[0-9]+$/;
+    if ((input.match(numbers))) {
+        if (timer.match(numbers)) {
+            if (points.match(numbers)) {
+                    if (choice =="Binary to Decimal") {
+                    var counter;
+                    var count=0;
+                    for (counter=0; counter<input.length; counter++) {
+                        if (parseInt(input[input.length - (counter+1)]) == 0 | parseInt(input[input.length - (counter+1)]) ==1) {
+                            alert("Good Value")
+                        }
+                        else {
+                            alert("Bad Value")
+                            break;
+                        }
+                    }
+                }
+                     else if (choice =="Decimal to Binary") {
+                        var counter;
+                        var count=0;
+                        for (counter=0; counter<input.length; counter++) {
+                            if (parseInt(input[input.length - (counter+1)]) == 0 | parseInt(input[input.length - (counter+1)]) ==1) {
+                                alert("Good Value")
+                            }
+                            else {
+                                alert("Bad Value")
+                                break;
+                            }
+                        }
+                    }
+                    else { /*Hexadecimal Area*/}
+                }
+                else {
+                    alert("Please enter a number for points")
+            }
         }
-        else { /*Decimal to Binary Option*/
-            
+        else {
+            alert("Please enter a number for timer")
         }
     }
     else {
-        alert("Please enter a valid number")
+        alert("Please enter a number for input")
     }
+}
+
+function QuestionChange(ItemNumber) {
+    var choice = document.getElementsByClassName("Conversion")[ItemNumber-1].value;
+    if (choice == "Binary to Decimal") {
+        document.getElementsByClassName("InputExample")[ItemNumber-1].textContent = " Example: 101010";
+    }
+    else if (choice =="Decimal to Binary") {
+        document.getElementsByClassName("InputExample")[ItemNumber-1].textContent = " Example: 145";
+    }
+    else if (choice=="Hexadecimal to Decimal") {
+        document.getElementsByClassName("InputExample")[ItemNumber-1].textContent = " Example: 1E3";
+    }
+    else {
+        document.getElementsByClassName("InputExample")[ItemNumber-1].textContent = " Example: 156";
+    }
+}
+
+function ResetQuestion(ItemNumber) {
+    document.getElementsByClassName("Input")[ItemNumber-1].value = "";
+    document.getElementsByClassName("Points")[ItemNumber-1].value = "";
+    document.getElementsByClassName("Timer")[ItemNumber-1].value = "";
+}
+
+function DeleteQuestion(ItemNumber) {
+    var Len = document.getElementsByClassName("Question").length
+    var DeleteObject = document.getElementsByClassName("Question")[Len-1];
+    DeleteObject.remove();
+    counter = counter-1;
 }
 

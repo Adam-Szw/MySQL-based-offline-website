@@ -158,7 +158,7 @@
         </div>
         <div id="CustomGameDiv">
             <p id="CustomGameContent">You have selected the custom game mode... Good Luck!<br>
-                These questions will feature an assortment of binary conversions<br>
+                These questions will feature an assortment of conversions created by the lecturer<br>
                 <label id="QuestionLabel">Convert...</label><br>
                 Enter your answer here: <input><button id="SubmitButton">Submit</button>
             </p>
@@ -166,22 +166,17 @@
         <div id="EndGameDiv">
             <label style="font-size: larger;">Well Done! -> Thanks for playing the game<br>
             You got a score of <label id="FinalScore">0</label><br>
-            <label id="EndGameMain">Press the button below to return to the game homepage</label><br>
+            <label id="EndGameMain">Press the button below to return to the game homepage!</label><br>
             <button id="EndGameButton" onclick="ResetPage()">End Game</button><br>   
         </div>
         <div id="LecturerGameDiv">
             <label id="LecturerCustoms">This is the Lecturer work area:
             <br>Here you can customise the questions for the students.</label><br>
-            <button id="AddQuestion" onclick="AddQuestion()">Add question:</button>
-            <div id="QuestionArea">
-                <label>Question Addition:</label><br>
-                <label>Conversion Type:</label><select id="Conversion"><option>Binary to Decimal</option><option>Decimal to Binary</option></select><br>
-                <label>Enter a number:</label><input type="number", id="Question"><br>
-                <button id="QuestionSave" onclick="SaveQuestion()">Submit Button</button>
-            </div>
+            <button id="AddQuestion" onclick="AddQuestion()">Add question:</button><br>                 
+                    <div id="QuestionArea">
+                        <!--The questions are added here-->
+                    </div>
         </div>
-        
 	</div>
-    
 </body>
 </html>
