@@ -1,3 +1,6 @@
+/*Styles for the BinaryBlitz games*/
+/*BinaryBlitz uses the CSS from the game styles and the website styles sheets*/
+
 #Game, #ImageBox {
 	position: relative;
     padding-left: 10px;
@@ -12,14 +15,14 @@ label {
 }
 
 #Highlight {
-    font-size: 15px;
     color: red;
 }
 
-ol li {
+ol li, #Highlight {
     font-size:15px;
 }
 
+/*Each of the games have lots of buttons, these are the styles for each*/
 button {
     margin-top: 10px;
     padding-bottom: 10px;
@@ -34,6 +37,7 @@ button {
     cursor:pointer;
 }
 
+/*The harder the game the more red the button gets*/
 #EasyGame:hover {
     background-color: #f4f959;
 }
@@ -46,6 +50,11 @@ button {
     background-color: #f03d31;
 }
 
+#CustomGame:hover {
+    background-color:#ff0000 ;
+}
+
+/*The practice modes have a help area*/
 #ExtraInfo:hover {
     color: green;
 }
@@ -61,6 +70,7 @@ button {
     cursor:pointer;
 }
 
+/*Each of the divs have different amounts of padding*/
 #TimerDiv {
     float: right;
     margin-top:-30px;
@@ -80,23 +90,7 @@ button {
     padding-left: 5px;
 }
 
-#DifficultyLabel {
-    padding-top: 5px;
-}
-
-#EasyGameDiv {
-    display: none;
-}
-
-#MediumGameDiv {
-    display: none;
-}
-
-#HardGameDiv {
-    display: none;
-}
-
-#HardGameContent, #MediumGameContent, #EasyGameContent {
+#HardGameContent, #MediumGameContent, #EasyGameContent, #DifficultyLabel {
     padding-top: 5px;
 }
 
@@ -105,6 +99,7 @@ button {
    padding-left: 50px;
 }
 
+/*Each of the games has an input box, they use these styles*/
 input {
     margin-bottom: 5px;
     margin-top: 5px;
@@ -113,25 +108,14 @@ input {
     width: 200px;
 }
 
-#HelpButton:hover {
-    background-color: #f4f959;
-}
-
 #HelpButton {
     padding-left: 20px;
     padding-right: 20px;
     margin-bottom: 5px;
 }
 
-#HelpContentEasy {
-    display: none;
-}
-
-#HelpContentMedium {
-    display: none;
-}
-
-#HelpContentHard {
+/*A lot of the divs are invisible by default*/
+#EasyGameDiv, #MediumGameDiv, #HardGameDiv, #HelpContentEasy, #HelpContentMedium, #HelpContentHard, #EndGameDiv, #CustomGameDiv, #LecturerGameDiv{
     display: none;
 }
 
@@ -139,6 +123,7 @@ input {
     font-size: xx-large;
 }
 
+/*Each of the games have a submit answer button*/
 #SubmitButton {
     margin-left: 8px;
     margin-top: 10px;
@@ -147,10 +132,12 @@ input {
     margin-bottom: 10px;
 }
 
-#SubmitButton:hover, #EndGameButton:hover, #AddQuestion:hover, #QuestionSave:hover, #QuestionReset:hover, #QuestionDelete:hover{
+/*Lots of the different buttons have share the same hover properties*/
+#SubmitButton:hover, #EndGameButton:hover, #AddQuestion:hover, #QuestionSave:hover, #QuestionReset:hover, #QuestionDelete:hover, #HelpButton:hover, #BackButton:hover{
     background-color: #f4f959;
 }
 
+/*At the top of the game screen is the timeleft label*/
 .TimeLeft {
     float: right;
     padding-top: 5px;
@@ -158,32 +145,14 @@ input {
     font-size: medium;
 }
 
-#BackButton:hover {
-    background-color: #f4f959;
-}
-
+/*Next to the timeleft label is the gamescore label*/
 .AnswerLabel {
     margin-top:10px;
     font-size: medium;
 }
 
-#CustomGame:hover {
-    background-color:#ff0000 ;
-}
-
-#EndGameDiv {
-    display: none;
-}
-
-#CustomGameDiv {
-    display: none;
-}
-
+/*When the timer ends, these styles will be visible*/
 #EndGameMain {
     font-size: x-large;
     padding-left: 50px;
-}
-
-#LecturerGameDiv {
-    display: none;
 }

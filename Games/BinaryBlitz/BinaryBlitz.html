@@ -35,11 +35,12 @@
             };
 
             window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
+            window.scrollTo(0, 0);
 }; 
 </script>
 </head>
 <body>
+    <!--Sidebar code-->
     <div class="sidenav">
 		<img id="SideBar" src="../../Central Hub/Images/Signin.png"><a href="../../Central Hub/signin.html">Sign-in</a>
         <img id="SideBar" src="../../Central Hub/Images/Games.png"><a href="../../Central Hub/games.html">Games</a>
@@ -48,6 +49,7 @@
         <img id="SideBar" src="../../Central Hub/Images/Settings.png"><a href="../../Central Hub/settings.html">Settings</a>
         <img id="SideBar" src="../../Central Hub/Images/About.png"><a href="../../Central Hub/about.html">About</a>
     </div>
+    <!--Return to the home page button-->
     <div id="TopBox">
 		<button id="BackButton" onclick="goBack()">Go Back</button>
 		<script>
@@ -56,20 +58,23 @@
 		}
 		</script> 
 	</div>
+    <!--The game title, score and the timer components-->
 	<div id="TopBox">
         <div id="TitleDiv"><img id="Icon" onclick="ResetPage()" src="Images/BinaryBlitzIcon.png"><label id="Title">BinaryBlitz</label></div>
 		<div id="ScoreDiv"><label>Score: <label id="UserScore">0</label></label></div>
         <div id="TimerDiv"><label>Time Left: </label><label id="GameTimer">180</label></div>
 	</div>
+    <!--The pregame area-->
 	<div class="TopBox" id="Game">
         <div id="PregameContent">
         <label id="DifficultyLabel">Please select a difficulty:</label><br>
-        <button id="EasyGame" onclick="HideShowEasy()">Easy: 4 Bit Conversions</button>
-        <button id="MediumGame" onclick="HideShowMedium()">Medium: 8 Bit Conversions</button>
-        <button id="HardGame" onclick="HideShowHard()">Hard: 12 Bit Conversions</button>
+        <!--The BinaryBlitz area has several options, These buttons are used to access them-->
+        <button id="EasyGame" onclick="HideShow('EasyNumber',4,'EasyGameDiv','AnswerLabelEasy')">Easy: 4 Bit Conversions</button>
+        <button id="MediumGame" onclick="HideShow('MediumNumber',8,'MediumGameDiv','AnswerLabelMedium')">Medium: 8 Bit Conversions</button>
+        <button id="HardGame" onclick="HideShow('HardNumber',12,'HardGameDiv','AnswerLabelHard')">Hard: 12 Bit Conversions</button>
         <button id="CustomGame" onclick="HideShowCustom()">Custom: Lecturer Created Mode</button>
         <button id="CustomGame" onclick="HideShowLecturerOption()">Lecturer: Change Settings</button>
-        
+        <!--In the pregame area is some details about how to complete Binary conversions-->
         <div id="ExampleQuestion"><label id="ExampleQuestionTitle">Example Conversion: 10110111 to Decimal:</label>
             <p>
                 10110111 is an 8 bit binary (Base 2) number therefore the maximum value can be calculated using (2^8)-1 = 255<br>
@@ -90,14 +95,15 @@
             </p>
         </div>
         </div>
+        <!--This is the section is for the easy game-->
         <div id="EasyGameDiv">
             <label id="TimeLeftEasy" class="TimeLeft">Three minutes left!</label>
             <p id="EasyGameContent">You have selected the easy difficulty... Good Luck!<br>
                 These questions will feature 4 bit binary conversions<br>
                 <label id="QuestionLabel">Convert <label id="EasyNumber"></label> to Decimal:</label><br>
-                Enter your answer here:  <input id="SubmissionEasy"><button id="SubmitButton" onclick="CheckNumberEasy()">Submit</button>
+                Enter your answer here:  <input id="SubmissionEasy"><button id="SubmitButton" onclick="CheckNumber('EasyNumber','SubmissionEasy','AnswerLabelEasy',4,1)">Submit</button>
                 <label id="AnswerLabelEasy" class="AnswerLabel">Correct Answer</label><br>
-                <button id="HelpButton" onclick="ShowHelpEasy()">Help?</button>
+                <button id="HelpButton" onclick="ShowHelp('HelpContentEasy')">Help?</button>
                 <div id="HelpContentEasy">
                     <ol>
                         <li>First bit: 2^0 = 1</li>
@@ -108,14 +114,15 @@
                 </div>
             </p>
         </div>
+        <!--This section is for the medium game-->
         <div id="MediumGameDiv">
             <label id="TimeLeftMedium" class="TimeLeft">Three minutes left!</label>
             <p id="MediumGameContent">You have selected the medium difficulty... Good Luck!<br>
                 These questions will feature 8 bit binary conversions<br>
                 <label id="QuestionLabel">Convert <label id="MediumNumber">Place</label> to Decimal:</label><br>
-                Enter your answer here:  <input id="SubmissionMedium"><button id="SubmitButton" onclick="CheckNumberMedium()">Submit</button>
+                Enter your answer here:  <input id="SubmissionMedium"><button id="SubmitButton" onclick="CheckNumber('MediumNumber','SubmissionMedium','AnswerLabelMedium',8,3)">Submit</button>
                 <label id="AnswerLabelMedium" class="AnswerLabel">Correct Answer</label><br>
-                <button id="HelpButton" onclick="ShowHelpMedium()">Help?</button>
+                <button id="HelpButton" onclick="ShowHelp('HelpContentMedium')">Help?</button>
                 <div id="HelpContentMedium">
                     <ol>
                         <li>First bit: 2^0 = 1</li>
@@ -130,14 +137,15 @@
                 </div>
             </p>
         </div>
+        <!--This section is for the hard game-->
         <div id="HardGameDiv">
             <label id="TimeLeftHard" class="TimeLeft">Three minutes left!</label>
             <p id="HardGameContent">You have selected the hard difficulty... Good Luck!<br>
                 These questions will feature 12 bit binary conversions<br>
                 <label id="QuestionLabel">Convert <label id="HardNumber"></label> to Decimal:</label><br>
-                Enter your answer here:  <input id="SubmissionHard"><button id="SubmitButton" onclick="CheckNumberHard()">Submit</button>
+                Enter your answer here:  <input id="SubmissionHard"><button id="SubmitButton" onclick="CheckNumber('HardNumber','SubmissionHard','AnswerLabelHard',12,10)">Submit</button>
                 <label id="AnswerLabelHard" class="AnswerLabel">Correct Answer</label><br>
-                <button id="HelpButton" onclick="ShowHelpHard()">Help?</button>
+                <button id="HelpButton" onclick="ShowHelp('HelpContentHard')">Help?</button>
                 <div id="HelpContentHard">
                     <ol>
                         <li>First bit: 2^0 = 1</li>
@@ -156,6 +164,7 @@
                 </div>
             </p>
         </div>
+        <!--This section is for the custom game-->
         <div id="CustomGameDiv">
             <p id="CustomGameContent">You have selected the custom game mode... Good Luck!<br>
                 These questions will feature an assortment of conversions created by the lecturer<br>
@@ -163,6 +172,7 @@
                 Enter your answer here: <input><button id="SubmitButton">Submit</button>
             </p>
         </div>
+        <!--This section is for the end of the game-->
         <div id="EndGameDiv">
             <label style="font-size: larger;">Well Done! -> Thanks for playing the game<br>
             You got a score of <label id="FinalScore">0</label><br>
