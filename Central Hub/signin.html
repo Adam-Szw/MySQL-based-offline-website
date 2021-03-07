@@ -1,64 +1,94 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head>
-    <title>Sign-in</title>
+    <title>Sign-in Page</title>
     <link rel="stylesheet" href="CentralHub_Styles.css">
     <link rel="icon" href="Images/Signin.png">
-    <!--This is the link that takes the user to the top of the page-->
-    <a href="#" id="back-to-top" class="back-to-top" style="display: inline;">^</a>
-    <!--External fonts are used these are linked here-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="signinStyle.css">
+    <script src="https://kit.fontawesome.com/ec00a021e5.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!--The script contains the code for the back to the top button-->
-    <script>
-    var link = document.getElementById("back-to-top");
-        var amountScrolled = 250;
-      
-        window.addEventListener('scroll', function(e) {
-            if ( window.pageYOffset > amountScrolled ) {
-                link.classList.add('show');
-            } else {
-                link.className = 'back-to-top';
-            }
-        });
-        document.addEventListener("DOMContentLoaded", function(event) { 
-                var scrollpos = localStorage.getItem('scrollpos');
-                if (scrollpos) window.scrollTo(0, scrollpos);
-            });
-
-            window.onbeforeunload = function(e) {
-                localStorage.setItem('scrollpos', window.scrollY);
-            };
-    </script>
 </head>
 <body>
-    <!--The sidenav contains all of the links to the other pages-->
     <div class="sidenav">
-	      <img id="SideBar" src="Images/Signin.png"><a href="signin.html">Sign-in</a>
-        <img id="SideBar" src="Images/Games.png"><a href="games.html">Games</a>
+		<img id="SideBar" src="Images/Signin.png"><a href="signin.html">Sign-in</a>
+		<img id="SideBar" src="Images/Games.png"><a href="games.html">Games</a>
         <img id="SideBar" src="Images/Profile.png"><a href="profile.html">Profile</a>
         <img id="SideBar" src="Images/Leaderboard.png"><a href="scoreboard.html">Scoreboard</a>
         <img id="SideBar" src="Images/Settings.png"><a href="settings.html">Settings</a>
         <img id="SideBar" src="Images/About.png"><a href="about.html">About</a>
     </div>
-    <div id="SigninBox">
-        <div id="SigninBoxContent">
-            <h2>Computer Science Games: Sign-in Page:</h2>
-            <table>
-                <tr>
-                    <td>Username:</td>  
-                    <td><input></td>  
-                </tr> 
-                <tr>
-                    <td>Password:</td>
-                    <td><input></td>
-                </tr>
-                <tr>
-                    <td colspan="2"><button>Log-in</button></td>
-                </tr>
-            </table>
+<div class="login">
+  <div class="login_content">
+    <div class="login-form">
+      <form action="" class="login_register" id="login-in">
+        <h1 class="login_title">Sign In</h1>
+        <div class="login_box">
+          <div class="login_icon">
+            <i class="fas fa-at"></i>
+          </div>
+          
+          <input type="text" placeholder="Email" class="login_input">
         </div>
+        <div class="login_box">
+          <div class="login_icon">
+            <i class="fas fa-lock"></i>
+          </div>
+          
+          <input type="password" placeholder="Password" class="login_input">
+
+        </div>
+
+        <a href="#" class="login_forgot">Forgot Password</a>
+
+        <a href="#" class="login_button">Sign In</a>
+
+        <div>
+          <span class="login_account">Don't have an Account?</span>
+          <span class="login_signin" id="sign-up">Sign Up</span>
+        </div>
+
+      </form>
+      <form action="" class="login_create" id="login-up">
+        <h1 class="login_title">Create Account</h1>
+        <div class="login_box">
+          <div class="login_icon">
+          <i class="fas fa-user-circle"></i>
+          </div>
+          <input type="text" placeholder="Username" class="login_input">
+        </div>
+
+        <div class="login_box">
+          <div class="login_icon">
+          <i class="fas fa-at"></i>
+          </div>
+          <input type="text" placeholder="Email" class="login_input">
+        </div>
+
+        <div class="login_box">
+          <div class="login_icon">
+          <i class="fas fa-lock"></i>
+          </div>
+          <input type="password" placeholder="Password" class="login_input">
+        </div>
+
+        <a href="#" class="login_button">Sign Up</a>
+
+        <div>
+          <span class="login_account">Already have an Account?</span>
+          <span class="login_signup" id="sign-in">Sign In</span>
+        </div>
+
+      </form>
+
     </div>
+  </div>
+</div>
+   
+
+
+
+<script src="signinJS.js"></script>
+
+
 </body>
 </html>
