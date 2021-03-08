@@ -1,0 +1,21 @@
+Issues closed:
+- Code Tracer
+- Change profile page color
+- Game feedback
+- Add questions to computer architecture game
+- Play multiple times
+- Game page: filter function
+- Game page: sort function
+
+Issues moved to next sprint:
+- Python game
+- HTML/CSS game
+
+What went well:
+- The client liked most of the content that we produced this sprint
+
+Lessons learned (based off client feedback and experience):
+- We started too many issues without completing all of issues first, the team agreed to cooperate and help each other more
+- We focused too much on games, we agreed to work more with database next sprint
+- We left some issues unfinished and moved to next issue, next time we'll finish open ones first
+- We didn't fully follow DoD, we will change that next sprint

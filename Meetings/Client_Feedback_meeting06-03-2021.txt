@@ -1,0 +1,9 @@
+group members not present:
+- Reece
+- Umaid
+
+effects:
+- priority set base off client's feedback to database connection of the system
+- definition of done changed, improved and posted as comment to user stories
+- the group agreed to follow DoD more closely now
+- the feedback from client was noted and inserted as comments into code for some games
