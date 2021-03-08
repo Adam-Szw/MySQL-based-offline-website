@@ -54,6 +54,16 @@ var responseScore = [];
 var questionCount = 0;
 
 function startGame() {
+	const Http = new XMLHttpRequest();
+	const url='http://localhost:8080/games/BitCrush?playerId=0&gameName=BitCrush&gameScore=100';
+	Http.open("GET", url);
+	Http.send();
+
+	Http.onreadystatechange = (e) => {
+	  console.log(Http.responseText)
+	}+
+	
+
 
 	elementButtons = [];
 	missions = [];
