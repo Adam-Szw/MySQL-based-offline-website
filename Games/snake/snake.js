@@ -12,9 +12,11 @@ let xVelocity=0
 let tileSize = canvas.width / tileCount -2;
 function drawGame(){
   clear();
-  setTimeout(drawGame, 1000/speed);
   changePos();
   drawSnake();
+  setTimeout(drawGame, 1000/speed);
+  
+  
 }
 
 function clear(){
@@ -30,7 +32,7 @@ function drawSnake(){
 
 function changePos(){
   headX = headX + xVelocity;
-  headY = headX + yVelocity;
+  headY = headY + yVelocity;
 }
 
 document.body.addEventListener('keydown', keyDown);
@@ -41,7 +43,21 @@ function keyDown(event){
     yVelocity = -1;
     xVelocity = 0;
   }
-  
+  //s
+  if(event.keyCode == 83) {
+    yVelocity = 1;
+    xVelocity = 0;
+  }
+  //d
+  if(event.keyCode == 68) {
+    yVelocity = 0;
+    xVelocity = 1;
+  }
+  //a
+  if(event.keyCode == 65) {
+    yVelocity = 0;
+    xVelocity = -1;
+  }
 }
 
 drawGame();
