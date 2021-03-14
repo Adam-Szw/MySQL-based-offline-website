@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head>
-    <title>Sign-in Page</title>
+    <title>Sign In Page</title>
     <link rel="stylesheet" href="CentralHub_Styles.css">
     <link rel="icon" href="Images/Signin.png">
     <link rel="stylesheet" href="signinStyle.css">
@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="sidenav">
-		<img id="SideBar" src="Images/Signin.png"><a href="signin.html">Sign-in</a>
+		<img id="SideBar" src="Images/Signin.png"><a href="signin.html">Sign In</a>
 		<img id="SideBar" src="Images/Games.png"><a href="games.html">Games</a>
         <img id="SideBar" src="Images/Profile.png"><a href="profile.html">Profile</a>
         <img id="SideBar" src="Images/Leaderboard.png"><a href="scoreboard.html">Scoreboard</a>
@@ -27,20 +27,20 @@
             <i class="fas fa-at"></i>
           </div>
           
-          <input type="text" placeholder="Email" class="login_input">
+          <input type="text" placeholder="Email" class="login_input" id="SignInEmail">
         </div>
         <div class="login_box">
           <div class="login_icon">
             <i class="fas fa-lock"></i>
           </div>
           
-          <input type="password" placeholder="Password" class="login_input">
+          <input type="password" placeholder="Password" class="login_input" id="SignInPassword">
 
         </div>
 
-        <a href="#" class="login_forgot">Forgot Password</a>
+        <a href="#" class="login_forgot" id="forgot">Forgot Password</a>
 
-        <a href="#" class="login_button">Sign In</a>
+        <a href="#" onclick="SignInEmailChecker('SignInEmail','SignInPassword')" class="login_button">Sign In</a>
 
         <div>
           <span class="login_account">Don't have an Account?</span>
@@ -54,24 +54,24 @@
           <div class="login_icon">
           <i class="fas fa-user-circle"></i>
           </div>
-          <input type="text" placeholder="Username" class="login_input">
+          <input type="text" placeholder="Username" class="login_input" id="SignUpUsername">
         </div>
 
         <div class="login_box">
           <div class="login_icon">
           <i class="fas fa-at"></i>
           </div>
-          <input type="text" placeholder="Email" class="login_input">
+          <input type="text" placeholder="Email" class="login_input" id="SignUpEmail">
         </div>
 
         <div class="login_box">
           <div class="login_icon">
           <i class="fas fa-lock"></i>
           </div>
-          <input type="password" placeholder="Password" class="login_input">
+          <input type="password" placeholder="Password" class="login_input" id="SignUpPassword">
         </div>
 
-        <a href="#" class="login_button">Sign Up</a>
+        <a href="#" onclick="SignUpEmailChecker('SignUpUsername','SignUpEmail', 'SignUpPassword')" class="login_button">Sign Up</a>
 
         <div>
           <span class="login_account">Already have an Account?</span>
@@ -79,7 +79,23 @@
         </div>
 
       </form>
+      <form action="" class="login_forgotten" id="login-fp">
+        <h1 class="login_title">Forgot Password</h1>
+        <div class="login_box">
+          <div class="login_icon">
+            <i class="fas fa-at"></i>
+          </div>
+          
+          <input type="text" placeholder="Email" class="login_input" id="ForgottenEmail">
+        </div>
+        
+        <a href="#" onclick="ForgotEmailChecker('ForgottenEmail')" class="login_button">Send Request</a>
 
+        <div>
+          <span class="login_account">Already have an Account?</span>
+          <span class="login_signup" id="sign-inFP">Sign In</span>
+        </div>
+      </form>
     </div>
   </div>
 </div>
