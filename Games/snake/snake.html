@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<title>Snake</title>
+    <link rel="stylesheet" href="../../Central Hub/CentralHub_Styles.css">
+	<link rel="stylesheet" href="../GamesStyles.css">
+	<link rel="icon" href="../../Central Hub/Images/Games.png">
+    <style>
+        body {
+    
+            display: flex;
+            justify-content: center;
+            align-items: center;    
+            background-color: #c3e8c1;
+            padding-top: 300px;
+        }
+
+        #question{
+            margin-bottom: 900px;
+            position: fixed;
+            background-color: aqua;
+            height: 100px;
+            width: 700px;
+            
+        }
+        #answer1{
+            margin-bottom: 700px;
+            margin-right: 360px;
+            position: fixed;
+            background-color: orange;
+            height: 90px;
+            width: 340px;
+            
+        }
+        #answer2{
+            margin-bottom: 700px;
+            margin-left: 360px;
+            position: fixed;
+            background-color: red;
+            height: 90px;
+            width: 340px;
+            
+        }
+        #answer3{
+            margin-bottom: 500px;
+            margin-right: 360px;
+            position: fixed;
+            background-color: blue;
+            height: 90px;
+            width: 340px;
+            
+        }
+
+        #answer4{
+            margin-bottom: 500px;
+            margin-left: 360px;
+            position: fixed;
+            background-color: green;
+            height: 90px;
+            width: 340px;
+            
+        }
+        #board {
+            background-color: black;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="sidenav">
+		<img id="SideBar" src="../../Central Hub/Images/Signin.png"><a href="../../Central Hub/signin.html">Sign-in</a>
+        <img id="SideBar" src="../../Central Hub/Images/Games.png"><a href="../../Central Hub/games.html">Games</a>
+        <img id="SideBar" src="../../Central Hub/Images/Profile.png"><a href="../../Central Hub/profile.html">Profile</a>
+        <img id="SideBar" src="../../Central Hub/Images/Leaderboard.png"><a href="../../Central Hub/scoreboard.html">Scoreboard</a>
+        <img id="SideBar" src="../../Central Hub/Images/Settings.png"><a href="../../Central Hub/settings.html">Settings</a>
+        <img id="SideBar" src="../../Central Hub/Images/About.png"><a href="../../Central Hub/about.html">About</a>
+    </div>
+    <div id="question">[QUESTION]</div>
+    <div id="answer1">[ANSWER1]</div>
+    <div id="answer2">[ANSWER2]</div>
+    <div id="answer3">[ANSWER3]</div>
+    <div id="answer4">[ANSWER4]</div>
+    
+    <canvas id="board" width=400 height=400>
+    <script src="snake.js"></script>
+
+    
+
+    
+</body>
+</html>
