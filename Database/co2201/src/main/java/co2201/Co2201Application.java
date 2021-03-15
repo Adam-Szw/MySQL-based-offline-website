@@ -21,7 +21,6 @@ public class Co2201Application implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		
 		Player testPlayer = new Player("Enigma", "Adam", "Szwandziak");
 		playerRepo.save(testPlayer);
 	}

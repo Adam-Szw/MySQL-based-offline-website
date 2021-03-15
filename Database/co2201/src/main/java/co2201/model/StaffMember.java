@@ -1,19 +1,16 @@
 package co2201.model;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
-public class Player extends User {
+public class StaffMember extends User {
 
 	@Id
 	private long id;
 	private static long nextId = 0;
+	
+	private long StaffIDNumber;
 	
 	private String Username;
 	private String FName;
@@ -22,16 +19,13 @@ public class Player extends User {
 	private long phoneNumber;
 	private String email;
 	
-	@OneToMany(mappedBy="scoringPlayer", fetch=FetchType.LAZY, orphanRemoval = true, cascade = CascadeType.ALL)
-	private List<Score> scores;
-	
-	public Player()
+	public StaffMember()
 	{
-		this.id = Player.getNextId();
+		this.id = StaffMember.getNextId();
 	}
-	public Player(String Username, String FName, String LName)
+	public StaffMember(String Username, String FName, String LName)
 	{
-		this.id = Player.getNextId();
+		this.id = StaffMember.getNextId();
 		this.Username = Username;
 		this.FName = FName;
 		this.LName = LName;
@@ -43,11 +37,17 @@ public class Player extends User {
 	public void setId(long id) {
 		this.id = id;
 	}
+	public long getStaffIDNumber() {
+		return StaffIDNumber;
+	}
+	public void setStaffIDNumber(long staffIDNumber) {
+		StaffIDNumber = staffIDNumber;
+	}
 	public String getUsername() {
 		return Username;
 	}
-	public void setUsername(String Username) {
-		this.Username = Username;
+	public void setUsername(String username) {
+		Username = username;
 	}
 	public String getFName() {
 		return FName;
@@ -60,15 +60,6 @@ public class Player extends User {
 	}
 	public void setLName(String lName) {
 		LName = lName;
-	}
-	public List<Score> getScores() {
-		return scores;
-	}
-	public void setScores(List<Score> scores) {
-		this.scores = scores;
-	}
-	public static long getNextId() {
-		return nextId++;
 	}
 	public String getBio() {
 		return bio;
@@ -88,4 +79,9 @@ public class Player extends User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public static long getNextId() {
+		return nextId++;
+	}
+	
+	
 }

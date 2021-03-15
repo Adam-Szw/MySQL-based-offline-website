@@ -25,10 +25,11 @@ public class BitCrushRestController {
 	{
 		Score newScore = new Score(game, score);
 		Player player = playerRepo.findById(id).get();
+		newScore.setScoringPlayer(player);
 		player.getScores().add(newScore);
 		playerRepo.save(player);
 		
-		return new ResponseEntity<>("test", HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 }

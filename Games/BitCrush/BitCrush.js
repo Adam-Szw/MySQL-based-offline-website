@@ -53,17 +53,18 @@ var score = 0;
 var responseScore = [];
 var questionCount = 0;
 
+var loggedPlayerId;
+
 function startGame() {
+	//Logon the player
 	const Http = new XMLHttpRequest();
-	const url='http://localhost:8080/games/BitCrush?playerId=0&gameName=BitCrush&gameScore=100';
+	const url='http://localhost:8080/Login';
 	Http.open("GET", url);
 	Http.send();
 
 	Http.onreadystatechange = (e) => {
-	  console.log(Http.responseText)
-	}+
-	
-
+	  loggedPlayerId = Http.responseText;
+	}
 
 	elementButtons = [];
 	missions = [];
@@ -178,6 +179,11 @@ function scoreScreen() {
 	"<br>This brings your total leaderboard score to: "+score*avgResponse/100+
 	"<br>Click start game to play again.";
 	t.style.display = "block";
+	
+	const Http = new XMLHttpRequest();
+	const url='http://localhost:8080/games/BitCrush?playerId='+(loggedPlayerId).toString()+'&gameName=BitCrush&gameScore='+(score).toString();
+	Http.open("GET", url);
+	Http.send();
 }
 
 function createMission() {
