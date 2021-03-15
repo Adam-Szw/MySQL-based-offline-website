@@ -1,0 +1,187 @@
+/*-----------------------------Settings-Page-Styles-----------------------------*/
+
+#PageArea {
+    padding-bottom: 10px;
+    margin-left:15%;
+    background-color: rgb(218, 245, 207);
+    box-shadow: 0px 3px 5px #4b4a4a;
+    color:black;
+    min-height: 70vh;
+}
+  
+#SettingsContent {
+    text-align: center;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+    
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+    
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:#c3e8c1;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+    
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+    
+input:checked + .slider {
+    background-color: #1a1a1a;
+}
+    
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.textsize {
+    margin-top: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #c3e8c1;
+    color: white;
+    padding: 16px;
+    font-size: 30px;
+    border-color: #d6d6d6;
+    pointer-events: none;     
+}
+
+.content{
+    text-align: center;
+    display: none;
+    position: relative;
+    background-color: #c3e8c1;
+    min-width: 68px;
+    margin-top: 5px;
+    border: 1px solid grey;
+    border-radius: 2px;
+}
+
+.content p {
+    color: black;
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.textsize:hover .content{
+    display: block;
+}
+        
+p {text-align: center;}
+    
+#light {
+    text-align: center;
+    display: inline;
+    position: absolute; right:70px
+}
+
+#dark {
+    text-align: center;
+    display: inline;
+    position: absolute; left:70px
+}
+    
+h1 {text-align: center;}
+
+.darkbutton {text-align: center;}
+
+.dark-mode {
+    background-color: #424242;
+    color: #d6d6d6;
+}
+
+.dark-mode .content{
+    background-color: #2b2b2b;
+    color: #d6d6d6;
+}
+
+.dark-mode .dropbtn{
+    background-color: #2b2b2b;
+    color: #d6d6d6;
+}
+
+.dark-mode .content p{
+    background-color: #2b2b2b;
+    color: #d6d6d6;
+}
+        
+.small {
+    font-size: 16px;
+}
+
+.medium {
+    font-size: 20px;
+}
+
+.large {
+    font-size: 25px;
+}
+
+p:hover {
+    color: rgba(255, 0, 0, 0.556);
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td {
+    padding: 12px 20px 12px 20px;
+}
+
+#SaveSettings {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    background-color: #c3e8c1;
+    font-size: large;
+}
+
+button {
+    border: 0;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0px 3px 5px #4b4a4a;
+    margin-right: 5px;
+    outline: none;
+    cursor:pointer;
+}
+
+#SaveSettings:hover {
+    background-color: rgba(0, 0, 255, 0.542);
+}

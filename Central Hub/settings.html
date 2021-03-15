@@ -2,6 +2,7 @@
 <html lang = "en">
 <head>
     <title>Settings</title>
+    <link rel="stylesheet" href="Settings_Styles.css">
     <link rel="stylesheet" href="CentralHub_Styles.css">
     <link rel="icon" href="Images/Settings.png">
     <!--External fonts are used these are linked here-->
@@ -10,132 +11,37 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
     
-    
-    /* The switch - the box around the slider */
-    .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-    }
-
-    /* Hide default HTML checkbox */
-    .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-    }
-
-    /* The slider */
-    .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color:#c3e8c1;
-    -webkit-transition: .4s;
-    transition: .4s;
-    }
-
-    .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-    }
-
-    input:checked + .slider {
-    background-color: #1a1a1a;
-    }
-
-    input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-    }
-    .textsize {
-        margin-top: 20px;
-        left: 46%;
-        position: relative;
-        display: inline-block;        
-    }
-    .dropbtn {
-        background-color: #c3e8c1;
-        color: white;
-        padding: 16px;
-        font-size: 30px;
-        border-color: #d6d6d6;
-        pointer-events: none;   
-    }
-    .content{
-        text-align: left;
-        display: none;
-        position: relative;
-        background-color: #c3e8c1;
-        min-width: 68px;
-    }
-    .content p {
-        color: black;
-        padding: 10px 10px;
-        text-decoration: none;
-        display: block;
-    }
-    .textsize:hover .content{
-        display: block;
-    }
-    
-    p {text-align: center;}
-
-    #light {text-align: center;
-        display: inline;
-        position: absolute; right:70px
-    }
-    #dark{text-align: center;
-        display: inline;
-        position: absolute; left:70px
-    }
-
-    h1 {text-align: center;}
-    .darkbutton {text-align: center;}
-    .dark-mode {
-        background-color: #424242;
-        color: #d6d6d6;
-    }
-    .dark-mode .content{
-        background-color: #2b2b2b;
-        color: #d6d6d6;
-    }
-    .dark-mode .dropbtn{
-        background-color: #2b2b2b;
-        color: #d6d6d6;
-    }
-    .dark-mode .content p{
-        background-color: #2b2b2b;
-        color: #d6d6d6;
-    }
-    
-    .small {
-        font-size: 16px;
-    }
-    .medium {
-        font-size: 20px;
-    }
-    .large {
-        font-size: 25px;
-    }
+  
 </style>
-    
+<script>
+
+    /*This function is called when the small label is clicked on*/
+    function small() {
+        var element = document.body;
+        element.classList.toggle("small");
+    }
+
+    /*This function is called when the medium label is clicked on*/
+    function medium() {
+        var element = document.body;
+        element.classList.toggle("medium");
+    }
+
+    /*This function is called when the large label is clicked on*/
+    function large() {
+        var element = document.body;
+        element.classList.toggle("large");
+    }
+
+    /*This function is called when the switch is changed to the dark mode*/
+    function darkmode() {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+    }
+
+</script>   
 </head>
-
 <body>
-
     <div class="sidenav">
 		<img id="SideBar" src="Images/Signin.png"><a href="signin.html">Sign In</a>
 		<img id="SideBar" src="Images/Games.png"><a href="games.html">Games</a>
@@ -144,51 +50,49 @@
         <img id="SideBar" src="Images/Settings.png"><a href="settings.html">Settings</a>
         <img id="SideBar" src="Images/About.png"><a href="about.html">About</a>
     </div>
-    <h1>Settings</h1>
-   
-    <div onselectstart="return false" class="darkbutton">
-
-        <label class="switch">
-            <label for="mode" id = "light">Light Mode</label>
-            <label for="mode" id = "dark">Dark Mode</label>
-            <input type="checkbox" id = "mode" onclick = "darkmode()">
-            <span class="slider"></span>
-        </label>   
-    
-    <script>
-
-        function darkmode() {
-            var element = document.body;
-            element.classList.toggle("dark-mode");
-        }
-        
-    </script>
-
-    </div>
-   <div onselectstart="return false" class="textsize">
-        <button class="dropbtn">Text Size</button>
-        <div class ="content">
-            <p onclick = "small()">Small </p>
-            <p onclick = "medium()">medium </p>
-            <p onclick = "large()">large </p>
-
+    <div class="TopBox" id="PageArea">
+       <div id="SettingsContent">
+        <h1>Settings</h1>
+        <table>
+        <tr><td>Colour Scheme:</td><td>
+        <div onselectstart="return false" class="darkbutton">
+            <label class="switch">
+                <label for="mode" id = "light">Light Mode</label>
+                <label for="mode" id = "dark">Dark Mode</label>
+                <input type="checkbox" id = "mode" onclick = "darkmode()">
+                <span class="slider"></span>
+            </label>   
+            </div></td>
+        </tr>
+        <tr>
+            <td>Text Settings:</td>
+            <td>
+            <div onselectstart="return false" class="textsize">
+                <button class="dropbtn">Text Size</button>
+                <div class ="content">
+                    <p onclick = "small()">Small </p>
+                    <p onclick = "medium()">medium </p>
+                    <p onclick = "large()">large </p>
+                </div>
+            </div></td></tr>
+        <tr>
+            <td>Text Type:</td>
+            <td>
+                <div onselectstart="return false" class="textsize">
+                    <button class="dropbtn">Text Type</button>
+                    <div class ="content">
+                        <p onclick = "">Serif </p>
+                        <p onclick = "">Sans-Serif </p>
+                        <p onclick = "">Bold </p>
+                    </div>
+                </div>
+            </td>
+        </tr>    
+        <tr>
+            <td colspan="2"><button id="SaveSettings">Save Settings</button></td>
+        </tr>
         </div>
-        
-   </div>
-   <script>
-       function small() {
-            var element = document.body;
-            element.classList.toggle("small");
-       }
-       function medium() {
-            var element = document.body;
-            element.classList.toggle("medium");
-       }
-       function large() {
-            var element = document.body;
-            element.classList.toggle("large");
-       }
-   </script>
+        </table> 
+    </div>
 </body>
-
 </html>
