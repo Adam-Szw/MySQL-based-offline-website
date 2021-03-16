@@ -13,6 +13,7 @@ function HideShow(Number, Value, Section, Label) {
 function HideShowCustom() {
     document.getElementById("PregameContent").style.display = "None";
     document.getElementById("CustomGameDiv").style.display = "Block"
+    stuff = LoadQuestions();
     UpdateClock();
 }
 
@@ -187,7 +188,8 @@ function SaveQuestion(ItemNumber) {
                     var count=0;
                     for (counter=0; counter<input.length; counter++) {
                         if (parseInt(input[input.length - (counter+1)]) == 0 | parseInt(input[input.length - (counter+1)]) ==1) {
-                            alert("Good Value")
+                            
+                            UploadQuestion(choice, input, points, timer);
                         }
                         else {
                             alert("Bad Value")
@@ -253,4 +255,41 @@ function DeleteQuestion(ItemNumber) {
     var DeleteObject = document.getElementsByClassName("Question")[Len-1];
     DeleteObject.remove();
     counter = counter-1;
+}
+
+function UploadQuestion(choice, input, points, timer) {
+    const Sender = new XMLHttpRequest();
+	const url='http://localhost:8080/games/BinaryBlitz?QuestionID=' + counter +'&Points='+points+'&Time='+timer+'&Input='+input+'&Type='+choice;
+	Sender.open("GET", url);
+	Sender.send();
+    alert("Successful Save")
+}
+
+var Questions = [];
+
+/*function LoadQuestions(){
+   
+    var xhr = new XMLHttpRequest();
+    var url2='http://localhost:8080/games/BinaryBlitz/custom';
+    xhr.open('GET', url2)
+
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            var data = JSON.parse(xhr.responseText);}
+        else {
+            alert('Request failed. Request status of ' + xhr.status);
+        }
+    };
+    xhr.send();
+    alert(data.responseText)
+}*/
+
+function LoadQuestions() {
+        var xhttp = new XMLHttpRequest();
+        var url2='http://localhost:8080/games/BinaryBlitz/custom';
+        
+        xhttp.open("GET", url2, true); 
+        xhttp.send();
+        data = xhttp.responseText;
+        return data;
 }
