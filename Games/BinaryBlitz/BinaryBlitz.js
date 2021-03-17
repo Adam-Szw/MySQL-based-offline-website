@@ -9,11 +9,14 @@ function HideShow(Number, Value, Section, Label) {
     document.getElementById(Label).textContent = "";
 }
 
-/*Hide and show the custom game area*/
-function HideShowCustom() {
+function Start() {
     LoadQuestions();
     CustomGame();
-    
+}
+
+/*Hide and show the custom game area*/
+function HideShowCustom() {
+    Start();
     if (ItemList.length != 0) {
         //Logon the player
         const Http = new XMLHttpRequest();
@@ -28,7 +31,6 @@ function HideShowCustom() {
         document.getElementById("CustomGameDiv").style.display = "Block"
         document.getElementById("AnswerLabelCustom").textContent = "";
         document.getElementById("CustomNumber").textContent = ItemList[2];
-        alert(ItemList[2])
         UpdateClock();
     }
     else {
@@ -57,12 +59,24 @@ function CustomGame() {
 
 /*Hide and show the lecturer game maker*/
 function HideShowLecturerOption() {
+    counter = ItemList.length/5;
     document.getElementById("PregameContent").style.display = "None";
-    document.getElementById("LecturerGameDiv").style.display = "Block"
+    document.getElementById("LecturerGameDiv").style.display = "Block";
+    LoadQuestions();
+    CustomGame();
+
+    x = 0;
+    counter=0;
+    while (x <= ItemList.length-1) {
+        counter= counter+1;
+        $("#QuestionArea").append('<table class="Question"><tr><td colspan="3">Question Number '+ ItemList[x] +':</td></tr><tr><td>Type:</td><td>&nbsp;&nbsp;<select onchange="QuestionChange('+ItemList[x]+')" class="Conversion"><option>Binary to Decimal</option><option>Decimal to Binary</option><option>Hexadecimal to Decimal</option><option>Decimal to Hexadecimal</option></select><br> </td></tr><tr><td>Input:</td><td><input class="Input" value="'+ItemList[x+2]+'"></td><td class="InputExample">&nbsp;&nbsp;Example: 101010</td></tr><tr><td>Timer:</td><td><input type="number" min="1" max="120" class="Timer" value="'+ItemList[x+4]+'"></td><td class="TimerExample">&nbsp;&nbsp;Example: 23 seconds</td></tr><tr><td>Points:</td><td><input type="number" min="1" max="100" class="Points" value="'+ItemList[x+3]+'"></td><td class="PointExample">&nbsp;&nbsp;Example: 5 points</td></tr><tr><td colspan="3"><button id="QuestionSave" onclick="SaveQuestion('+ItemList[x]+')">Submit Button</button><button id="QuestionReset" onclick="ResetQuestion('+ItemList[x]+')">Reset Button</button><button id="QuestionDelete" onclick="DeleteQuestion('+ItemList[x]+')">Delete Last Button</button></td></tr></table>');
+        x = x+5;
+    }
 }
 
 /*This section resets the page when the user exits it*/
 function ResetPage() {
+    Start();
     document.getElementById("HardGameDiv").style.display = "None";
     document.getElementById("MediumGameDiv").style.display = "None";
     document.getElementById("EasyGameDiv").style.display = "None";
@@ -70,6 +84,7 @@ function ResetPage() {
     document.getElementById("EndGameDiv").style.display = "None";
     document.getElementById("LecturerGameDiv").style.display = "None"
     document.getElementById("PregameContent").style.display = "Block";
+    document.getElementById("QuestionArea").textContent ="";
     UserScore =0;
     document.getElementById("UserScore").textContent = UserScore;
     clearTimeout(x);
@@ -272,8 +287,11 @@ function SaveQuestion(ItemNumber) {
                     var count=0;
                     for (counter=0; counter<input.length; counter++) {
                         if (parseInt(input[input.length - (counter+1)]) == 0 | parseInt(input[input.length - (counter+1)]) ==1) {
-                            
+                            LoadQuestions();
+                            CustomGame();
                             UploadQuestion(choice, input, points, timer);
+                            LoadQuestions();
+                            CustomGame();
                         }
                         else {
                             alert("Bad Value")
@@ -346,10 +364,22 @@ function DeleteQuestion(ItemNumber) {
 }
 
 function UploadQuestion(choice, input, points, timer) {
-    const Sender = new XMLHttpRequest();
-	const url='http://localhost:8080/games/BinaryBlitz?QuestionID=' + counter +'&Points='+points+'&Time='+timer+'&Input='+input+'&Type='+choice;
-	Sender.open("GET", url);
-	Sender.send();
+    if (counter > ItemList.length/5 | (counter ==0 & ItemList.length==0)) {
+        const Sender = new XMLHttpRequest();
+        const urlB='http://localhost:8080/games/BinaryBlitz?QuestionID=' + counter +'&Points='+points+'&Time='+timer+'&Input='+input+'&Type='+choice;
+        Sender.open("GET", urlB);
+        Sender.send();
+    }
+    else {
+        const Sender2 = new XMLHttpRequest();
+        const url='http://localhost:8080/games/BinaryBlitz/'+counter
+        Sender2.open("DELETE", url);
+        Sender2.send();
+        const Sender = new XMLHttpRequest();
+        const urlB='http://localhost:8080/games/BinaryBlitz?QuestionID=' + counter +'&Points='+points+'&Time='+timer+'&Input='+input+'&Type='+choice;
+        Sender.open("GET", urlB);
+        Sender.send();
+    }
 }
 
 var Questions = new Array();

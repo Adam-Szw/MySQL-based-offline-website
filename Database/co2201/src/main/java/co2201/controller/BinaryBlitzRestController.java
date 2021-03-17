@@ -86,4 +86,22 @@ public class BinaryBlitzRestController {
 		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
+	
+	@GetMapping("/games/BinaryBlitz/update")
+	public ResponseEntity<?> updateQuestion(@RequestParam(name = "QuestionID") Integer id, @RequestParam(name = "Points") Integer points, @RequestParam(name = "Time") Integer time, @RequestParam(name = "Input") String input, @RequestParam(name = "Type") String type)
+	{
+		Question question = qrepo.findById(id).orElse(null);
+		if (question == null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		else {
+			question.setInput(input);
+			question.setPoints(points);
+			question.setQuestionID(id);
+			question.setType(type);
+			question.setTime(time);
+			qrepo.save(question);
+		}
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
 }
