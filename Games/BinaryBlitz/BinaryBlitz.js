@@ -11,26 +11,35 @@ function HideShow(Number, Value, Section, Label) {
 
 /*Hide and show the custom game area*/
 function HideShowCustom() {
-    document.getElementById("PregameContent").style.display = "None";
-    document.getElementById("CustomGameDiv").style.display = "Block"
     LoadQuestions();
     CustomGame();
-    UpdateClock();
-}
+    
+    if (ItemList.length != 0) {
+        //Logon the player
+        const Http = new XMLHttpRequest();
+        const url='http://localhost:8080/Login';
+        Http.open("GET", url);
+        Http.send();
 
-/*
-<div id="CustomGameDiv">
-<p id="CustomGameContent">You have selected the custom game mode... Good Luck!<br>
-    These questions will feature an assortment of conversions created by the lecturer<br>
-    <label id="QuestionLabel">Convert...</label><br>
-    Enter your answer here: <input><button id="SubmitButton">Submit</button>
-</p> for (i = 0; i < GameContent; i++)
-</div>*/
+        Http.onreadystatechange = (e) => {
+        loggedPlayerId = Http.responseText;
+        }
+        document.getElementById("PregameContent").style.display = "None";
+        document.getElementById("CustomGameDiv").style.display = "Block"
+        document.getElementById("AnswerLabelCustom").textContent = "";
+        document.getElementById("CustomNumber").textContent = ItemList[2];
+        alert(ItemList[2])
+        UpdateClock();
+    }
+    else {
+        alert("No questions")
+    }
+}
 
 var ItemList = [];
 function CustomGame() {
+    ItemList = [];
     var String = "";
-    
     for (i =0; i<Questions.length; i++) {
         var Char = Questions[i];
         if ( Char == '"' | Char == ',' |Char == '[' | Char ==']') {
@@ -44,8 +53,7 @@ function CustomGame() {
        
         }
     }
-    document.getElementById("CustomNumber").textContent = ItemList[2]
-}
+    }
 
 /*Hide and show the lecturer game maker*/
 function HideShowLecturerOption() {
@@ -98,7 +106,7 @@ function GenerateNumber(ItemName, NumberLength) {
     document.getElementById(ItemName).textContent = text;
 }
 
-var QuestionCount = 1;
+var QuestionCount = 4;
 
 function CustomGameNumber() {
     CheckNumberCustom('CustomNumber','SubmissionCustom','AnswerLabelCustom')
@@ -114,22 +122,22 @@ function CheckNumberCustom(Number, Submission, Label) {
         cputotal = ConvertToDecimal(value);
             if (cputotal == parseInt(user)) {
                 document.getElementById(Submission).value ="";
-                UserScore = UserScore + 5;
+                UserScore = UserScore + parseInt(ItemList[QuestionCount-1]);
                 document.getElementById("UserScore").textContent = UserScore;
                 document.getElementById(Label).textContent = "Correct Answer!";
-                if (QuestionCount < ItemList.length/5) {
-
-                                QuestionCount = QuestionCount + 1;
-                                document.getElementById("CustomNumber").textContent = ItemList[QuestionCount+5]    
+                QuestionCount = QuestionCount + 5;
+                if (QuestionCount < ItemList.length) {
+                                document.getElementById("CustomNumber").textContent = ItemList[QuestionCount-2]    
                 }
                 else {
-                    QuestionCount = 1;
-                    document.getElementById("EasyGameDiv").style.display = "None"
-                    document.getElementById("MediumGameDiv").style.display = "None"
-                    document.getElementById("HardGameDiv").style.display = "None"
+                    QuestionCount = 4;
                     document.getElementById("CustomGameDiv").style.display = "None"
                     document.getElementById("EndGameDiv").style.display = "Block"
                     document.getElementById("FinalScore").textContent = UserScore;
+                    const Http = new XMLHttpRequest();
+                    const url='http://localhost:8080/games/BinaryBlitz/saveScore?playerId='+(loggedPlayerId).toString()+'&gameName=BinaryBlitz&gameScore='+(UserScore).toString();
+                    Http.open("GET", url);
+                    Http.send();
                 }
   
             }
@@ -330,6 +338,10 @@ function DeleteQuestion(ItemNumber) {
     var Len = document.getElementsByClassName("Question").length
     var DeleteObject = document.getElementsByClassName("Question")[Len-1];
     DeleteObject.remove();
+    const Sender = new XMLHttpRequest();
+	const url='http://localhost:8080/games/BinaryBlitz/'+counter
+	Sender.open("DELETE", url);
+	Sender.send();
     counter = counter-1;
 }
 
@@ -341,23 +353,6 @@ function UploadQuestion(choice, input, points, timer) {
 }
 
 var Questions = new Array();
-
-/*function LoadQuestions(){
-   
-    var xhr = new XMLHttpRequest();
-    var url2='http://localhost:8080/games/BinaryBlitz/custom';
-    xhr.open('GET', url2)
-
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            var data = JSON.parse(xhr.responseText);}
-        else {
-            alert('Request failed. Request status of ' + xhr.status);
-        }
-    };
-    xhr.send();
-    alert(data.responseText)
-}*/
 
 function LoadQuestions() {
         const xhttp = new XMLHttpRequest();

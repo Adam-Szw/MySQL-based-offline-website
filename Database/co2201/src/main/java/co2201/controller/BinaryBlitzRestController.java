@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import co2201.model.Player;
+import co2201.model.Score;
 import co2201.model.binaryblitz.Question;
+import co2201.repo.PlayerRepository;
 import co2201.repo.binaryblitz.GameRepository;
 import co2201.repo.binaryblitz.QuestionRepository;
 
@@ -27,6 +30,9 @@ public class BinaryBlitzRestController {
 	
 	@Autowired
 	QuestionRepository qrepo;
+	
+	@Autowired
+	PlayerRepository prepo;
 	
 	@GetMapping("/games/BinaryBlitz")
 	public ResponseEntity<?> saveQuestion(@RequestParam(name = "QuestionID") Integer id, @RequestParam(name = "Points") Integer points, @RequestParam(name = "Time") Integer time, @RequestParam(name = "Input") String input, @RequestParam(name = "Type") String type)
@@ -61,6 +67,23 @@ public class BinaryBlitzRestController {
 	
 	@DeleteMapping("/games/BinaryBlitz/{id}")
 	public ResponseEntity<?> deleteQuestion(@PathVariable Integer id) {
-		return null;
+		Question question = qrepo.findById(id).orElse(null);
+		if (question == null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		qrepo.delete(question);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+	@GetMapping("/games/BinaryBlitz/saveScore")
+	public ResponseEntity<?> saveScore(@RequestParam(name = "playerId") Long id, @RequestParam(name = "gameName") String game, @RequestParam(name = "gameScore") float score)
+	{
+		Score newScore = new Score(game, score);
+		Player player = prepo.findById(id).get();
+		newScore.setScoringPlayer(player);
+		player.getScores().add(newScore);
+		prepo.save(player);
+		
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }
