@@ -390,9 +390,9 @@ margin-top: 10px;
 
 
 
-
+/*
   box-sizing: border-box;
-}
+}*/
 
 *, *:before, *:after {
   box-sizing: inherit;
@@ -445,6 +445,4 @@ margin-top: 10px;
 .button:hover {
   background-color: #555;
 }
-</style>
-</head>
-<body>
+

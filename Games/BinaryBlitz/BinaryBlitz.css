@@ -119,7 +119,7 @@ input {
     display: none;
 }
 
-#EasyNumber, #MediumNumber, #HardNumber {
+#EasyNumber, #MediumNumber, #HardNumber, #CustomNumber {
     font-size: xx-large;
 }
 

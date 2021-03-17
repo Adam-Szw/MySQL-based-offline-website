@@ -13,8 +13,38 @@ function HideShow(Number, Value, Section, Label) {
 function HideShowCustom() {
     document.getElementById("PregameContent").style.display = "None";
     document.getElementById("CustomGameDiv").style.display = "Block"
-    stuff = LoadQuestions();
+    LoadQuestions();
+    CustomGame();
     UpdateClock();
+}
+
+/*
+<div id="CustomGameDiv">
+<p id="CustomGameContent">You have selected the custom game mode... Good Luck!<br>
+    These questions will feature an assortment of conversions created by the lecturer<br>
+    <label id="QuestionLabel">Convert...</label><br>
+    Enter your answer here: <input><button id="SubmitButton">Submit</button>
+</p> for (i = 0; i < GameContent; i++)
+</div>*/
+
+var ItemList = [];
+function CustomGame() {
+    var String = "";
+    
+    for (i =0; i<Questions.length; i++) {
+        var Char = Questions[i];
+        if ( Char == '"' | Char == ',' |Char == '[' | Char ==']') {
+            if (String.length != 0) {
+               ItemList.push(String); 
+            }
+            String = "";
+        }
+        else {
+            String = String.concat(Char)
+       
+        }
+    }
+    document.getElementById("CustomNumber").textContent = ItemList[2]
 }
 
 /*Hide and show the lecturer game maker*/
@@ -67,6 +97,52 @@ function GenerateNumber(ItemName, NumberLength) {
     }
     document.getElementById(ItemName).textContent = text;
 }
+
+var QuestionCount = 1;
+
+function CustomGameNumber() {
+    CheckNumberCustom('CustomNumber','SubmissionCustom','AnswerLabelCustom')
+    }
+  
+
+/*This section is used to check whether the user input is correcct*/
+function CheckNumberCustom(Number, Submission, Label) {
+    var value = document.getElementById(Number).textContent;
+    var user = document.getElementById(Submission).value;
+    value = value.split('');
+    if (user != "") {
+        cputotal = ConvertToDecimal(value);
+            if (cputotal == parseInt(user)) {
+                document.getElementById(Submission).value ="";
+                UserScore = UserScore + 5;
+                document.getElementById("UserScore").textContent = UserScore;
+                document.getElementById(Label).textContent = "Correct Answer!";
+                if (QuestionCount < ItemList.length/5) {
+
+                                QuestionCount = QuestionCount + 1;
+                                document.getElementById("CustomNumber").textContent = ItemList[QuestionCount+5]    
+                }
+                else {
+                    QuestionCount = 1;
+                    document.getElementById("EasyGameDiv").style.display = "None"
+                    document.getElementById("MediumGameDiv").style.display = "None"
+                    document.getElementById("HardGameDiv").style.display = "None"
+                    document.getElementById("CustomGameDiv").style.display = "None"
+                    document.getElementById("EndGameDiv").style.display = "Block"
+                    document.getElementById("FinalScore").textContent = UserScore;
+                }
+  
+            }
+            else { 
+                document.getElementById(Submission).value ="";
+                document.getElementById(Label).textContent = "Incorrect Answer!";
+            }
+    }
+    else {
+        alert("Enter your answer in the submission box")
+    }
+}
+
 
 /*This section is used to check whether the user input is correcct*/
 function CheckNumber(Number, Submission, Label, Value, Score) {
@@ -262,10 +338,9 @@ function UploadQuestion(choice, input, points, timer) {
 	const url='http://localhost:8080/games/BinaryBlitz?QuestionID=' + counter +'&Points='+points+'&Time='+timer+'&Input='+input+'&Type='+choice;
 	Sender.open("GET", url);
 	Sender.send();
-    alert("Successful Save")
 }
 
-var Questions = [];
+var Questions = new Array();
 
 /*function LoadQuestions(){
    
@@ -285,11 +360,13 @@ var Questions = [];
 }*/
 
 function LoadQuestions() {
-        var xhttp = new XMLHttpRequest();
+        const xhttp = new XMLHttpRequest();
         var url2='http://localhost:8080/games/BinaryBlitz/custom';
         
-        xhttp.open("GET", url2, true); 
+        xhttp.open("GET", url2); 
         xhttp.send();
-        data = xhttp.responseText;
-        return data;
+       
+        xhttp.onreadystatechange = (e) => {
+            Questions = xhttp.responseText;
+        }
 }

@@ -168,8 +168,9 @@
         <div id="CustomGameDiv">
             <p id="CustomGameContent">You have selected the custom game mode... Good Luck!<br>
                 These questions will feature an assortment of conversions created by the lecturer<br>
-                <label id="QuestionLabel">Convert...</label><br>
-                Enter your answer here: <input><button id="SubmitButton">Submit</button>
+                <label id="QuestionLabel">Convert <label id="CustomNumber"></label></label><br>
+                Enter your answer here: <input id="SubmissionCustom"><button id="SubmitButton" onclick="CustomGameNumber()">Submit</button>
+                <label id="AnswerLabelCustom" class="AnswerLabel">Correct Answer</label><br>
             </p>
         </div>
         <!--This section is for the end of the game-->

@@ -1,6 +1,7 @@
 package co2201.controller;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,9 +43,19 @@ public class BinaryBlitzRestController {
 	}
 	
 	@GetMapping("/games/BinaryBlitz/custom")
-	public List<Question> getQuestions() {
+	public List<List<String>> getQuestions() {
+		List<List<String>> ReturnQuestions = new ArrayList<List<String>>();
 		List<Question> gameQuestions = qrepo.findAll();
-		return gameQuestions;
+		for (Question question: gameQuestions) {
+			ArrayList<String> questionline = new ArrayList<String>();
+			questionline.add(question.getQuestionID().toString());
+			questionline.add(question.getType());
+			questionline.add(question.getInput());
+			questionline.add(question.getPoints().toString());
+			questionline.add(question.getTime().toString());
+			ReturnQuestions.add(questionline);
+		}
+		return ReturnQuestions;
 	}
 	
 	
