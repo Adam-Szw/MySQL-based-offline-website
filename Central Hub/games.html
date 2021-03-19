@@ -30,7 +30,8 @@
             window.onbeforeunload = function(e) {
                 localStorage.setItem('scrollpos', window.scrollY);
             };
-
+    
+    //This section of code is used when the user types into the search box
     $(document).ready(function(){
       $("#SortBox").on("keyup", function() {
         var value = $(this).val().toLowerCase();
@@ -42,6 +43,7 @@
     });
 
     function Sort() {
+      //This is the sorting area bit of the code
       var vb = document.getElementById("SortBy2").value;
       document.getElementById("FilterBy2").value = "0";
       Filter();
@@ -64,9 +66,11 @@
         for(var i=0; i<elements.length; i++) names.push(elements[i].textContent)
         {
         nameList = names}
+        //The AZ sort option code runs here
         if (vb=="AZSort") {
           nameList.sort();
         }
+        //The ZA sort option code runs here
         else if (vb=="ZASort") {
           nameList.sort();
           nameList.reverse();
@@ -87,7 +91,7 @@
 
   function Filter() {
       var vb = document.getElementById("FilterBy2").value;
-      
+      //If the Finished area has been selected
       if (vb=="Fin") {
         var x = document.getElementsByClassName("grid-item");
         Reappear();
@@ -104,6 +108,7 @@
       }
     }
       }
+      //If the Not Finished area has been selected
       else if (vb=="NFin") {
         var x = document.getElementsByClassName("grid-item");
         Reappear();
@@ -127,6 +132,7 @@
       }
   }
 
+  //This function is called when the program wants all of the items to be shown
   function Reappear() {
     var x = document.getElementsByClassName("grid-item");
         var i;
@@ -183,7 +189,7 @@
         <div class="grid-item"><div name="Fin"><a href="../Games/Stylezz/Stylezz.html"><img id="GameScreen" src="Images/CSS.png" alt="Stylezz Game"/></a><br>Stylezz</div></div>
         <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/Java.jpg" alt="Java" href=""><br>Java Game 1</div></div>
         <div class="grid-item"><div name="NFin"><a href="../Games/PythonQuizGame/game.html"><img id="GameScreen" src="Images/Python.png" alt="Python Quiz"/></a><br>Python Quiz </div></div>
-        <div class="grid-item"><div name="Fin"><a href="../Games/CodeTracer/CodeTracer.html"><img id="GameScreen" src="Images/CodeTracer-logo.png" alt="CodeTracer Game"/></a><br>CoderTracer</div></div>
+        <div class="grid-item"><div name="Fin"><a href="../Games/CodeTracer/CodeTracer.html"><img id="GameScreen" src="Images/CodeTracer-logo.png" alt="CodeTracer Game"/></a><br>CodeTracer</div></div>
         <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/CSS.png" alt="CSS" href=""><br>CSS Game 2</div></div>
         <div class="grid-item"><div name="NFin"><img id="GameScreen" src="Images/Java.jpg" alt="Java" href=""><br>Java Game 2</div></div>
         <div class="grid-item"><div name="NFin"><img id="GameScreen" src="Images/Python.png" alt="Python" href=""><br>Python Game 2</div></div>
