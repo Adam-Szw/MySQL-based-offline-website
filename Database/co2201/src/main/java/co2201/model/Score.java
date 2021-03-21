@@ -18,7 +18,7 @@ public class Score {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="Score_Owner_ID")
-	private Player scoringPlayer;
+	private SystemUser scoringPlayer;
 	
 	public Score() 
 	{
@@ -49,10 +49,10 @@ public class Score {
 	public void setScore(float score) {
 		this.score = score;
 	}
-	public Player getScoringPlayer() {
+	public SystemUser getScoringPlayer() {
 		return scoringPlayer;
 	}
-	public void setScoringPlayer(Player scoringPlayer) {
+	public void setScoringPlayer(SystemUser scoringPlayer) {
 		this.scoringPlayer = scoringPlayer;
 	}
 	public static long getNextId() {

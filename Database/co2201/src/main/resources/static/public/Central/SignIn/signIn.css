@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;   
+}
+
+
+
+body{
+    font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
+    background-color: #daf5cf;
+
+}
+
+
+
+.login{
+    display: grid;
+    grid-template-columns: 100%;
+ 
+    box-sizing: border-box;
+    width: 500px;
+    /*background-color: rgb(176, 235, 173);*/
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: 200px;
+}
+
+.login_content{
+    display: grid;
+    box-sizing: border-box;
+}
+
+
+.login_register{
+    width: 100%;
+    background-color: rgb(161, 197, 159);
+    box-sizing: border-box;
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 8px 20px #090909;
+    position: absolute;
+    bottom: 4rem;
+  
+
+}
+
+.login_create {
+    width: 100%;
+    background-color: rgb(161, 197, 159);
+    box-sizing: border-box;
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 8px 20px #090909;
+    position: absolute;
+    bottom: 0.3rem;
+}
+
+.login_forgotten {
+    width: 100%;
+    background-color: rgb(161, 197, 159);
+    box-sizing: border-box;
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 8px 20px #090909;
+    position: absolute;
+    bottom: 11rem;
+}
+
+
+
+.login-form{
+    position: relative;
+    box-sizing: border-box;
+    height: 400px;
+    margin-left: 100px;
+
+}
+
+.login_title{
+    font-size: 24px;
+    margin-bottom: 2rem;
+}
+
+
+.login_box{
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    column-gap: .5rem;
+    padding: 20px 10px;
+    background-color: rgb(210, 233, 209);
+    margin-top: 1rem;
+    border-radius: .5rem;
+}
+
+.login_icon{
+    font-size: 1rem;
+    color: rgb(80, 92, 79);
+}
+
+
+.login_input{
+    background-color: rgb(210, 233, 209);
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: none;  
+}
+
+.login_input::placeholder{
+    font-family: 'poppins', sans-serif;
+
+}
+
+.login_forgot{
+    display: block;
+    width: max-content;
+    margin-left: auto;
+    margin-top: .5rem;
+    font-size: 12px;
+    font-weight: 600; 
+    text-decoration: none;
+    color: rgb(80, 92, 79);
+
+}
+
+.login_button{
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    margin: 2rem 0;
+    background-color: rgb(210, 233, 209);
+    font-weight: 600;
+    text-align: center;
+    border-radius: .5rem;
+    color: rgb(80, 92, 79);
+    transition: .3s;
+
+}
+
+.login_signin:hover, .login_forgot:hover, .login_button:hover, .login_signup:hover {
+    color: black;
+}
+
+.login_button:hover{
+    background-color: rgb(120, 151, 118);
+}
+
+.login_account{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    color: rgb(80, 92, 79);
+
+}
+.login_signin{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    color: rgb(213, 238, 210);
+    cursor: pointer;
+
+}
+.login_signup {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    color: rgb(219, 243, 217);
+    cursor: pointer;
+}
+
+
+.block{
+    display: block;
+
+}
+
+.none{
+    display: none;
+
+}
+
+
+ 
