@@ -5,6 +5,12 @@ var GameEnd = false;
 //This is a check for whether the custom game has been selected
 var Custom = false;
 
+function Start() {
+    //The created games are loaded for the user to answer
+    LoadQuestions();
+    CustomGame();
+}
+
 /*This is the function to start the game and hide the initial view*/
 function HideShow(Number, Value, Section, Label) {
     document.getElementById("PregameContent").style.display = "None";
@@ -38,6 +44,8 @@ function HideShowCustom() {
         document.getElementById("AnswerLabelCustom").textContent = "";
         //The first question value is shown
         document.getElementById("CustomNumber").textContent = ItemList[2];
+        newstring =  " " + "("+ItemList[1]+")";
+        document.getElementById("Type").textContent = newstring;
         UpdateClock();
     }
     else {
@@ -86,7 +94,7 @@ function HideShowLecturerOption() {
     while (x <= ItemList.length-1) {
         //It is repeated for the amount of questions there are -> Shows the existing data
         counter= counter+1;
-        $("#QuestionArea").append('<table class="Question"><tr><td colspan="3">Question Number '+ ItemList[x] +':</td></tr><tr><td>Type:</td><td>&nbsp;&nbsp;<select onchange="QuestionChange('+ItemList[x]+')" class="Conversion"><option>Binary to Decimal</option><option>Decimal to Binary</option><option>Hexadecimal to Decimal</option><option>Decimal to Hexadecimal</option></select><br> </td></tr><tr><td>Input:</td><td><input class="Input" value="'+ItemList[x+2]+'"></td><td class="InputExample">&nbsp;&nbsp;Example: 101010</td></tr><tr><td>Timer:</td><td><input type="number" min="1" max="120" class="Timer" value="'+ItemList[x+4]+'"></td><td class="TimerExample">&nbsp;&nbsp;Example: 23 seconds</td></tr><tr><td>Points:</td><td><input type="number" min="1" max="100" class="Points" value="'+ItemList[x+3]+'"></td><td class="PointExample">&nbsp;&nbsp;Example: 5 points</td></tr><tr><td colspan="3"><button id="QuestionSave" onclick="SaveQuestion('+ItemList[x]+')">Submit Button</button><button id="QuestionReset" onclick="ResetQuestion('+ItemList[x]+')">Reset Button</button><button id="QuestionDelete" onclick="DeleteQuestion('+ItemList[x]+')">Delete Last Button</button></td></tr></table>');
+        $("#QuestionArea").append('<table class="Question"><tr><td colspan="3">Question Number '+ ItemList[x] +':</td></tr><tr><td>Type:</td><td>&nbsp;&nbsp;<select onchange="QuestionChange('+ItemList[x]+')" class="Conversion"><option>Binary to Decimal</option><option>Decimal to Binary</option></select><br> </td></tr><tr><td>Input:</td><td><input class="Input" value="'+ItemList[x+2]+'"></td><td class="InputExample">&nbsp;&nbsp;Example: 101010</td></tr><tr><td>Timer:</td><td><input type="number" min="1" max="120" class="Timer" value="'+ItemList[x+4]+'"></td><td class="TimerExample">&nbsp;&nbsp;Example: 23 seconds</td></tr><tr><td>Points:</td><td><input type="number" min="1" max="100" class="Points" value="'+ItemList[x+3]+'"></td><td class="PointExample">&nbsp;&nbsp;Example: 5 points</td></tr><tr><td colspan="3"><button id="QuestionSave" onclick="SaveQuestion('+ItemList[x]+')">Submit Button</button><button id="QuestionReset" onclick="ResetQuestion('+ItemList[x]+')">Reset Button</button><button id="QuestionDelete" onclick="DeleteQuestion('+ItemList[x]+')">Delete Last Button</button></td></tr></table>');
         x = x+5;
     }
 }
@@ -188,7 +196,9 @@ function CheckNumberCustom(Number, Submission, Label) {
                 QuestionCount = QuestionCount + 5;
                 //If the game still has questions, the next question is shown
                 if (QuestionCount < ItemList.length) {
-                                document.getElementById("CustomNumber").textContent = ItemList[QuestionCount-2]    
+                    document.getElementById("CustomNumber").textContent = ItemList[QuestionCount-2]
+                    newstring =  " " + "("+ItemList[QuestionCount-3]+")";
+                    document.getElementById("Type").textContent = newstring;
                 }
                 else {
                 //If there are no questions left this area is run
@@ -341,7 +351,7 @@ var counter =0;
 function AddQuestion() {
     /*Show the number of questions here*/
     counter=counter+1;
-    $("#QuestionArea").append('<table class="Question"><tr><td colspan="3">Question Number '+ counter +':</td></tr><tr><td>Type:</td><td>&nbsp;&nbsp;<select onchange="QuestionChange('+counter+')" class="Conversion"><option>Binary to Decimal</option><option>Decimal to Binary</option><option>Hexadecimal to Decimal</option><option>Decimal to Hexadecimal</option></select><br> </td></tr><tr><td>Input:</td><td><input class="Input"></td><td class="InputExample">&nbsp;&nbsp;Example: 101010</td></tr><tr><td>Timer:</td><td><input type="number" min="1" max="120" class="Timer"></td><td class="TimerExample">&nbsp;&nbsp;Example: 23 seconds</td></tr><tr><td>Points:</td><td><input type="number" min="1" max="100" class="Points"></td><td class="PointExample">&nbsp;&nbsp;Example: 5 points</td></tr><tr><td colspan="3"><button id="QuestionSave" onclick="SaveQuestion('+counter+')">Submit Button</button><button id="QuestionReset" onclick="ResetQuestion('+counter+')">Reset Button</button><button id="QuestionDelete" onclick="DeleteQuestion('+counter+')">Delete Last Button</button></td></tr></table>');
+    $("#QuestionArea").append('<table class="Question"><tr><td colspan="3">Question Number '+ counter +':</td></tr><tr><td>Type:</td><td>&nbsp;&nbsp;<select onchange="QuestionChange('+counter+')" class="Conversion"><option>Binary to Decimal</option><option>Decimal to Binary</option></select><br> </td></tr><tr><td>Input:</td><td><input class="Input"></td><td class="InputExample">&nbsp;&nbsp;Example: 101010</td></tr><tr><td>Timer:</td><td><input type="number" min="1" max="120" class="Timer"></td><td class="TimerExample">&nbsp;&nbsp;Example: 23 seconds</td></tr><tr><td>Points:</td><td><input type="number" min="1" max="100" class="Points"></td><td class="PointExample">&nbsp;&nbsp;Example: 5 points</td></tr><tr><td colspan="3"><button id="QuestionSave" onclick="SaveQuestion('+counter+')">Submit Button</button><button id="QuestionReset" onclick="ResetQuestion('+counter+')">Reset Button</button><button id="QuestionDelete" onclick="DeleteQuestion('+counter+')">Delete Last Button</button></td></tr></table>');
 }
 
 /*This section is used to save a question, each entry must be valid*/

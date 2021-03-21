@@ -1,0 +1,7 @@
+Scoreboard Information:
+
+1. Need to work out the wrong answers number -> Could do this by having:
+    - An extra attribute in the submission table -> Potential Score -> Won't work for all of the games
+    - Have a student who has all of the game high scores and then compare against them
+2. Add a column to the leaderboard -> Points difference between users -> Easy to see the differences
+3. Might have to remove the wrong answers/correct answers section -> Unless all games used the same scoring system
