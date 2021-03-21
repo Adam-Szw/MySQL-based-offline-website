@@ -1,0 +1,3 @@
+In the meeting we discussed integration of website with spring project and security.
+It was established that we won't be able to complete all features because some members
+were forced to or stopped working on the project. Therefore, some user stories were scrapped.
