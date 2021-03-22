@@ -1,6 +1,6 @@
 body {
     font-family: 'Poppins', sans-serif;
-    background-color:rgba(252, 184, 58, 0.466);
+    background-color: rgb(218, 245, 207);
     overflow-x: hidden;
     padding-top: 0px;
     box-sizing: border-box;
@@ -44,22 +44,26 @@ body {
     padding-left: 8px;
   }
     .wrapper{
-      margin-left: 260px;
+      margin-left: 27%;
       margin-top: 20px;
       width: 1000px;  
+    }
+
+    .wrapper img {
+      margin-left: 7.5%;
     }
     
     .rows {
       display: grid;
       grid-template-columns: 10% 20% 14% 14% 14%;
-      column-gap: 2px;
+      column-gap: 8px;
       row-gap: 12px;
       margin-right:5px;
     }
     
     .rows > div {
       /*background-color: rgba(255, 217, 0, 0.785);*/
-      background-color: rgb(255, 217, 0);
+      background-color: rgb(192, 165, 13);
       height: 50px;
       text-align: center;
       display:flex;
@@ -68,7 +72,7 @@ body {
       font-size: 18px;
       padding: 6px;
       border-radius: 10px;
-      box-shadow: 0px 3px 5px red;
+      box-shadow: 0px 3px 5px rgb(145, 11, 11);
     
     }
     
@@ -85,7 +89,7 @@ body {
       border-radius: 4px;
       box-shadow: 0px 3px 5px #050505;
       position: absolute;
-      left: 380px;
+      left: 382px;
     }
     .scorePic{
     margin-right: 425px;
@@ -102,7 +106,7 @@ body {
       border-radius: 4px;
       box-shadow: 0px 3px 5px #050505;
       position: absolute;
-      left: 580px;
+      left: 588px;
     }
     #wrongPic{
       width: 35px;
@@ -110,7 +114,7 @@ body {
       border-radius: 4px;
       box-shadow: 0px 3px 5px #050505;
       position: absolute;
-      left: 720px; 
+      left: 736px; 
     }
     #scorePic{
       width: 35px;
@@ -118,19 +122,23 @@ body {
       border-radius: 4px;
       box-shadow: 0px 3px 5px #050505;
       position: absolute;
-      left: 860px; 
+      left: 884px; 
     }
     .extras {
       display: grid;
       grid-template-columns:10% 20% 14% 14% 14%;
-      column-gap: 2px;
+      column-gap: 8px;
       row-gap: 12px;
       margin-right:5px;
     }
     .extraWrapper{
-      margin-left: 260px;
+      margin-left: 27%;
       margin-top: 40px;
       width: 1000px; 
+    }
+
+    .extraWrapper img {
+      margin-left: 7.5%;
     }
     
     .extras > div {
@@ -144,18 +152,18 @@ body {
       font-size: 18px;
       padding: 6px;
       border-radius: 10px;
-      box-shadow: 0px 3px 5px red;
+      box-shadow: 0px 3px 5px rgb(145, 11, 11);
     
     }
     .topRow {
       display: grid;
       grid-template-columns:10% 20% 14% 14% 14%;
-      column-gap: 2px;
+      column-gap: 8px;
       row-gap: 12px;
       margin-right:5px;
     }
     .header{
-      margin-left: 260px; 
+       margin-left: 27%;
       width: 1000px; 
     }
     
@@ -170,14 +178,14 @@ body {
       font-size: 18px;
       padding: 6px;
       border-radius: 10px;
-      box-shadow: 0px 3px 5px red;
+      box-shadow: 0px 3px 5px rgb(145, 11, 11);
     }
     
     #ScoreboardPic{
       margin-left: 210px;
     }
     #SortByGames{
-     margin-left: 54%; 
+     margin-left: 50.5%; 
      margin-bottom: 7px;
     }
     .scoreFilter{
@@ -198,8 +206,23 @@ body {
     margin: 4px 2px;
     cursor: pointer;
     box-shadow: 0px 3px 5px black;
+    outline:none;
    }
    .scoreFilter > button:hover{
      background-color: rgb(98, 98, 158);
    }
   
+   select {
+    width: 120px;
+    padding: 5px 35px 5px 5px;
+    font-size: 16px;
+    border: 1px solid #CCC;
+    height: 34px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+#PrintOut {
+  float: right;
+}

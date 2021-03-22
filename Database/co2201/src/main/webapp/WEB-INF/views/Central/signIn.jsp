@@ -2,9 +2,9 @@
 <html lang = "en">
 <head>
     <title>Sign In Page</title>
-    <link rel="stylesheet" href="public/Central/central.css">
-    <link rel="icon" href="public/Central/Images/Signin.png">
-    <link rel="stylesheet" href="public/Central/signinStyle.css">
+    <link rel="stylesheet" href="../public/Central/central.css">
+    <link rel="icon" href="../public/Central/Images/Signin.png">
+    <link rel="stylesheet" href="../public/Central/SignIn/signIn.css">
     <script src="https://kit.fontawesome.com/ec00a021e5.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -109,7 +109,7 @@
 
 
 
-<script src="public/Central/signinJS.js"></script>
+<script src="../public/Central/SignIn/signIn.js"></script>
 
 
 </body>

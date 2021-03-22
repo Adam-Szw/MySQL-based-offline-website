@@ -3,12 +3,17 @@
 <head>
     <title>About</title>
     <link rel="stylesheet" href="public/Central/central.css">
+    <link rel="stylesheet" href="../public/Central/About/about.css">
     <link rel="icon" href="public/Central/Images/About.png">
+    <!--External fonts are used these are linked here-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
- <body style="background-color:grey;">
 <body>
-  <div class="sidenav">
-		<img id="SideBar" src="public/Central/Images/Signin.png"><a href="/signIn">Sign In</a>
+     <!--The sidenav contains all of the links to the other pages-->
+    <div class="sidenav">
+	  		<img id="SideBar" src="public/Central/Images/Signin.png"><a href="/signIn">Sign In</a>
 		<img id="SideBar" src="public/Central/Images/Games.png"><a href="/games">Games</a>
         <img id="SideBar" src="public/Central/Images/Profile.png"><a href="/profile">Profile</a>
         <img id="SideBar" src="public/Central/Images/Leaderboard.png"><a href="/scoreboard">Scoreboard</a>
@@ -18,101 +23,56 @@
 
 
     
-    <div class="header">
-  <h1>About us</h1>
-<p>This website aims to deliver
+<div class="TopBox" id="PageArea">
+<h1>About us</h1>
+<p id="ProjectAbout">This website aims to deliver
 educational games which help beginners to learn basic Computer Science concepts, starting at a
 basic level before moving on to more advanced concepts. It is also designed to support the department in identifying students who are at risk and require additional support.
 </p>
+
+<table>
+  <th colspan="3"><h2>Our Members</h2></th>
+  <tr>
+    <td>Jaynik Parsotomo</td>
+    <td>Adam Szwandziak</td>
+    <td>Oliver Gamble</td>
+  </tr>
+  <tr>
+    <td>Designer</td>
+    <td>Designer</td>
+    <td>Designer</td>
+  </tr>
+  <tr>
+    <td>jp539@student.le.ac.uk</td>
+    <td>aks60@student.le.ac.uk</td>
+    <td>og48@student.le.ac.uk</td>
+  </tr>
+  <tr>
+    <td><button class="button">Contact</button></td>
+    <td><button class="button">Contact</button></td>
+    <td><button class="button">Contact</button></td>
+  </tr>
+  <tr>
+    <td>Taranveer Singh</td>
+    <td>Umaid Ahmed</td>
+    <td>Reece Chidwick</td>
+  </tr>
+  <tr>
+    <td>Designer</td>
+    <td>Designer</td>
+    <td>Designer</td>
+  </tr>
+  <tr>
+    <td>ts365@student.le.ac.uk</td>
+    <td>ua36@student.le.ac.uk</td>
+    <td>rc451@student.le.ac.uk</td>
+  </tr>
+  <tr>
+    <td><button class="button">Contact</button></td>
+    <td><button class="button">Contact</button></td>
+    <td><button class="button">Contact</button></td>
+  </tr>
+</table>
 </div>
-
-<div class="row">
-  <div class="side">
-    <h2>Our Members</h2>
-  </div>
-
-
-<div class="row">
-  <div class="column">
-    <div class="card">
-      <div class="container">
-        <h2>Jaynik Parsotomo</h2>
-        <p>Designer</p>
-        <p>jp539@student.le.ac.uk</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="column">
-    <div class="card">
-      <div class="container">
-        <h2>Adam Szwandziak</h2>
-        <p>Designer</p>
-        <p>aks60@student.le.ac.uk</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-
-
-<div class="row">
-  <div class="column">
-    <div class="card">
-      <div class="container">
-        <h2>Oliver Gamble</h2>
-        <p>Designer</p>
-        <p>og48@student.le.ac.uk</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-<div class="column">
-    <div class="card">
-      <div class="container">
-        <h2>Taranveer Singh</h2>
-        <p>Designer</p>
-        <p>ts365@student.le.ac.uk</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="column">
-    <div class="card">
-      <div class="container">
-        <h2>Umaid Ahmed</h2>
-        <p>Designer</p>
-        <p>ua36@student.le.ac.uk</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-
-  
-  <div class="column">
-    <div class="card">
-      <div class="container">
-        <h2>Reece Chidwick</h2>
-        <p>Designer</p>
-        <p>rc451@student.le.ac.uk</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
- 
-
-</body>
-</html>
-
- 
-
 </body>
 </html>

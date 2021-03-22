@@ -2,9 +2,9 @@
 <html lang = "en">
 <head>
     <title>Profile</title>
-    <link rel="stylesheet" href="CentralHub/CentralHub_Styles.css">
-    <link rel="stylesheet" href="CentralHub/Profile_Styles.css">
-    <link rel="icon" href="">
+    <link rel="stylesheet" href="../public/Central/central.css">
+    <link rel="stylesheet" href="../public/Central/Profile/profile.css">
+    <link rel="icon" href="../public/Central/Profile/Profile.png">
     <script src="https://kit.fontawesome.com/ec00a021e5.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--External fonts are used these are linked here-->
@@ -179,7 +179,7 @@
         </div>
 
     </div>
-    <script src="profileMain.js"></script>
+    <script src="../public/Central/Profile/profile.js"></script>
     
 </body>
 </html>

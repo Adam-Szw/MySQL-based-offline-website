@@ -2,9 +2,9 @@
 <html lang = "en">
 <head>
     <title>Settings</title>
-    <link rel="stylesheet" href="CentralHub/Settings_Styles.css">
-    <link rel="stylesheet" href="CentralHub/CentralHub_Styles.css">
-    <link rel="icon" href="CentralHub/Images/Settings.png">
+    <link rel="stylesheet" href="../public/Central/Settings/settings.css">
+    <link rel="stylesheet" href="../public/Central/central.css">
+    <link rel="icon" href="../public/Central/Images/Settings.png">
     <!--External fonts are used these are linked here-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -43,7 +43,7 @@
 </head>
 <body>
     <div class="sidenav">
-		<img id="SideBar" src="public/Central/Images/Signin.png"><a href="/signIn">Sign In</a>
+	  		<img id="SideBar" src="public/Central/Images/Signin.png"><a href="/signIn">Sign In</a>
 		<img id="SideBar" src="public/Central/Images/Games.png"><a href="/games">Games</a>
         <img id="SideBar" src="public/Central/Images/Profile.png"><a href="/profile">Profile</a>
         <img id="SideBar" src="public/Central/Images/Leaderboard.png"><a href="/scoreboard">Scoreboard</a>
