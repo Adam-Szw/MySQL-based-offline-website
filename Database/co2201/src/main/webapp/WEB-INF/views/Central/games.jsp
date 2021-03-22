@@ -149,7 +149,7 @@
 <body>
     <!--The sidenav contains all of the links to the other pages-->
     <div class="sidenav">
-		<img id="SideBar" src="public/Central/Images/Signin.png"><a href="/signIn">Sign In</a>
+	  		<img id="SideBar" src="public/Central/Images/Signin.png"><a href="/signIn">Sign In</a>
 		<img id="SideBar" src="public/Central/Images/Games.png"><a href="/games">Games</a>
         <img id="SideBar" src="public/Central/Images/Profile.png"><a href="/profile">Profile</a>
         <img id="SideBar" src="public/Central/Images/Leaderboard.png"><a href="/scoreboard">Scoreboard</a>
@@ -184,26 +184,26 @@
     <!--The sorting works if the grid names are unique-->
     <div id="GameSort">
       <div class="grid-container">
-        <div class="grid-item"><div name="Fin"><a href="/Games/BitCrush"><img id="GameScreen" src="Images/cpu_full.png" alt="Bit Crush Game"/></a><br>BitCrush</div></div>
-        <div class="grid-item"><div name="NFin"><a href="../Games/BinaryBlitz/BinaryBlitz.html"><img id="GameScreen" src="Images/BinaryImage.jpg" alt="BinaryBlitz Game"/></a><br>BinaryBlitz</div></div>
-        <div class="grid-item"><div name="Fin"><a href="../Games/Stylezz/Stylezz.html"><img id="GameScreen" src="Images/CSS.png" alt="Stylezz Game"/></a><br>Stylezz</div></div>
-        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/Java.jpg" alt="Java" href=""><br>Java Game 1</div></div>
-        <div class="grid-item"><div name="NFin"><a href="../Games/PythonQuizGame/game.html"><img id="GameScreen" src="Images/Python.png" alt="Python Quiz"/></a><br>Python Quiz </div></div>
-        <div class="grid-item"><div name="Fin"><a href="../Games/CodeTracer/CodeTracer.html"><img id="GameScreen" src="Images/CodeTracer-logo.png" alt="CodeTracer Game"/></a><br>CodeTracer</div></div>
-        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/CSS.png" alt="CSS" href=""><br>CSS Game 2</div></div>
-        <div class="grid-item"><div name="NFin"><img id="GameScreen" src="Images/Java.jpg" alt="Java" href=""><br>Java Game 2</div></div>
-        <div class="grid-item"><div name="NFin"><img id="GameScreen" src="Images/Python.png" alt="Python" href=""><br>Python Game 2</div></div>
-        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/HTML.png" alt="HTML" href=""><br>HTML Game 3</div></div>
-        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/CSS.png" alt="CSS" href=""><br>CSS Game 3</div></div>
-        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/Java.jpg" alt="Java" href=""><br>Java Game 3</div></div>
-        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/Python.png" alt="Python" href=""><br>Python Game 3</div></div>
-        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/HTML.png" alt="HTML" href=""><br>HTML Game 4</div></div>
-        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/CSS.png" alt="CSS" href=""><br>CSS Game 4</div></div>
-        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/Java.jpg" alt="Java" href=""><br>Java Game 4</div></div>
-        <div class="grid-item"><div name="NFin"><img id="GameScreen" src="Images/Python.png" alt="Python" href=""><br>Python Game 4</div></div>
-        <div class="grid-item"><div name="NFin"><img id="GameScreen" src="Images/HTML.png" alt="HTML" href=""><br>HTML Game 5</div></div>
-        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/CSS.png" alt="CSS" href=""><br>CSS Game 5</div></div>
-        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="Images/Java.jpg" alt="Java" href=""><br>Java Game 5</div></div>
+        <div class="grid-item"><div name="Fin"><a href="/Games/BitCrush"><img id="GameScreen" src="public/Central/Images/cpu_full.png" alt="Bit Crush Game"/></a><br>BitCrush</div></div>
+        <div class="grid-item"><div name="NFin"><a href="/Games/BinaryBlitz"><img id="GameScreen" src="public/Central/Images/BinaryImage.jpg" alt="BinaryBlitz Game"/></a><br>BinaryBlitz</div></div>
+        <div class="grid-item"><div name="Fin"><a href="../Games/Stylezz"><img id="GameScreen" src="public/Central/Images/CSS.png" alt="Stylezz Game"/></a><br>Stylezz</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="public/Central/Images/Java.jpg" alt="Java" href=""><br>Java Game 1</div></div>
+        <div class="grid-item"><div name="NFin"><a href="../Games/PythonQuizGame"><img id="GameScreen" src="public/Central/Images/Python.png" alt="Python Quiz"/></a><br>Python Quiz </div></div>
+        <div class="grid-item"><div name="Fin"><a href="../Games/CodeTracer"><img id="GameScreen" src="public/Central/Images/CodeTracer-logo.png" alt="CodeTracer Game"/></a><br>CoderTracer Python Ver.</div></div>
+        <div class="grid-item"><div name="Fin"><a href="../Games/CodeTracer"><img id="GameScreen" src="public/Central/Images/CodeTracer-logo.png" alt="CodeTracer Java Game"/></a><br>CoderTracer Java Ver.</div></div>
+        <div class="grid-item"><div name="NFin"><img id="GameScreen" src="public/Central/Images/Java.jpg" alt="Java" href=""><br>Java Game 2</div></div>
+        <div class="grid-item"><div name="NFin"><img id="GameScreen" src="public/Central/Images/Python.png" alt="Python" href=""><br>Python Game 2</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="public/Central/Images/HTML.png" alt="HTML" href=""><br>HTML Game 3</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="public/Central/Images/CSS.png" alt="CSS" href=""><br>CSS Game 3</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="public/Central/Images/Java.jpg" alt="Java" href=""><br>Java Game 3</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="public/Central/Images/Python.png" alt="Python" href=""><br>Python Game 3</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="public/Central/Images/HTML.png" alt="HTML" href=""><br>HTML Game 4</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="public/Central/Images/CSS.png" alt="CSS" href=""><br>CSS Game 4</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="public/Central/Images/Java.jpg" alt="Java" href=""><br>Java Game 4</div></div>
+        <div class="grid-item"><div name="NFin"><img id="GameScreen" src="public/Central/Images/Python.png" alt="Python" href=""><br>Python Game 4</div></div>
+        <div class="grid-item"><div name="NFin"><img id="GameScreen" src="public/Central/Images/HTML.png" alt="HTML" href=""><br>HTML Game 5</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="public/Central/Images/CSS.png" alt="CSS" href=""><br>CSS Game 5</div></div>
+        <div class="grid-item"><div name="Fin"><img id="GameScreen" src="public/Central/Images/Java.jpg" alt="Java" href=""><br>Java Game 5</div></div>
       </div>
     </div>
   </div>

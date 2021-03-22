@@ -61,5 +61,4 @@ public class HubController {
 	{	
 		return "Games/BinaryBlitz/BinaryBlitz";
 	}
-	
 }

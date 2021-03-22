@@ -8,11 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -87,5 +86,16 @@ public class GamesController {
 		return ReturnQuestions;
 	}
 	
+	//This section of the program is to delete a question
+		@RequestMapping(value="/games/BinaryBlitz/{id}", method= RequestMethod.DELETE)
+		public ResponseEntity<?> deleteQuestion(@PathVariable Integer id) {
+			//If the question exists it is deleted
+			Question question = questionRepo.findById(id).orElse(null);
+			if (question == null) {
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			}
+			questionRepo.delete(question);
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
 	
 }

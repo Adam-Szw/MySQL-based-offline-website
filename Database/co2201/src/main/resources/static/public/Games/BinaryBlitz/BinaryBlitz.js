@@ -5,6 +5,12 @@ var GameEnd = false;
 //This is a check for whether the custom game has been selected
 var Custom = false;
 
+function Start() {
+    //The created games are loaded for the user to answer
+    LoadQuestions();
+    CustomGame();
+}
+
 /*This is the function to start the game and hide the initial view*/
 function HideShow(Number, Value, Section, Label) {
     document.getElementById("PregameContent").style.display = "None";
@@ -23,21 +29,28 @@ function HideShowCustom() {
     LoadQuestions();
     CustomGame();
     if (ItemList.length != 0) {
-        //Logon the player
-        const Http = new XMLHttpRequest();
-        const url='http://localhost:8080/Login';
-        Http.open("GET", url);
-        Http.send();
-        //The player details are saved into this variable
-        Http.onreadystatechange = (e) => {
-        loggedPlayerId = Http.responseText;
-        }
+       //Logon the player
+		const Http = new XMLHttpRequest('GET');
+		const url='/games/userId';
+		Http.open("GET", url);
+		Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+		Http.setRequestHeader("Access-Control-Allow-Origin", "*");
+		Http.send();
+	
+		Http.onreadystatechange = (e) => {
+		  loggedPlayerId = Http.responseText;
+		}
+		
+		console.log(loggedPlayerId.toString());
+		console.log("test");
         //The pregame content is hidden and the custom game UI is shown
         document.getElementById("PregameContent").style.display = "None";
         document.getElementById("CustomGameDiv").style.display = "Block"
         document.getElementById("AnswerLabelCustom").textContent = "";
         //The first question value is shown
         document.getElementById("CustomNumber").textContent = ItemList[2];
+        newstring =  " " + "("+ItemList[1]+")";
+        document.getElementById("Type").textContent = newstring;
         UpdateClock();
     }
     else {
@@ -86,7 +99,7 @@ function HideShowLecturerOption() {
     while (x <= ItemList.length-1) {
         //It is repeated for the amount of questions there are -> Shows the existing data
         counter= counter+1;
-        $("#QuestionArea").append('<table class="Question"><tr><td colspan="3">Question Number '+ ItemList[x] +':</td></tr><tr><td>Type:</td><td>&nbsp;&nbsp;<select onchange="QuestionChange('+ItemList[x]+')" class="Conversion"><option>Binary to Decimal</option><option>Decimal to Binary</option><option>Hexadecimal to Decimal</option><option>Decimal to Hexadecimal</option></select><br> </td></tr><tr><td>Input:</td><td><input class="Input" value="'+ItemList[x+2]+'"></td><td class="InputExample">&nbsp;&nbsp;Example: 101010</td></tr><tr><td>Timer:</td><td><input type="number" min="1" max="120" class="Timer" value="'+ItemList[x+4]+'"></td><td class="TimerExample">&nbsp;&nbsp;Example: 23 seconds</td></tr><tr><td>Points:</td><td><input type="number" min="1" max="100" class="Points" value="'+ItemList[x+3]+'"></td><td class="PointExample">&nbsp;&nbsp;Example: 5 points</td></tr><tr><td colspan="3"><button id="QuestionSave" onclick="SaveQuestion('+ItemList[x]+')">Submit Button</button><button id="QuestionReset" onclick="ResetQuestion('+ItemList[x]+')">Reset Button</button><button id="QuestionDelete" onclick="DeleteQuestion('+ItemList[x]+')">Delete Last Button</button></td></tr></table>');
+        $("#QuestionArea").append('<table class="Question"><tr><td colspan="3">Question Number '+ ItemList[x] +':</td></tr><tr><td>Type:</td><td>&nbsp;&nbsp;<select onchange="QuestionChange('+ItemList[x]+')" class="Conversion"><option>Binary to Decimal</option><option>Decimal to Binary</option></select><br> </td></tr><tr><td>Input:</td><td><input class="Input" value="'+ItemList[x+2]+'"></td><td class="InputExample">&nbsp;&nbsp;Example: 101010</td></tr><tr><td>Timer:</td><td><input type="number" min="1" max="120" class="Timer" value="'+ItemList[x+4]+'"></td><td class="TimerExample">&nbsp;&nbsp;Example: 23 seconds</td></tr><tr><td>Points:</td><td><input type="number" min="1" max="100" class="Points" value="'+ItemList[x+3]+'"></td><td class="PointExample">&nbsp;&nbsp;Example: 5 points</td></tr><tr><td colspan="3"><button id="QuestionSave" onclick="SaveQuestion('+ItemList[x]+')">Submit Button</button><button id="QuestionReset" onclick="ResetQuestion('+ItemList[x]+')">Reset Button</button><button id="QuestionDelete" onclick="DeleteQuestion('+ItemList[x]+')">Delete Last Button</button></td></tr></table>');
         x = x+5;
     }
 }
@@ -188,7 +201,9 @@ function CheckNumberCustom(Number, Submission, Label) {
                 QuestionCount = QuestionCount + 5;
                 //If the game still has questions, the next question is shown
                 if (QuestionCount < ItemList.length) {
-                                document.getElementById("CustomNumber").textContent = ItemList[QuestionCount-2]    
+                    document.getElementById("CustomNumber").textContent = ItemList[QuestionCount-2]
+                    newstring =  " " + "("+ItemList[QuestionCount-3]+")";
+                    document.getElementById("Type").textContent = newstring;
                 }
                 else {
                 //If there are no questions left this area is run
@@ -197,8 +212,6 @@ function CheckNumberCustom(Number, Submission, Label) {
                     document.getElementById("CustomGameDiv").style.display = "None"
                     document.getElementById("EndGameDiv").style.display = "Block"
                     document.getElementById("FinalScore").textContent = UserScore;
-                    //The score is saved at the end of the game
-                    SaveGame("BinaryBlitz")
                 }
             }
             else {
@@ -341,7 +354,7 @@ var counter =0;
 function AddQuestion() {
     /*Show the number of questions here*/
     counter=counter+1;
-    $("#QuestionArea").append('<table class="Question"><tr><td colspan="3">Question Number '+ counter +':</td></tr><tr><td>Type:</td><td>&nbsp;&nbsp;<select onchange="QuestionChange('+counter+')" class="Conversion"><option>Binary to Decimal</option><option>Decimal to Binary</option><option>Hexadecimal to Decimal</option><option>Decimal to Hexadecimal</option></select><br> </td></tr><tr><td>Input:</td><td><input class="Input"></td><td class="InputExample">&nbsp;&nbsp;Example: 101010</td></tr><tr><td>Timer:</td><td><input type="number" min="1" max="120" class="Timer"></td><td class="TimerExample">&nbsp;&nbsp;Example: 23 seconds</td></tr><tr><td>Points:</td><td><input type="number" min="1" max="100" class="Points"></td><td class="PointExample">&nbsp;&nbsp;Example: 5 points</td></tr><tr><td colspan="3"><button id="QuestionSave" onclick="SaveQuestion('+counter+')">Submit Button</button><button id="QuestionReset" onclick="ResetQuestion('+counter+')">Reset Button</button><button id="QuestionDelete" onclick="DeleteQuestion('+counter+')">Delete Last Button</button></td></tr></table>');
+    $("#QuestionArea").append('<table class="Question"><tr><td colspan="3">Question Number '+ counter +':</td></tr><tr><td>Type:</td><td>&nbsp;&nbsp;<select onchange="QuestionChange('+counter+')" class="Conversion"><option>Binary to Decimal</option><option>Decimal to Binary</option></select><br> </td></tr><tr><td>Input:</td><td><input class="Input"></td><td class="InputExample">&nbsp;&nbsp;Example: 101010</td></tr><tr><td>Timer:</td><td><input type="number" min="1" max="120" class="Timer"></td><td class="TimerExample">&nbsp;&nbsp;Example: 23 seconds</td></tr><tr><td>Points:</td><td><input type="number" min="1" max="100" class="Points"></td><td class="PointExample">&nbsp;&nbsp;Example: 5 points</td></tr><tr><td colspan="3"><button id="QuestionSave" onclick="SaveQuestion('+counter+')">Submit Button</button><button id="QuestionReset" onclick="ResetQuestion('+counter+')">Reset Button</button><button id="QuestionDelete" onclick="DeleteQuestion('+counter+')">Delete Last Button</button></td></tr></table>');
 }
 
 /*This section is used to save a question, each entry must be valid*/
@@ -433,8 +446,10 @@ function DeleteQuestion(ItemNumber) {
     DeleteObject.remove();
     //The XML request is created to delete the question
     const Sender = new XMLHttpRequest();
-	const url='http://localhost:8080/games/BinaryBlitz/'+counter
+	const url='/games/BinaryBlitz/'+counter
 	Sender.open("DELETE", url);
+	Sender.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	Sender.setRequestHeader("Access-Control-Allow-Origin", "*");
 	Sender.send();
     counter = counter-1;
 }
@@ -443,7 +458,7 @@ function UploadQuestion(choice, input, points, timer) {
     if (counter > ItemList.length/5 | (counter ==0 & ItemList.length==0)) {
         //If the question isn't being updated this piece of code is run
         const Sender = new XMLHttpRequest();
-        const urlB='http://localhost:8080/games/BinaryBlitz?QuestionID=' + counter +'&Points='+points+'&Time='+timer+'&Input='+input+'&Type='+choice;
+        const urlB='/games/BinaryBlitz?QuestionID=' + counter +'&Points='+points+'&Time='+timer+'&Input='+input+'&Type='+choice;
         Sender.open("GET", urlB);
         Sender.send();
     }
@@ -451,13 +466,16 @@ function UploadQuestion(choice, input, points, timer) {
         //If the question counter already exists
         //The old question is deleted
         const Sender2 = new XMLHttpRequest();
-        const url='http://localhost:8080/games/BinaryBlitz/'+counter
+        const url='/games/BinaryBlitz/'+counter
         Sender2.open("DELETE", url);
+       	Sender2.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+		Sender2.setRequestHeader("Access-Control-Allow-Origin", "*");
         Sender2.send();
         //Then the question is added
         const Sender = new XMLHttpRequest();
-        const urlB='http://localhost:8080/games/BinaryBlitz?QuestionID=' + counter +'&Points='+points+'&Time='+timer+'&Input='+input+'&Type='+choice;
+        const urlB='/games/BinaryBlitz?QuestionID=' + counter +'&Points='+points+'&Time='+timer+'&Input='+input+'&Type='+choice;
         Sender.open("GET", urlB);
+
         Sender.send();
     }
 }
@@ -468,7 +486,7 @@ var Questions = new Array();
 function LoadQuestions() {
         //The XML is created and the url is defined
         const xhttp = new XMLHttpRequest();
-        var url2='http://localhost:8080/games/BinaryBlitz/custom';
+        var url2='/games/BinaryBlitz/custom';
         //The request is sent
         xhttp.open("GET", url2); 
         xhttp.send();
@@ -481,7 +499,9 @@ function LoadQuestions() {
 //This function saves the user score to the db
 function SaveGame(type) {
     const Http = new XMLHttpRequest();
-    const url='http://localhost:8080/games/BinaryBlitz/saveScore?playerId='+(loggedPlayerId).toString()+'&gameName='+type+'&gameScore='+(UserScore).toString();
+    const url='/games/save?userId='+(loggedPlayerId).toString()+'&gameName='+type+'&gameScore='+(UserScore).toString();
     Http.open("GET", url);
+    	Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	Http.setRequestHeader("Access-Control-Allow-Origin", "*");
     Http.send();
 }

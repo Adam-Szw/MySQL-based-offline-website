@@ -2,11 +2,11 @@
 <html lang = "en">
 <head>
     <title>BinaryBlitz</title>
-    <link rel="stylesheet" href="../../Central Hub/CentralHub_Styles.css">
-    <link rel="stylesheet" href="BinaryBlitz.css">
-	<link rel="stylesheet" href="../GamesStyles.css">
-    <script src = "BinaryBlitz.js"></script>
-    <link rel="icon" href="../../Central Hub/Images/Games.png">
+    <link rel="stylesheet" href="../public/Central/central.css">
+    <link rel="stylesheet" href="../public/Games/BinaryBlitz/BinaryBlitz.css">
+	<link rel="stylesheet" href="../public/Games/games.css">
+    <script src = "../public/Games/BinaryBlitz/BinaryBlitz.js"></script>
+    <link rel="icon" href="../Central/Images/Games.png">
     <!--This is the link that takes the user to the top of the page-->
     <a href="#" id="back-to-top" class="back-to-top" style="display: inline;">^</a>
     <!--External fonts are used these are linked here-->
@@ -42,12 +42,12 @@
 <body onload="Start()">
     <!--Sidebar code-->
     <div class="sidenav">
-		<img id="SideBar" src="../../Central Hub/Images/Signin.png"><a href="../../Central Hub/signin.html">Sign In</a>
-        <img id="SideBar" src="../../Central Hub/Images/Games.png"><a href="../../Central Hub/games.html">Games</a>
-        <img id="SideBar" src="../../Central Hub/Images/Profile.png"><a href="../../Central Hub/profile.html">Profile</a>
-        <img id="SideBar" src="../../Central Hub/Images/Leaderboard.png"><a href="../../Central Hub/scoreboard.html">Scoreboard</a>
-        <img id="SideBar" src="../../Central Hub/Images/Settings.png"><a href="../../Central Hub/settings.html">Settings</a>
-        <img id="SideBar" src="../../Central Hub/Images/About.png"><a href="../../Central Hub/about.html">About</a>
+		 		<img id="SideBar" src="../public/Central/Images/Signin.png"><a href="/signIn">Sign In</a>
+		<img id="SideBar" src="../public/Central/Images/Games.png"><a href="/games">Games</a>
+        <img id="SideBar" src="../public/Central/Images/Profile.png"><a href="/profile">Profile</a>
+        <img id="SideBar" src="../public/Central/Images/Leaderboard.png"><a href="/scoreboard">Scoreboard</a>
+        <img id="SideBar" src="../public/Central/Images/Settings.png"><a href="/settings">Settings</a>
+        <img id="SideBar" src="../public/Central/Images/About.png"><a href="/about">About</a>
     </div>
     <!--Return to the home page button-->
     <div id="TopBox">
@@ -60,11 +60,11 @@
 	</div>
     <!--The game title, score and the timer components-->
 	<div id="TopBox">
-        <div id="TitleDiv"><img id="Icon" onclick="ResetPage()" src="Images/BinaryBlitzIcon.png"><label id="Title">BinaryBlitz</label></div>
+        <div id="TitleDiv"><img id="Icon" onclick="ResetPage()" src="../public/Games/BinaryBlitz/Images/BinaryBlitzIcon.png"><label id="Title">BinaryBlitz</label></div>
 		<div id="ScoreDiv"><label>Score: <label id="UserScore">0</label></label></div>
         <div id="TimerDiv"><label>Time Left: </label><label id="GameTimer">180</label></div>
 	</div>
-    <!--The pregame area-->
+      <!--The pregame area-->
 	<div class="TopBox" id="Game">
         <div id="PregameContent">
         <label id="DifficultyLabel">Please select a difficulty:</label><br>
@@ -101,7 +101,7 @@
             <label id="TimeLeftEasy" class="TimeLeft">Three minutes left!</label>
             <p id="EasyGameContent">You have selected the easy difficulty... Good Luck!<br>
                 These questions will feature 4 bit binary conversions<br>
-                <label id="QuestionLabel">Convert <label id="EasyNumber"></label> to Decimal:</label><br>
+                <label class="QuestionLabel">Convert <label id="EasyNumber"></label> to Decimal:</label><br>
                 Enter your answer here:  <input id="SubmissionEasy"><button id="SubmitButton" onclick="CheckNumber('EasyNumber','SubmissionEasy','AnswerLabelEasy',4,1)">Submit</button>
                 <label id="AnswerLabelEasy" class="AnswerLabel">Correct Answer</label><br>
                 <button id="HelpButton" onclick="ShowHelp('HelpContentEasy')">Help?</button>
@@ -121,7 +121,7 @@
             <label id="TimeLeftMedium" class="TimeLeft">Three minutes left!</label>
             <p id="MediumGameContent">You have selected the medium difficulty... Good Luck!<br>
                 These questions will feature 8 bit binary conversions<br>
-                <label id="QuestionLabel">Convert <label id="MediumNumber">Place</label> to Decimal:</label><br>
+                <label class="QuestionLabel">Convert <label id="MediumNumber">Place</label> to Decimal:</label><br>
                 Enter your answer here:  <input id="SubmissionMedium"><button id="SubmitButton" onclick="CheckNumber('MediumNumber','SubmissionMedium','AnswerLabelMedium',8,3)">Submit</button>
                 <label id="AnswerLabelMedium" class="AnswerLabel">Correct Answer</label><br>
                 <button id="HelpButton" onclick="ShowHelp('HelpContentMedium')">Help?</button>
@@ -145,7 +145,7 @@
             <label id="TimeLeftHard" class="TimeLeft">Three minutes left!</label>
             <p id="HardGameContent">You have selected the hard difficulty... Good Luck!<br>
                 These questions will feature 12 bit binary conversions<br>
-                <label id="QuestionLabel">Convert <label id="HardNumber"></label> to Decimal:</label><br>
+                <label class="QuestionLabel">Convert <label id="HardNumber"></label> to Decimal:</label><br>
                 Enter your answer here:  <input id="SubmissionHard"><button id="SubmitButton" onclick="CheckNumber('HardNumber','SubmissionHard','AnswerLabelHard',12,10)">Submit</button>
                 <label id="AnswerLabelHard" class="AnswerLabel">Correct Answer</label><br>
                 <button id="HelpButton" onclick="ShowHelp('HelpContentHard')">Help?</button>
@@ -172,7 +172,7 @@
         <div id="CustomGameDiv">
             <p id="CustomGameContent">You have selected the custom game mode... Good Luck!<br>
                 These questions will feature an assortment of conversions created by the lecturer<br>
-                <label id="QuestionLabel">Convert <label id="CustomNumber"></label></label><br>
+                <label class="QuestionLabel" id="CustomQuestionLabel">Convert <label id="CustomNumber"></label></label><label id="Type"></label><br>
                 Enter your answer here: <input id="SubmissionCustom"><button id="SubmitButton" onclick="CustomGameNumber()">Submit</button>
                 <label id="AnswerLabelCustom" class="AnswerLabel">Correct Answer</label><br>
             </p>
