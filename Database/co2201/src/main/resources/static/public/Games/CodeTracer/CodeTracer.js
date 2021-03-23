@@ -1,6 +1,5 @@
-/*Stores the Python Questions*/
 var pythonQuestions = [
-    ["Which program outputs the greeting?","../public/Games/CodeTracer/img/name_correct.png","name_space.png","name_var.png"],
+    ["Which program outputs the greeting?","name_correct.png","name_space.png","name_var.png"],
     ["Which code finds the sum of the array?","sumArray_correct.png","sumArray_one.png","sumArray_print.png"],
     ["Which code has an error?","found_correct.png","found_for.png","found_while.png"],
     ["Which code correctly outputs the fibonacci sequence?","fibo-correct.png","fibo-0.png","fibo-1.png"],
@@ -14,7 +13,7 @@ var pythonQuestions = [
     ["Given the file dog_breeds.txt what is the correct way to open the file for reading?","fileReader-correct.png","fileReader-rb.png","fileReader-w.png"],
     ["Which code snippet will output the all items and a done?","while-correct.png","while-done.png","while-list.png"],
     ["Which of the following codes output 3 items?","threei-correct.png","threei-pull.png","threei-push.png"],
-    ["Which of the following codes outpts 3foo3bar1foo1bar?","soutput-correct.png","soutput-pop.png","soutput-equal.png"]
+    ["Which of the following codes outputs 3foo3bar1foo1bar?","soutput-correct.png","soutput-pop.png","soutput-equal.png"]
     ];
     
     /*Stores the Java Questions*/
@@ -114,7 +113,7 @@ var pythonQuestions = [
         displayQuestion();
     
        
-    /*Function used to disply the questions and options for the user to see and select*/
+    /*Function used to display the questions and options for the user to see and select*/
         function displayQuestion(){
             var rnd=Math.random()*3;
             rnd=Math.ceil(rnd);
@@ -129,7 +128,7 @@ var pythonQuestions = [
     
             $(stage).html('<div id="tracker">'+counter+'/'+numberOfQuestions+'</div>');
           
-            $(stage).append('<div  class="questionText">'+questionBank[questionNumber][0]+'</div><div id="1" class="pix"><img src="img/'+q1+'"></div><div id="2" class="pix"><img src="img/'+q2+'"></div><div id="3" class="pix"><img src="img/'+q3+'"></div>');
+            $(stage).append('<div  class="questionText">'+questionBank[questionNumber][0]+'</div><div id="1" class="pix"><img src="../public/Games/CodeTracer/img/'+q1+'"></div><div id="2" class="pix"><img src="../public/Games/CodeTracer/img/'+q2+'"></div><div id="3" class="pix"><img src="../public/Games/CodeTracer/img/'+q3+'"></div>');
                 
            
             
@@ -161,7 +160,7 @@ var pythonQuestions = [
             $(stage).animate({"right": "+=800px"},"slow", function() {questionLock=false;});
         }//change question
     /*
-    Function used to display the users score and paly again button
+    Function used to display the users score and play again button
     Stores the user score here
     */
         function displayFinalSlide(){
