@@ -2,11 +2,11 @@
 <html lang = "en">
 <head>
 	<title>Stylezz</title>
-    <link rel="stylesheet" href="../../Central Hub/CentralHub_Styles.css">
-    <link rel="stylesheet" href="Stylezz.css">
-	<link rel="stylesheet" href="../GamesStyles.css">
-	<link rel="icon" href="../../Central Hub/Images/Games.png">
-    <script src = "Stylezz.js"></script>
+	<link rel="stylesheet" href="../public/Central/Stylezz/Stylezz.css">
+	<link rel="stylesheet" href="../public/Central/central.css">
+	<link rel="stylesheet" href="../public/Games/games.css">
+    <script src = "../public/Games/Stylezz/Stylezz.js"></script>
+    <link rel="icon" href="../public/Central/Images/Games.png">
 	<!--External fonts are used these are linked here-->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -14,12 +14,12 @@
 </head>
 <body>
     <div class="sidenav">
-		<img id="SideBar" src="../../Central Hub/Images/Signin.png"><a href="../../Central Hub/signin.html">Sign In</a>
-        <img id="SideBar" src="../../Central Hub/Images/Games.png"><a href="../../Central Hub/games.html">Games</a>
-        <img id="SideBar" src="../../Central Hub/Images/Profile.png"><a href="../../Central Hub/profile.html">Profile</a>
-        <img id="SideBar" src="../../Central Hub/Images/Leaderboard.png"><a href="../../Central Hub/scoreboard.html">Scoreboard</a>
-        <img id="SideBar" src="../../Central Hub/Images/Settings.png"><a href="../../Central Hub/settings.html">Settings</a>
-        <img id="SideBar" src="../../Central Hub/Images/About.png"><a href="../../Central Hub/about.html">About</a>
+		 		<img id="SideBar" src="../public/Central/Images/Signin.png"><a href="/signIn">Sign In</a>
+		<img id="SideBar" src="../public/Central/Images/Games.png"><a href="/games">Games</a>
+        <img id="SideBar" src="../public/Central/Images/Profile.png"><a href="/profile">Profile</a>
+        <img id="SideBar" src="../public/Central/Images/Leaderboard.png"><a href="/scoreboard">Scoreboard</a>
+        <img id="SideBar" src="../public/Central/Images/Settings.png"><a href="/settings">Settings</a>
+        <img id="SideBar" src="../public/Central/Images/About.png"><a href="/about">About</a>
     </div>
 	<div id="TopBox">
 		<button id="BackButton" onclick="goBack()">Go Back</button>

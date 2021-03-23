@@ -189,8 +189,8 @@
         <div class="grid-item"><div name="Fin"><a href="../Games/Stylezz"><img id="GameScreen" src="public/Central/Images/CSS.png" alt="Stylezz Game"/></a><br>Stylezz</div></div>
         <div class="grid-item"><div name="Fin"><img id="GameScreen" src="public/Central/Images/Java.jpg" alt="Java" href=""><br>Java Game 1</div></div>
         <div class="grid-item"><div name="NFin"><a href="../Games/PythonQuizGame"><img id="GameScreen" src="public/Central/Images/Python.png" alt="Python Quiz"/></a><br>Python Quiz </div></div>
-        <div class="grid-item"><div name="Fin"><a href="../Games/CodeTracer"><img id="GameScreen" src="public/Central/Images/CodeTracer-logo.png" alt="CodeTracer Game"/></a><br>CoderTracer Python Ver.</div></div>
-        <div class="grid-item"><div name="Fin"><a href="../Games/CodeTracer"><img id="GameScreen" src="public/Central/Images/CodeTracer-logo.png" alt="CodeTracer Java Game"/></a><br>CoderTracer Java Ver.</div></div>
+        <div class="grid-item"><div name="Fin"><a href="../Games/CodeTracerPython"><img id="GameScreen" src="public/Central/Images/CodeTracer-logo.png" alt="CodeTracer: Python"/></a><br>CodeTracer: Python Edition</div></div>
+        <div class="grid-item"><div name="Fin"><a href="../Games/CodeTracerJava"><img id="GameScreen" src="public/Central/Images/CodeTracer-logo.png" alt="CodeTracer: Java"/></a><br>CodeTracer: Java Edition</div></div>
         <div class="grid-item"><div name="NFin"><img id="GameScreen" src="public/Central/Images/Java.jpg" alt="Java" href=""><br>Java Game 2</div></div>
         <div class="grid-item"><div name="NFin"><img id="GameScreen" src="public/Central/Images/Python.png" alt="Python" href=""><br>Python Game 2</div></div>
         <div class="grid-item"><div name="Fin"><img id="GameScreen" src="public/Central/Images/HTML.png" alt="HTML" href=""><br>HTML Game 3</div></div>

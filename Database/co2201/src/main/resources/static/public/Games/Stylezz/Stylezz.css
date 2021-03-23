@@ -4,7 +4,7 @@
 }
 
 .GameBox {
-	float: up;
+	/*float: up;*/
 	display: inline-block;
 	position: relative;
 	width: 100%;

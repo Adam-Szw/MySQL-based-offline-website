@@ -7,32 +7,35 @@ html{
        
 }
 
+button {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    border: 0;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0px 3px 5px #4b4a4a;
+    margin-right: 5px;
+    outline: none;
+    cursor:pointer;
+}
+
+#BackButton {
+    position: relative;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    font-size: 25px;
+}
+
 .ct-bdy{
     margin: 0;
 	padding: 0;
 	font-family: 'poppins', sans-serif;
 }
 
-.backBtn{
-    margin-top: 10px;
-    margin-right: 10px;
-    float: right;
-}
-
-#BackButton{
-    background-color: #daf5cf;
-    width: 200px;
-    height: 50px;
-    font-family: 'poppins', sans-serif;
-    text-align: center;
-    font-weight: 700;
-    display: block;
-    margin-bottom: 10px;
-}
-
-#BackButton:hover{
-    background-color: rgb(72, 148, 43);
-}
 
 .gameMenu{
     margin: 0;
@@ -46,15 +49,27 @@ html{
 
 #instructions{
     text-align: center;
-    font-size: 14px;
+    font-size: 18px;
     color:rgb(114, 135, 22);
+    margin-bottom: 350px;
+    
 }
 
 #instructions em{
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 700;
     color:rgb(25, 94, 39);
+}
+
+.center-buttons{
+    margin: 0;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+                  
 }
 
 #pyBtn{
@@ -66,7 +81,9 @@ html{
     text-align: center;
     font-weight: 700;
     margin-bottom: 50px;
-    display: block; 
+    display: block;
+  
+  
 }
 #pyBtn:hover{
     background-color: rgb(59, 79, 225);
@@ -80,7 +97,9 @@ html{
     font-family: 'poppins', sans-serif;
     text-align: center;
     font-weight: 700;
-    display: block; 
+    display: block;
+
+  
 }
 #javaBtn:hover{
     background-color: rgb(237, 62, 62);
@@ -88,24 +107,22 @@ html{
 
 
 .grid {
-    width: 1000px;
-    height: 700px;
+    width: 100%;
+    height: 800px;
     background-color: #daf5cf;
     padding: 0px 0px 5px 0px;
     border: 3px solid #4d9d50;
-    overflow: hidden;
+    overflow: auto;
     box-sizing: border-box;
     display:list-item;
-    position: fixed;
-    margin-top: -350px;
-    margin-left: -500px;
-    top: 50%;
-    left: 50%;
+    position: relative;
     box-shadow: 0px 9px 10px #4b4a4a;
+    margin-top: 20px;
+  
 }
 
 #navContent{
-    width:900px;
+    width:100%;
     height:600px;
     position:relative;
     box-sizing: border-box;
@@ -120,7 +137,7 @@ html{
 
 #game1{
     margin:auto;
-    width:800px;
+    width:100%;
     height:400px;
     right:0px;
     position:absolute;
@@ -131,7 +148,7 @@ html{
 
 #game2{
     margin:auto;	
-    width:800px;
+    width:100%;
     height:400px;
     right:-800px;
     position:absolute;
@@ -147,12 +164,14 @@ html{
     color:#ffffff;
     box-sizing: border-box;
     text-shadow: -1px -1px 1px #111, 2px 2px 1px #363636;
+    width: 100%;
+    align-items: center;
 }
 
 
 
 .pix{
-    margin:15px;
+    margin:25px;
     float:left;
     border: 0 solid;
     box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
@@ -225,8 +244,9 @@ html{
     font-family: 'poppins', sans-serif;
     text-align:center;
     position:absolute;
-    top:170px;
     box-sizing: border-box;
+    left: 0;
+    bottom: 0;
    
 }
 
@@ -239,8 +259,9 @@ html{
     font-family: 'poppins', sans-serif;
     text-align:center;
     position:absolute;
-    top:170px;
     box-sizing: border-box;
+    left: 0;
+    bottom: 0;
    
 }
 
@@ -255,8 +276,8 @@ html{
     top:170px;
     box-sizing: border-box;
     font-family: 'poppins', sans-serif;
-    cursor: pointer;
-
+    cursor: pointer;  
+    
 }
 
 .footer{
@@ -272,7 +293,5 @@ html{
     font-weight: 700;
     display: block;
     text-align: right;
-
-  
     
 }

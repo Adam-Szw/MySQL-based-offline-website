@@ -61,4 +61,28 @@ public class HubController {
 	{	
 		return "Games/BinaryBlitz/BinaryBlitz";
 	}
+	
+	@GetMapping("/Games/PythonQuizGame")
+	public String showPythonQuiz()
+	{
+		return "Games/PythonQuizGame/PythonQuiz";
+	}
+	
+	@GetMapping("/Games/Stylezz")
+	public String showStylezz()
+	{
+		return "Games/Stylezz/Stylezz";
+	}
+	
+	@GetMapping("/Games/CodeTracerPython")
+	public String showCodeTracerPython()
+	{
+		return "Games/CodeTracer/CodeTracerPython";
+	}
+	
+	@GetMapping("/Games/CodeTracerJava")
+	public String showCodeTracerJava()
+	{
+		return "Games/CodeTracer/CodeTracerJava";
+	}
 }

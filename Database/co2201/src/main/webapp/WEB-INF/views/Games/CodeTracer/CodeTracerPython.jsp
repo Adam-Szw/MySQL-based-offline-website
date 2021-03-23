@@ -2,9 +2,10 @@
 <html lang = "en">
 <head>
  
-    <title>Code Tracer</title>
-    <link rel="stylesheet" href="../../Central Hub/CentralHub_Styles.css">
-    <link href="CodeTracer.css"rel="stylesheet"type="text/css"/>
+    <title>Code Tracer Python</title>
+    
+    <link href="../public/Games/CodeTracer/CodeTracer.css"rel="stylesheet"type="text/css"/>
+    <link rel="stylesheet" href="../public/Central/central.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--External fonts are used these are linked here-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -14,25 +15,21 @@
 </head>
 <body class="ct-bdy">
     <div class="sidenav">
-		<img id="SideBar" src="../../Central Hub/Images/Signin.png"><a href="../../Central Hub/signin.html">Sign In</a>
-		<img id="SideBar" src="../../Central Hub/Images/Games.png"><a href="../../Central Hub/games.html">Games</a>
-        <img id="SideBar" src="../../Central Hub/Images/Profile.png"><a href="../../Central Hub/profile.html">Profile</a>
-        <img id="SideBar" src="../../Central Hub/Images/Leaderboard.png"><a href="../../Central Hub/scoreboard.html">Scoreboard</a>
-        <img id="SideBar" src="../../Central Hub/Images/Settings.png"><a href="../../Central Hub/settings.html">Settings</a>
-        <img id="SideBar" src="../../Central Hub/Images/About.png"><a href="../../Central Hub/about.html">About</a>
+	 		<img id="SideBar" src="../public/Central/Images/Signin.png"><a href="/signIn">Sign In</a>
+		<img id="SideBar" src="../public/Central/Images/Games.png"><a href="/games">Games</a>
+        <img id="SideBar" src="../public/Central/Images/Profile.png"><a href="/profile">Profile</a>
+        <img id="SideBar" src="../public/Central/Images/Leaderboard.png"><a href="/scoreboard">Scoreboard</a>
+        <img id="SideBar" src="../public/Central/Images/Settings.png"><a href="/settings">Settings</a>
+        <img id="SideBar" src="../public/Central/Images/About.png"><a href="/about">About</a>
     </div>
-<div class="backBtn">
-    <button id="BackButton" onclick="goMenu()">Go Menu</button>
-    <button id="BackButton" onclick="goBack()">Go Back</button>
-    <script>
-    function goMenu() {
-        window.location.reload();
-    }
-    function goBack() {
-        window.history.back();
-    }
-	</script> 
-</div>
+<div id="TopBox">
+	<button id="BackButton" onclick="goBack()">Go Back</button>
+	<script>
+	function goBack() {
+		window.history.back();
+	}
+</script> 
+
 <div class="grid">
     <div id="topbar">Code Tracer</div>
     <div class="gameMenu">
@@ -44,8 +41,10 @@
             You also only get <u>ONE</u> chance, once a answer has been selected it will tell you if you were right or wrong
             and then moves on to the next question. <br>Make sure to look at each code carefully before selecting your answer!
         </p>
-        <button id="pyBtn">Python</button>
-        <button id="javaBtn">Java</button>
+        <div class="center-buttons">
+            <button id="pyBtn">Python</button>
+        </div>
+       
     </div>
     <div id="navContent">
         <div id="game1"></div>
@@ -55,7 +54,7 @@
 </div>
 
 
-<script src="CodeTracer.js"></script>
+<script src="../public/Games/CodeTracer/CodeTracer.js"></script>
  
 
 </body>

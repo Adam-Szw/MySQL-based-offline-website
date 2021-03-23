@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="styles.css" rel="stylesheet">
-  <link rel="stylesheet" href="../../Central Hub/CentralHub_Styles.css">
-  <link rel="stylesheet" href="../GamesStyles.css">
-  <script defer src="script.js"></script>
+  <link href="../public/Games/games.css" rel="stylesheet">
+  <link rel="stylesheet" href="../public/Central/central.css">
+  <link rel="stylesheet" href="../public/Games/PythonQuizGame/styles.css">
+  <script defer src="../public/Games/PythonQuizGame/script.js"></script>
+  <link rel="icon" href="../public/Central/Images/Games.png">
   <title>Quiz App</title>
     <!--External fonts are used these are linked here-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -16,12 +17,12 @@
 </head>
 <body>
   <div class="sidenav" >
-		<img id="SideBar" src="../../Central Hub/Images/Signin.png"><a href="../../Central Hub/signin.html">Sign In</a>
-        <img id="SideBar" src="../../Central Hub/Images/Games.png"><a href="../../Central Hub/games.html">Games</a>
-        <img id="SideBar" src="../../Central Hub/Images/Profile.png"><a href="../../Central Hub/profile.html">Profile</a>
-        <img id="SideBar" src="../../Central Hub/Images/Leaderboard.png"><a href="../../Central Hub/scoreboard.html">Scoreboard</a>
-        <img id="SideBar" src="../../Central Hub/Images/Settings.png"><a href="../../Central Hub/settings.html">Settings</a>
-        <img id="SideBar" src="../../Central Hub/Images/About.png"><a href="../../Central Hub/about.html">About</a>
+		 		<img id="SideBar" src="../public/Central/Images/Signin.png"><a href="/signIn">Sign In</a>
+		<img id="SideBar" src="../public/Central/Images/Games.png"><a href="/games">Games</a>
+        <img id="SideBar" src="../public/Central/Images/Profile.png"><a href="/profile">Profile</a>
+        <img id="SideBar" src="../public/Central/Images/Leaderboard.png"><a href="/scoreboard">Scoreboard</a>
+        <img id="SideBar" src="../public/Central/Images/Settings.png"><a href="/settings">Settings</a>
+        <img id="SideBar" src="../public/Central/Images/About.png"><a href="/about">About</a>
     </div>
 
   <div class="container"id="Game">
