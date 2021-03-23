@@ -17,7 +17,7 @@ var pythonQuestions = [
     ];
     
     /*Stores the Java Questions*/
-    var javaQuestions = [
+var javaQuestions = [
     ["Which program does not output Hello World?","java/helloWorld-correct.png","java/helloWorld-println.png","java/helloWorld-format.png"],
     ["Which program outputs the 10th number in the fibonacci sequence","java/fibcalc-correct.png","java/fibcalc-nothing.png","java/fibocalc-loop.png"],
     ["Which program checks for a prime number correctly","java/primenumchecker-correct.png","java/primenumchecker-decrement.png","java/primenumchecker-i.png"],
@@ -31,11 +31,15 @@ var pythonQuestions = [
     ];
     
     /*List to store the randomly selected Python questions*/
-    var randomPython = [];
+var randomPython = [];
     
     /*List to store the randomly selected Java questions*/
-    var randomJava = [];
-    
+var randomJava = [];
+
+var loggedPlayerId; 
+
+
+
     /*
     Function to select the random questions
     Selects 10 random questions
@@ -43,18 +47,18 @@ var pythonQuestions = [
     -The list of all questions
     -The list for the randomly selected questions
     */
-    function randQ(f,c) {
-        while(c.length < 10){
-            var rand = f[Math.floor(Math.random() * f.length)];
-            var ch = checkQ(c,rand);
-            if(ch == false){
-                c.push(rand);
+function randQ(f,c) {
+	while(c.length < 10){
+		var rand = f[Math.floor(Math.random() * f.length)];
+		var ch = checkQ(c,rand);
+		if(ch == false){
+			c.push(rand);
     
-            }
-           
         }
-    
+           
     }
+    
+}
     
     /*
     Function to check if the randomly selected questionis already in the list or not
@@ -98,6 +102,7 @@ var pythonQuestions = [
         var score=0;
         var counter=1;
     
+/*
         const Http = new XMLHttpRequest();
         const url='http://localhost:8080/Login';
         Http.open("GET", url);
@@ -106,8 +111,27 @@ var pythonQuestions = [
         Http.onreadystatechange = (e) => {
           loggedPlayerId = Http.responseText;
         }
+
+		console.log(loggedPlayerId.toString());
+		console.log("test");
     
-        
+*/
+
+		
+		
+        const Http = new XMLHttpRequest('GET');
+		const url='/games/userId';
+		Http.open("GET", url);
+		Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+		Http.setRequestHeader("Access-Control-Allow-Origin", "*");
+		Http.send();
+
+		Http.onreadystatechange = (e) => {
+	  		loggedPlayerId = Http.responseText;
+		}
+	
+		console.log(loggedPlayerId.toString());
+		console.log("test");
     
     /*Calls the fucntion displayQuestion*/
         displayQuestion();
@@ -168,16 +192,30 @@ var pythonQuestions = [
             $(stage).append('<div class=footer><div class="playbtn">PLAY AGAIN</div></div>');
             
             if(f == randomPython){
-                const Http = new XMLHttpRequest();
-                const url='http://localhost:8080/games/CodeTracer/Python?playerId='+(loggedPlayerId).toString()+'&gameName=CodeTracerPython&gameScore='+(score).toString();
-                Http.open("GET", url);
-                Http.send();
+				const Http = new XMLHttpRequest();
+				const url='/games/save?userId='+(loggedPlayerId).toString()+'&gameName=CodeTracerPython&gameScore='+(score).toString();
+				Http.open('GET', url);
+				Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+				Http.setRequestHeader("Access-Control-Allow-Origin", "*");
+				Http.send();
+				
+                //const Http = new XMLHttpRequest();
+                //const url='http://localhost:8080/games/CodeTracer/Python?playerId='+(loggedPlayerId).toString()+'&gameName=CodeTracerPython&gameScore='+(score).toString();
+                //Http.open("GET", url);
+                //Http.send();
             }
             else{
-                const Http = new XMLHttpRequest();
-                const url='http://localhost:8080/games/CodeTracer/Java?playerId='+(loggedPlayerId).toString()+'&gameName=CodeTracerJava&gameScore='+(score).toString();
-                Http.open("GET", url);
-                Http.send(); 
+	            const Http = new XMLHttpRequest();
+				const url='/games/save?userId='+(loggedPlayerId).toString()+'&gameName=CodeTracerJava&gameScore='+(score).toString();
+				Http.open('GET', url);
+				Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+				Http.setRequestHeader("Access-Control-Allow-Origin", "*");
+				Http.send();
+				
+                //const Http = new XMLHttpRequest();
+                //const url='http://localhost:8080/games/CodeTracer/Java?playerId='+(loggedPlayerId).toString()+'&gameName=CodeTracerJava&gameScore='+(score).toString();
+                //Http.open("GET", url);
+                //Http.send(); 
             }
           
             $('.playbtn').click(function(){
