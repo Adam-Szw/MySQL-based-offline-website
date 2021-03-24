@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Scoreboard</title>
     <script src = "scoreboard.js"></script>
+    <link rel="stylesheet" href="CentralHub_Styles.css">
     <link rel="stylesheet" href="scoreboard.css">
     <link rel="icon" href="Images/Leaderboard.png">
-    <!--External fonts are used these are linked here-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
@@ -21,64 +18,74 @@
         <img id="SideBar" src="Images/Settings.png"><a href="settings.html">Settings</a>
         <img id="SideBar" src="Images/About.png"><a href="about.html">About</a>
     </div>
-
-    <img id="ScoreboardPic" src="Images/scores.png">
-
-<div class="header">
-    <div id="SortByGames">
-        <label>Sort by games:</label>
-        <select>
-            <option value="py">Python</option>
-            <option value="html">HTML</option>
-            <option value="css">CSS</option>
-            <option value="java">Java</option>
-        </select></div>
-    <div class ="scoreFilter">
-        <button onclick="TopTenLB()" id="top10">Top 10</button>
-        <button onclick="FriendLB()" id="friends">Friends</button>
-        <button onclick="AllScoreLB()" id="allscores">All Scores</button>
-    </div>
-    <div class="topRow">
-        <div>Rank</div>
-        <div>Name</div>
-        <div>Correct answers</div>
-        <div>Wrong answers</div>
-        <div>Total Scores</div>
-    </div>
-</div>
-
-<div class="wrapper">
-    <div class="rows">
-        <div><img id="crowns" src="Images/Crown 1.png"></div>
-        <div><img id="userImg" src="Images/userPic.jpg">Student A</div>
-        <div><img id="rightPic" src="Images/right.png"> 220</div>
-        <div><img id="wrongPic" src="Images/wrong.jpg">20</div>
-        <div> <img id="scorePic" src="Images/totScore.png"> 200</div>
-
-        <div><img id="crowns" src="Images/crown 2.jpg"></div>
-        <div><img id="userImg" src="Images/userPic.jpg">Student B</div>
-        <div><img id="rightPic" src="Images/right.png">220</div>
-        <div><img id="wrongPic" src="Images/wrong.jpg">40</div>
-        <div><img id="scorePic" src="Images/totScore.png">180</div>
-
-        <div><img id="crowns" src="Images/crown 3.jpg"></div>
-        <div><img id="userImg" src="Images/userPic.jpg">Student C</div>
-        <div><img id="rightPic" src="Images/right.png">200</div>
-        <div><img id="wrongPic" src="Images/wrong.jpg">30</div>
-        <div><img id="scorePic" src="Images/totScore.png">170</div>        
-    </div>
-</div>
-
-<div class="extraWrapper">
-    
-    <div class="extras">
-        <div>4th</div>
-        <div><img id="userImg" src="Images/userPic.jpg">Student D</div>
-        <div><img id="rightPic" src="Images/right.png">200</div>
-        <div><img id="wrongPic" src="Images/wrong.jpg">35</div>
-        <div><img id="scorePic" src="Images/totScore.png">165</div>
-    </div>
-</div>
-<label id="PrintOut"><a href="PrintOut.html">Print out leaderboard</a></label>
+    <div id="RightSide">
+		<div class="ContentBox" id="SelectionSetup">
+			<div class="MenuElement">
+				<label class="usable">Sort by game:</label>
+				<select class="usable" id="GamesSort" onchange="SortGames()">
+					<option value="0">Select</option>
+				</select>
+			</div>
+			<div class="MenuElement">
+				<label class="usable">Sort by scores:</label>
+				<select class="usable" id="ScoresSort" onchange="SortScores()">
+					<option value="0">Select</option>
+					<option value="1">My Scores</option>
+					<option value="2">Friend Scores</option>
+					<option value="3">All Scores</option>
+				</select>
+			</div>
+			<div class="MenuElement">
+				<button>Enable Risk-Assessment Options</button>
+			</div>
+			<div class="MenuElement">
+				<label class="usable">Only show:</label>
+				<select class="usable" id="ScoresCountSort" onchange="SortScoresCount()">
+					<option value="0">Select</option>
+					<option value="1">10</option>
+					<option value="2">20</option>
+					<option value="3">40</option>
+					<option value="4">All</option>
+				</select>
+			</div>
+			<div class="MenuElement">
+				<label class="usable">Sort by:</label>
+				<select class="usable" id="RiskScores" onchange="SortScores()">
+					<option value="0">Select</option>
+					<option value="1">Lowest high-score</option>
+					<option value="2">Lowest average-score</option>
+					<option value="3">Lowest attempt count</option>
+					<option value="4">Lowest correct answers</option>
+				</select>
+			</div>
+		</div>
+		<div class="ContentBox" id="ScoreDisplay">
+			<div class="ScoreboardElement">
+				<div class="ScoreItem" id="Rank">Rank</div>
+				<div class="ScoreItem" id="Username">Username</div>
+				<div class="ScoreItem" id="Bestscore">Best Score</div>
+				<div class="ScoreItem" id="Attemptcount">Attempt Count</div>
+				<div class="ScoreItem" id="CorrectPercent">% Correct Answers</div>
+			</div>
+		</div>
+		<div class="ContentBox" id="ScoreDisplay">
+			<div class="ScoreboardElement">
+				<div class="ScoreItem" id="Rank">1</div>
+				<div class="ScoreItem" id="Username">Adam</div>
+				<div class="ScoreItem" id="Bestscore">25</div>
+				<div class="ScoreItem" id="Attemptcount">11</div>
+				<div class="ScoreItem" id="CorrectPercent">91%</div>
+				<div class="ScoreItem" id="FullDetails"><button>Click here to see all attempts</button></div>
+			</div>
+			<div class="ScoreboardElement">
+				<div class="ScoreItem" id="Rank">2</div>
+				<div class="ScoreItem" id="Username">Alex</div>
+				<div class="ScoreItem" id="Bestscore">25</div>
+				<div class="ScoreItem" id="Attemptcount">23</div>
+				<div class="ScoreItem" id="CorrectPercent">83%</div>
+				<div class="ScoreItem" id="FullDetails"><button>Click here to see all attempts</button></div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
