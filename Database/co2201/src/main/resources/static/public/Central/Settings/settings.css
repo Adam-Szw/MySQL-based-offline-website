@@ -1,5 +1,5 @@
 /*-----------------------------Settings-Page-Styles-----------------------------*/
-
+/*The main content of the page styles*/
 #PageArea {
     padding-bottom: 10px;
     margin-left:15%;
@@ -116,6 +116,7 @@ p {text-align: center;}
     
 h1 {text-align: center;}
 
+/*The dark mode styles*/
 .darkbutton {text-align: center;}
 
 .dark-mode {
@@ -137,7 +138,8 @@ h1 {text-align: center;}
     background-color: #2b2b2b;
     color: #d6d6d6;
 }
-        
+
+/*The changeable font size styles*/     
 .small {
     font-size: 16px;
 }
@@ -154,6 +156,7 @@ p:hover {
     color: rgba(255, 0, 0, 0.556);
 }
 
+/*The table styles*/
 table {
     margin-left: auto;
     margin-right: auto;
@@ -163,15 +166,7 @@ td {
     padding: 12px 20px 12px 20px;
 }
 
-#SaveSettings {
-    margin-top: 10px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    margin-bottom: 10px;
-    background-color: #c3e8c1;
-    font-size: large;
-}
-
+/*The button styles*/
 button {
     border: 0;
     border-radius: 5px;
@@ -180,6 +175,16 @@ button {
     margin-right: 5px;
     outline: none;
     cursor:pointer;
+}
+
+/*Save Settings Style area*/
+#SaveSettings {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    background-color: #c3e8c1;
+    font-size: large;
 }
 
 #SaveSettings:hover {

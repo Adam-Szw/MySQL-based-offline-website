@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head>
+	<!--Games title element-->
     <title>BinaryBlitz</title>
+    <!--BinaryBlitz stylesheet and JavaScript links-->
     <link rel="stylesheet" href="../public/Central/central.css">
     <link rel="stylesheet" href="../public/Games/BinaryBlitz/BinaryBlitz.css">
 	<link rel="stylesheet" href="../public/Games/games.css">
     <script src = "../public/Games/BinaryBlitz/BinaryBlitz.js"></script>
+    <!--BinaryBlitz game icon-->
     <link rel="icon" href="../Central/Images/Games.png">
     <!--This is the link that takes the user to the top of the page-->
     <a href="#" id="back-to-top" class="back-to-top" style="display: inline;">^</a>

@@ -184,6 +184,7 @@
     <!--The sorting works if the grid names are unique-->
     <div id="GameSort">
       <div class="grid-container">
+      <!--Each of the games can be filtered by whether they have been completed or not-->
         <div class="grid-item"><div name="Fin"><a href="/Games/BitCrush"><img id="GameScreen" src="public/Central/Images/cpu_full.png" alt="Bit Crush Game"/></a><br>BitCrush</div></div>
         <div class="grid-item"><div name="NFin"><a href="/Games/BinaryBlitz"><img id="GameScreen" src="public/Central/Images/BinaryImage.jpg" alt="BinaryBlitz Game"/></a><br>BinaryBlitz</div></div>
         <div class="grid-item"><div name="Fin"><a href="../Games/Stylezz"><img id="GameScreen" src="public/Central/Images/CSS.png" alt="Stylezz Game"/></a><br>Stylezz</div></div>

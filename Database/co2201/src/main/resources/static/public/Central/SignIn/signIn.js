@@ -1,4 +1,4 @@
-
+/*The Sign In Page Styles*/
 
 //Show the sign in form by hiding the create account form
 $('#login-up').hide();

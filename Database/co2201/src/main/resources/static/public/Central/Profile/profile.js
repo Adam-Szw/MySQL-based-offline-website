@@ -1,7 +1,8 @@
+/*The profile page JavaScript page*/
+
 $('.profile-tabs ul li').click(function() {
     $(this).addClass("active").siblings().removeClass();
 })
-
 
 const tabbtn = document.querySelectorAll('.profile-tabs ul li');
 
@@ -29,7 +30,6 @@ $('.profile-backgorund').change(function () {
 }).change();
 
 
-
 $('.profile-text').change(function () {  
     var color = $(this).val()
     $('.profile-side').css('color', color);
@@ -39,9 +39,7 @@ $('.profile-text').change(function () {
 }).change();
 
 $('.profile-header-colour').change(function () {
-
     var color = $(this).val()
-
     $('.profileHeader').css('background-color', color);
 }).change();
 
@@ -50,7 +48,6 @@ function fasterPreview(uploader){
         $('#profile-pic').attr('src', window.URL.createObjectURL(uploader.files[0]));
     }
 }
-
 $('#imageUpload').change(function(){
     fasterPreview(this);
 });
@@ -70,6 +67,33 @@ function saveUserData(){
     var phone = document.getElementById('user-phone').value;
     document.getElementById('mobile-no').innerHTML = "";
     $("#mobile-no").append(phone);
+}
 
+function LogOn() {
+ 		//Logon the player
+		const Http = new XMLHttpRequest('GET');
+		const url='/games/userId';
+		Http.open("GET", url);
+		Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+		Http.setRequestHeader("Access-Control-Allow-Origin", "*");
+		Http.send();
+	
+		Http.onreadystatechange = (e) => {
+		  loggedPlayerId = Http.responseText;
+		}
+}
 
+function LoadStats() {
+		LogOn()
+        //The XML is created and the url is defined
+        const xhttp = new XMLHttpRequest();
+        var url2='/Profile/GetUserStats/'+loggedPlayerId;
+        //The request is sent
+        xhttp.open("GET", url2); 
+        xhttp.send();
+        //The content is saved to the questions array
+        xhttp.onreadystatechange = (e) => {
+            Questions = xhttp.responseText;
+        }
+        document.getElementById('StatTable').innerHTML = Questions;
 }

@@ -22,36 +22,41 @@
     </div>
 
 
-    
+<!--This is the title and the website description section-->    
 <div class="TopBox" id="PageArea">
 <h1>About us</h1>
 <p id="ProjectAbout">This website aims to deliver
 educational games which help beginners to learn basic Computer Science concepts, starting at a
 basic level before moving on to more advanced concepts. It is also designed to support the department in identifying students who are at risk and require additional support.
 </p>
-
+<!--This table contains the developer details-->
 <table>
   <th colspan="3"><h2>Our Members</h2></th>
   <tr>
+  <!--Each of the developers has their name listed-->
     <td>Jaynik Parsotomo</td>
     <td>Adam Szwandziak</td>
     <td>Oliver Gamble</td>
   </tr>
   <tr>
+  <!--Each of the developers has their role listed-->
     <td>Designer</td>
     <td>Designer</td>
     <td>Designer</td>
   </tr>
   <tr>
+  <!--Each of the developers has their email listed-->
     <td>jp539@student.le.ac.uk</td>
     <td>aks60@student.le.ac.uk</td>
     <td>og48@student.le.ac.uk</td>
   </tr>
   <tr>
+  <!--Each of the developers has a contact button-->
     <td><button class="button">Contact</button></td>
     <td><button class="button">Contact</button></td>
     <td><button class="button">Contact</button></td>
   </tr>
+  <!--In total there are 6 developers-->
   <tr>
     <td>Taranveer Singh</td>
     <td>Umaid Ahmed</td>

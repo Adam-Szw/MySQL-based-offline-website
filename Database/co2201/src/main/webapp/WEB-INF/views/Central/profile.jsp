@@ -2,17 +2,20 @@
 <html lang = "en">
 <head>
     <title>Profile</title>
+    <!--The profile page stylesheets and JavaScript links-->
     <link rel="stylesheet" href="../public/Central/central.css">
     <link rel="stylesheet" href="../public/Central/Profile/profile.css">
-    <link rel="icon" href="../public/Central/Profile/Profile.png">
     <script src="https://kit.fontawesome.com/ec00a021e5.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--The page's icon is declared here-->
+    <link rel="icon" href="../public/Central/Profile/Profile.png">
     <!--External fonts are used these are linked here-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body class="profileBody">
+<!--The sidebar has been created here-->
     <div class="sidenav">
 		<img id="SideBar" src="public/Central/Images/Signin.png"><a href="/signIn">Sign In</a>
 		<img id="SideBar" src="public/Central/Images/Games.png"><a href="/games">Games</a>
@@ -21,6 +24,7 @@
         <img id="SideBar" src="public/Central/Images/Settings.png"><a href="/settings">Settings</a>
         <img id="SideBar" src="public/Central/Images/About.png"><a href="/about">About</a>
     </div>
+    <!--The profile image section-->
     <div class="container">
         <div class="profileHeader">
             <div class=profileImage>
@@ -32,6 +36,7 @@
             </div>
             
         </div>
+        <!--The main area section-->
         <div class="main-bd">
             <div class="left-side">
                 <div class="profile-side">
@@ -54,6 +59,7 @@
                     
                 </div>
             </div>
+            <!--The right side of the profile page-->
             <div class="right-side">
                 <div class="profile-tabs">
                     <ul>
@@ -65,7 +71,8 @@
                 <div class="profile-body">
                     <div class="profile-stats tab">
                         <h1>Your Statistics</h1>
-                        <p>Some text Some text Some text
+                        <p id="StatTable">
+                        	Some text Some text Some text
                             Some text Some text Some text
                             Some text Some text Some text
                             Some text Some text Some text
@@ -94,6 +101,7 @@
 
                        
                     </div>
+                    <!--The profile settings tab area-->
                     <div class="profile-settings tab">
                         <div class="profile-settings-body">
                             <h1>Profile Settings</h1>
@@ -123,7 +131,7 @@
                                 </div>
                             </div>
                             </div>
-
+							<!--The change profile picture section-->
                             <div class="change-pic">
                                 <h3 class="section-title">Upload a profile picture</h3>
                                 <label for="imageUpload" class="file-upload">
@@ -131,7 +139,7 @@
                                 </label>
                                 <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo"/>
                             </div>
-        
+        					<!--The change profile colours section-->
                             <div class="pro-bg-box">
                                 <h3 class="section-title">Change profile colours</h3>
                                 <p>Side profile:</p>
@@ -141,9 +149,8 @@
                                     <option value="blue">blue</option>
                                     <option value="green">green</option>
                                 </select>
-                            
                                 <br>
-
+                                <!--The profile text colour section-->
                                 <p>Profile text:</p>
                                 <select class="profile-text" name="textcolor">
                                     <option value="black">black</option>
@@ -153,7 +160,7 @@
                                     <option value="#daf5cf">lime-green</option>
                                 </select>
                                 <br>
-
+								<!--The profile header colour section-->
                                 <p>Profile header:</p>
                                 <select class="profile-header-colour" name="headercolor">
                                     <option value="#daf5cf">lime-green</option>
@@ -161,25 +168,14 @@
                                     <option value="blue">blue</option>
                                     <option value="green">green</option>
                                 </select>
-                           </div>
-                            
+                           </div>   
                         </div>
-                            
-
-                        </div>
-                        
-                        
-                        
+                        </div>   
                     </div>
-                   
-                
                 </div>
             </div>
-
         </div>
-
-    </div>
+        <!--The JavaScript page link-->
     <script src="../public/Central/Profile/profile.js"></script>
-    
 </body>
 </html>

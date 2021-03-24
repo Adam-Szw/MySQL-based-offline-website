@@ -1,15 +1,20 @@
+/*The developer details are stored inside a table*/
 table {
   text-align: center;
   border: 1px black;
   width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/*Styles for the about main text piece*/
 #ProjectAbout {
   margin-left: 20px;
   margin-right: 20px;
   text-align: center;
 }
 
+/*The green box that contains all of the page's main content*/
 #PageArea {
   padding-bottom: 10px;
   margin-left:15%;
@@ -23,11 +28,7 @@ td {
   padding: 12px 20px 12px 20px;
 }
 
-table {
-  margin-left: auto;
-  margin-right: auto;
-}
-
+/*The contact button styles*/
 button {
   border: 0;
   border-radius: 5px;
@@ -43,5 +44,6 @@ button:hover {
   background-color: green;
 }
 
+/*The main title styles*/
 h1 {text-align: center;
 margin-top: 10px;}
