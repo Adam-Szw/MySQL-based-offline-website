@@ -1,6 +1,7 @@
 package co2201.controller;
 
 import java.security.Principal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +43,8 @@ public class GamesController {
 	public ResponseEntity<?> saveScore(@RequestParam(name = "userId") Long id, @RequestParam(name = "gameName") String game, @RequestParam(name = "gameScore") float score)
 	{
 		Score newScore = new Score(game, score);
+		LocalDate currentDate = LocalDate.now();
+		newScore.setScoringDatetime(currentDate);
 		SystemUser user = userRepo.findById(id).get();
 		newScore.setScoringPlayer(user);
 		user.getScores().add(newScore);

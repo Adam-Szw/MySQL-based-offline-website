@@ -1,5 +1,7 @@
 package co2201.model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -15,6 +17,7 @@ public class Score {
 	
 	private String gameName;
 	private float score;
+	private LocalDate scoringDatetime;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="Score_Owner_ID")
@@ -57,6 +60,12 @@ public class Score {
 	}
 	public static long getNextId() {
 		return nextId++;
+	}
+	public LocalDate getScoringDatetime() {
+		return scoringDatetime;
+	}
+	public void setScoringDatetime(LocalDate scoringDatetime) {
+		this.scoringDatetime = scoringDatetime;
 	}
 	
 }
