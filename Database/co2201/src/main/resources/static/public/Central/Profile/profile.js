@@ -69,31 +69,46 @@ function saveUserData(){
     $("#mobile-no").append(phone);
 }
 
+loggedPlayerId = 0;
+
 function LogOn() {
  		//Logon the player
 		const Http = new XMLHttpRequest('GET');
 		const url='/games/userId';
 		Http.open("GET", url);
+		
 		Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 		Http.setRequestHeader("Access-Control-Allow-Origin", "*");
 		Http.send();
-	
+		
 		Http.onreadystatechange = (e) => {
 		  loggedPlayerId = Http.responseText;
 		}
 }
 
 function LoadStats() {
-		LogOn()
-        //The XML is created and the url is defined
-        const xhttp = new XMLHttpRequest();
         var url2='/Profile/GetUserStats/'+loggedPlayerId;
-        //The request is sent
-        xhttp.open("GET", url2); 
-        xhttp.send();
-        //The content is saved to the questions array
-        xhttp.onreadystatechange = (e) => {
-            Questions = xhttp.responseText;
-        }
-        document.getElementById('StatTable').innerHTML = Questions;
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", url2);
+		xhttp.send();
+		xhttp.onreadystatechange = function() {
+		    if (this.readyState == 4 && this.status == 200) {
+		       console.log(xhttp.responseText);
+		       document.getElementById("StatTable").innerHTML = "";
+		       $("#StatTable").append(xhttp.responseText);
+		       var Stats = document.getElementById("StatTable").value;
+		    }
+		};
 }
+
+var ItemList = [];
+function CustomGame() {
+	
+ }
+ 
+ 
+ function StartUp() {
+ 	LogOn();
+ 	LoadStats();
+	CustomGame();
+ }

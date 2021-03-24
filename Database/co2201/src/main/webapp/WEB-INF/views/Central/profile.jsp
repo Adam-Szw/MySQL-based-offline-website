@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
-<body class="profileBody">
+<body class="profileBody" onload="StartUp()">
 <!--The sidebar has been created here-->
     <div class="sidenav">
 		<img id="SideBar" src="public/Central/Images/Signin.png"><a href="/signIn">Sign In</a>
@@ -72,16 +72,7 @@
                     <div class="profile-stats tab">
                         <h1>Your Statistics</h1>
                         <p id="StatTable">
-                        	Some text Some text Some text
-                            Some text Some text Some text
-                            Some text Some text Some text
-                            Some text Some text Some text
-                            Some text Some text Some text
-                            Some text Some text Some text
-                            Some text Some text Some text
-                            Some text Some text Some text
-                            Some text Some text Some text
-                            Some text Some text Some text
+                        
                         </p>
 
                     </div>

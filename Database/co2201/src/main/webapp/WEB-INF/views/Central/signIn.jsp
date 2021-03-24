@@ -43,8 +43,8 @@
          				</div>
           				<input type="password" placeholder="Password" name="password" class="login_input">
         			</div>
-        			<input type="submit" class="login_button" id="signIn_button" value="Sign In" /><br/>
-        			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+        			<input type="submit" class="login_button" id="signIn_button" value="Sign In"><br/>
+        			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 
         			<a href="#" class="login_forgot" id="forgot">Forgot Password</a>
         			<div>

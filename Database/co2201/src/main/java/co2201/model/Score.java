@@ -46,8 +46,8 @@ public class Score {
 	public float getScore() {
 		return score;
 	}
-	public void setScore(float score) {
-		this.score = score;
+	public void setScore(float f) {
+		this.score = f;
 	}
 	public SystemUser getScoringPlayer() {
 		return scoringPlayer;

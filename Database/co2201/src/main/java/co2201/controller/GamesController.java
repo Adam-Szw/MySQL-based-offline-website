@@ -39,7 +39,7 @@ public class GamesController {
 	}
 	
 	@GetMapping("/games/save")
-	public ResponseEntity<?> saveScore(@RequestParam(name = "userId") Long id, @RequestParam(name = "gameName") String game, @RequestParam(name = "gameScore") float score)
+	public ResponseEntity<?> saveScore(@RequestParam(name = "userId") Long id, @RequestParam(name = "gameName") String game, @RequestParam(name = "gameScore") Integer score)
 	{
 		Score newScore = new Score(game, score);
 		SystemUser user = userRepo.findById(id).get();

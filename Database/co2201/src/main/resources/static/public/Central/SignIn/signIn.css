@@ -53,7 +53,7 @@ body{
     text-align: center;
     box-shadow: 0 8px 20px #090909;
     position: absolute;
-    bottom: 0.3rem;
+    bottom: 1.4rem;
 }
 
 /*The forgotten password section styles*/
@@ -66,7 +66,7 @@ body{
     text-align: center;
     box-shadow: 0 8px 20px #090909;
     position: absolute;
-    bottom: 11rem;
+    bottom: 12rem;
 }
 
 .login-form{
@@ -136,8 +136,14 @@ body{
     transition: .3s;
 }
 
+
 .login_signin:hover, .login_forgot:hover, .login_button:hover, .login_signup:hover {
     color: black;
+}
+
+#signIn_button {
+	font-size: 20px;
+	width:100%;
 }
 
 .login_button:hover{
