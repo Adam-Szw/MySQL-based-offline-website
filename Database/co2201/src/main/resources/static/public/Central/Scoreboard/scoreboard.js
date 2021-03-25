@@ -1,26 +1,13 @@
-//Scoreboard JavaScript Page
+function SortScores()
+{
+	const Http = new XMLHttpRequest();
+	const url='/scores?gameName=BitCrush&ownerSort=all&showCount=10&scoreSort=hi-score';
+	Http.open("GET", url);
+	Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	Http.setRequestHeader("Access-Control-Allow-Origin", "*");
+	Http.send();
 
-//Get the data from the database
-function RetrieveData() {
-
-}
-
-//Show the data on the leaderboard
-function ShowData() {
-    
-}
-
-//Show the top 10 data
-function TopTenLB() {
-
-}
-
-//Show your friend's scores
-function FriendLB() {
-
-}
-
-//Show all of the scores
-function AllScoreLB() {
-    
+	Http.onreadystatechange = (e) => {
+	  console.log(Http.responseText);
+	}
 }

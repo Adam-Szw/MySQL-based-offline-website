@@ -53,7 +53,7 @@ var score = 0;
 var responseScore = [];
 var questionCount = 0;
 
-var loggedPlayerId;
+var loggedPlayerId = 0;
 
 function startGame() {
 	//Logon the player
@@ -69,7 +69,6 @@ function startGame() {
 	}
 	
 	console.log(loggedPlayerId.toString());
-	console.log("test");
 
 	elementButtons = [];
 	missions = [];

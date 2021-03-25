@@ -36,8 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.permitAll()
 		.and().authorizeRequests()
 			.antMatchers("/games", "/profile", "/scoreboard", "/settings",
-					"/games/userId", "/games/save**").hasAnyRole("USER","STAFF","ADMIN")
-			
+					"/games/userId", "/games/save**", "/scores**").hasAnyRole("USER","STAFF","ADMIN")
 			.antMatchers("/public/**").permitAll()
 			.anyRequest().authenticated()
 		.and().exceptionHandling().accessDeniedPage("/");

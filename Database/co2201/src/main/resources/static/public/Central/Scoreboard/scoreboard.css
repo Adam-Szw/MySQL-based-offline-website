@@ -1,244 +1,66 @@
-/*The scoreboard styles page*/
+.ContentBox {
+	margin-bottom: 10px;
+	margin-left:205px;
+	background-color: rgb(218, 245, 207);
+	margin-top: 0px;
+	padding-bottom: 10px;
+	box-shadow: 0px 3px 5px #4b4a4a;
+	color:black;
+	position:relative;
+	float: up;
+}
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: rgb(218, 245, 207);
-    overflow-x: hidden;
-    padding-top: 0px;
-    box-sizing: border-box;
-  }
-  
-  .v-generated-body {
-    overflow: auto;
-  }
-  
-  .sidenav {
-    height: 100%;
-    width: 200px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    padding-top: 90px;
-    border-right: 3px solid #818181;
-  }
-  
-  .sidenav a {
-    padding: 6px 8px 20px 36px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-  }
-  
-  .sidenav a:hover {
-    color: #f1f1f1;
-  }
-  
-  /*Styles for the sidebar icons*/
-  #SideBar{
-    width: 20px;
-    height: 20px;
-    float: left;
-    padding-top: 14px;
-    padding-left: 8px;
-  }
-  
-  .wrapper{
-     margin-left: 27%;
-     margin-top: 20px;
-     width: 1000px;  
-   }
+#SelectionSetup {
+	min-height: 54px;
+}
 
-  .wrapper img {
-     margin-left: 7.5%;
-  }
-    
-  .rows {
-     display: grid;
-     grid-template-columns: 10% 20% 14% 14% 14%;
-     column-gap: 8px;
-     row-gap: 12px;
-     margin-right:5px;
-   }
-    
-   .rows > div {
-     /*background-color: rgba(255, 217, 0, 0.785);*/
-     background-color: rgb(192, 165, 13);
-     height: 50px;
-     text-align: center;
-     display:flex;
-     align-items: center;
-     justify-content: center;
-     font-size: 18px;
-     padding: 6px;
-     border-radius: 10px;
-     box-shadow: 0px 3px 5px rgb(145, 11, 11);
-    }
-   
-   /*The scoreboard image styles*/
-   #crowns {
-     width: 45px;
-     height: 45px solid transparent;
-     border-radius: 4px;
-     box-shadow: 0px 3px 5px #050505;  
-    }
-    
-   #userImg {
-     width: 45px;
-     height: 45px solid transparent;
-     border-radius: 4px;
-     box-shadow: 0px 3px 5px #050505;
-     position: absolute;
-     left: 382px;
-    }
-    
-  .scorePic{
-     margin-right: 425px;
-     margin-top: 10px;
-    }
-    
-  #ScoreboardPic{
-     height: 100px;
-     width: 100px;
-    }
-    
-  #rightPic{
-     width: 35px;
-     height: 35px solid transparent;
-     border-radius: 4px;
-     box-shadow: 0px 3px 5px #050505;
-     position: absolute;
-     left: 588px;
-    }
-    
-  #wrongPic{
-     width: 35px;
-     height: 35px solid transparent;
-     border-radius: 4px;
-     box-shadow: 0px 3px 5px #050505;
-     position: absolute;
-     left: 736px; 
-    }
-    
-  #scorePic{
-     width: 35px;
-     height: 35px solid transparent;
-     border-radius: 4px;
-     box-shadow: 0px 3px 5px #050505;
-     position: absolute;
-     left: 884px; 
-    }
-    
-  .extras {
-     display: grid;
-     grid-template-columns:10% 20% 14% 14% 14%;
-     column-gap: 8px;
-     row-gap: 12px;
-     margin-right:5px;
-    }
-  
-  .extraWrapper{
-     margin-left: 27%;
-     margin-top: 40px;
-     width: 1000px; 
-    }
+.MenuElement {
+	text-align: center;
+	padding: 20px;
+	margin-right: 20px;
+	position:relative;
+	width: auto;
+	float: left;
+}
 
-  .extraWrapper img {
-     margin-left: 7.5%;
-    }
-    
-  .extras > div {
-     /*background-color: rgba(255, 217, 0, 0.785);*/
-     background-color: rgb(134, 153, 170);
-     height: 50px;
-     text-align: center;
-     display:flex;
-     align-items: center;
-     justify-content: center;
-     font-size: 18px;
-     padding: 6px;
-     border-radius: 10px;
-     box-shadow: 0px 3px 5px rgb(145, 11, 11);
-    }
-  
-  /*The row styles*/
-  .topRow {
-     display: grid;
-     grid-template-columns:10% 20% 14% 14% 14%;
-     column-gap: 8px;
-     row-gap: 12px;
-     margin-right:5px;
-    }
-    
-  .header{
-     margin-left: 27%;
-     width: 1000px; 
-    }
-    
-  .topRow > div {
-     /*background-color: rgba(255, 217, 0, 0.785);*/
-     background-color: rgb(222, 227, 231);
-     height: 50px;
-     text-align: center;
-     display:flex;
-     align-items: center;
-     justify-content: center;
-     font-size: 18px;
-     padding: 6px;
-     border-radius: 10px;
-     box-shadow: 0px 3px 5px rgb(145, 11, 11);
-    }
-    
-  #ScoreboardPic{
-     margin-left: 210px;
-    }
-  
-  /*The filter and sorting styles*/ 
-  #SortByGames{
-     margin-left: 50.5%; 
-     margin-bottom: 7px;
-    }
-    
-  .scoreFilter{
-     display: grid;
-     grid-template-columns: 13% 13% 13%;
-     column-gap: 2px;
-     margin-bottom: 2px;
-    }
-    
- .scoreFilter > button{
-     border-radius: 8px;
-     background-color: rgb(223, 231, 224);
-     padding: 10px 22px;
-     text-align: center;
-     text-decoration: none;
-     justify-items: center;
-     display: inline-block;
-     font-size: 16px;
-     margin: 4px 2px;
-     cursor: pointer;
-     box-shadow: 0px 3px 5px black;
-     outline:none;
-    }
-    
-  .scoreFilter > button:hover{
-     background-color: rgb(98, 98, 158);
-   }
-  
-  select {
-    width: 120px;
-    padding: 5px 35px 5px 5px;
-    font-size: 16px;
-    border: 1px solid #CCC;
-    height: 34px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-  }
+.ScoreboardElement {
+	width: 100%;
+	position:relative;
+	padding: 3px;
+	min-height: 15px;
+}
 
- #PrintOut {
-    float: right;
-  }
+.ScoreItem {
+	float: left;
+	position:relative;
+	display:inline-block;
+}
+
+#Rank {
+	width: 10%;
+}
+
+#Username {
+	width: 30%;
+}
+
+#Bestscore {
+	width: 10%;
+}
+
+#Averagescore {
+	width: 10%;
+}
+
+#Attemptcount {
+	width: 10%;
+}
+
+#FullDetails {
+	width: 20%;
+	margin-left: 5%;
+}
+
+.usable {
+	background-color: rgb(232, 211, 237);
+}

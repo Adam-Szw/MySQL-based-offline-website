@@ -35,7 +35,7 @@ public class GamesRestController {
 	@GetMapping("/games/userId")
 	public ResponseEntity<?> getLoginuserId(Principal principal)
 	{	
-		SystemUser user = userRepo.findByUsername(principal.getName());
+		SystemUser user = userRepo.findByUsername(principal.getName()).get();
 		return new ResponseEntity<>(user.getId(), HttpStatus.OK);
 	}
 	

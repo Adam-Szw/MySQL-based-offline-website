@@ -31,7 +31,7 @@ public class Co2201Application implements ApplicationRunner {
 		testUser.setPassword(pe.encode("password"));
 		playerRepo.save(testUser);
 		
-		SystemUser testUser2 = new SystemUser("EnigmaB", "Adam", "Szwandziak");
+		SystemUser testUser2 = new SystemUser("Jan01", "Jan", "Karsky");
 		testUser2.setAdmin(true);
 		testUser2.setPassword(pe.encode("password"));
 		playerRepo.save(testUser2);

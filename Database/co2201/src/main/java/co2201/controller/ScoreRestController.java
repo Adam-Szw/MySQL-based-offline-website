@@ -2,6 +2,8 @@ package co2201.controller;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,73 +50,148 @@ public class ScoreRestController {
 	}
 	
 	//------------------FOR SCOREBOARD--------------------
-	/*@GetMapping("/scores/user")
+	protected class PlayerDetails {
+		long id = 0;
+		int rank = 0;
+		String userName = null;
+		float highScore = 0.0f;
+		float averageScore = 0.0f;
+		int attemptCount = 0;
+		ArrayList<Score> allScores = new ArrayList<Score>();
+	}
+	
+	
+	@GetMapping("/scores")
 	public ResponseEntity<?> getUserScores(Principal principal, @RequestParam(name = "gameName") String game,
 			@RequestParam(name = "ownerSort") String ownerSort, @RequestParam(name = "showCount") int showCount,
 			@RequestParam(name = "scoreSort") String scoreSort)
 	{
-		boolean riskAssesment = false;
 		
 		//check if user has access to these settings
-		SystemUser user = userRepo.findByUsername(principal.getName());
-		if(showCount!=0 || scoreSort!="0")
+		SystemUser user = userRepo.findByUsername(principal.getName()).get();
+		if(showCount!=0 || scoreSort!="10")
 		{
 			if(!user.getStaff()&&!user.getAdmin())
 			{
 				return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 			}
-			else
-			{
-				riskAssesment = true;
-			}
 		}
 	
+		//List of details that will be converted to string
+		ArrayList<PlayerDetails> details = new ArrayList<PlayerDetails>();
+		
+		
 		//Construct a string to disassemble by JS
 		String data = "";
 		
 		//Find out whose scores to show
-		ArrayList<Long> playersToFilter = new ArrayList<Long>();
 		switch(ownerSort)
 		{
 		case "all":
 			for(SystemUser userItem : userRepo.findAll())
 			{
-				playersToFilter.add(userItem.getId());
+				PlayerDetails d = new PlayerDetails();
+				d.id = userItem.getId();
+				d.userName = userItem.getFName()+" "+userItem.getLName();
+				details.add(d);
 			}
+			break;
 		case "friends":
-			playersToFilter.addAll(user.getFriendsIds());
-			playersToFilter.add(user.getId());
+			for(long l : user.getFriendsIds())
+			{
+				PlayerDetails d = new PlayerDetails();
+				d.id = l;
+				d.userName = userRepo.findById(l).get().getFName()+" "+userRepo.findById(l).get().getLName();
+				details.add(d);
+			}
+			PlayerDetails d = new PlayerDetails();
+			d.id = user.getId();
+			d.userName = user.getFName()+" "+user.getLName();
+			details.add(d);
+			break;
 		case "user":
-			playersToFilter.add(user.getId());
+			PlayerDetails d1 = new PlayerDetails();
+			d1.id = user.getId();
+			d1.userName = user.getFName()+" "+user.getLName();
+			details.add(d1);
+			break;
 		}
 		
 		//What game to pick scores from?
-		ArrayList<Score> scoresToFilter =  new ArrayList<Score>();
-		for(SystemUser player : userRepo.findAllById(playersToFilter))
+		for(PlayerDetails detail : details)
 		{
-			for(Score score : player.getScores())
+			for(Score score : userRepo.findById(detail.id).get().getScores())
 			{
-				if(score.getGameName()=="gameName")
+				if(score.getGameName().compareTo(game)==0)
 				{
-					scoresToFilter.add(score);
+					detail.allScores.add(score);
 				}
 			}
 		}
 		
-		//What scores to pick from each user?
+		//Collect the data
+		for(PlayerDetails detail : details)
+		{
+			float totalScore = 0.0f;
+			for(Score score : detail.allScores)
+			{
+				detail.attemptCount++;
+				totalScore += score.getScore();
+				if(score.getScore() > detail.highScore)
+				{
+					detail.highScore = score.getScore();
+				}
+			}
+			detail.averageScore = detail.attemptCount!=0? totalScore/detail.attemptCount : 0;
+		}
+		
+		//How to sort the scores?
 		switch(scoreSort)
 		{
-		case "0":
-
 		case "hi-score":
+			//default - pick only best score from each user for that game
+			Collections.sort(details, new Comparator<PlayerDetails>() {
+				@Override
+				public int compare(PlayerDetails d1, PlayerDetails d2) {
+					return ((Float)(d2.highScore)).compareTo((Float)(d1.highScore));
+				}
+			});
 			
+			break;
+		case "low-score":
+			//pick only best score from each user for that game, showing weakest users first
+			break;
 		case "avg-score":
-			
+			//pick only average score for that game of all attempts, showing weakest users
+			break;
 		case "attempt-count":
-			
-		case "correct-answers":
+			//pick users with lowest attempt counts
+			break;
+		}
+		
+		//truncate results
+		ArrayList<PlayerDetails> resultDetails = new ArrayList<PlayerDetails>();
+		for(int i=0; i<details.size(); i++)
+		{
+			if(showCount <=0 )
+			{
+				break;
+			}
+			else
+			{
+				showCount--;
+				details.get(i).rank = i+1;
+				resultDetails.add(details.get(i));
+			}
+		}
+		
+		//convert results into string
+		for(PlayerDetails detail : resultDetails)
+		{
+			data+=detail.rank+"|"+detail.userName+"|"+detail.highScore+"|"+detail.averageScore+
+					"|"+detail.attemptCount+"\n";
 		}
 		
 		return new ResponseEntity<>(data, HttpStatus.OK);
-	}*/
+	}
 }
