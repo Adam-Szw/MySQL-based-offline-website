@@ -25,7 +25,7 @@ public class SystemUser {
 	private String email;
 	
 	//social
-	private List<Long> friendsIds;
+	/*private List<Long> friendsIds;*/
 	
 	//leaderboard
 	@OneToMany(mappedBy="scoringPlayer", fetch=FetchType.LAZY, orphanRemoval = true, cascade = CascadeType.ALL)
@@ -129,10 +129,11 @@ public class SystemUser {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	/*
 	public List<Long> getFriendsIds() {
 		return friendsIds;
 	}
 	public void setFriendsIds(List<Long> friendsIds) {
 		this.friendsIds = friendsIds;
-	}
+	}*/
 }

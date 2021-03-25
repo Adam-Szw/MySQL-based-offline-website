@@ -86,6 +86,14 @@
   box-sizing: border-box;
 }
 
+#Header {
+	font-size: 18px;
+}
+
+table {
+	width:100%
+}
+
 .right-side{
   margin-left: 10px;
   width: 100%;

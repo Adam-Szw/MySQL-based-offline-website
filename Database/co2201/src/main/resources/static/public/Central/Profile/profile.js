@@ -100,15 +100,72 @@ function LoadStats() {
 		    }
 		};
 }
-
-var ItemList = [];
+var Reload = false;
+var Data = [];
 function CustomGame() {
-	
- }
+	if (Reload == false) {
+	Reload = true;
+	Data = document.getElementById("StatTable").innerHTML;
+	if (Data == "[]") {
+		document.getElementById("StatTable").innerHTML = "No Statistics Available!";
+	}
+	else {
+		Sorter();
+		HTMLElement = "<table><tr id='Header'><td>Game ID</td><td>Game Name</td><td>Score</td><td>Date</td></tr><tr>"
+		
+		var i;
+		Count = 0;
+		for (i = 0; i < ItemList.length; i++) {
+		/*Each game has a length of 10*/
+			if (Count === 8) {
+				Count = Count+1
+				continue;
+			}
+			else if (Count ===9) {
+				Count = 0;
+				continue;
+			}
+			else if (i%10 ==0 & i !=0) {
+				HTMLElement = HTMLElement + "</tr><tr>"
+			}
+			else if (i != 0 & i%2 ==1) {
+		  			HTMLElement = HTMLElement + "<td>"+ItemList[i]+"</td>";
+		  	}
+		  	Count = Count +1
+		  }	 
+		}
+		HTMLElement = HTMLElement + "</tr></table>"
+		document.getElementById("StatTable").innerHTML = HTMLElement;
+		}
+}
+ 
+ 
+var ItemList = [];
+function Sorter() {
+    //ItemList is reset at the start of the function
+    ItemList = [];
+    var String = "";
+    //The custom game area starts by stripping the invalid chars
+    for (i =0; i<Data.length; i++) {
+        var Char = Data[i];
+        if ( Char == '"' | Char == ',' |Char == '[' | Char ==']' | Char=='}' | Char=='{' | Char==':') {
+            //If the ItemList length isnt 0 then the item is pushed to the list
+            if (String.length != 0) {
+               ItemList.push(String); 
+            }
+            String = "";
+        }
+        else {
+            //If the char is valid it is added to the existing string
+            String = String.concat(Char)
+       
+        }
+    }
+    }
+ 
  
  
  function StartUp() {
  	LogOn();
  	LoadStats();
-	CustomGame();
  }

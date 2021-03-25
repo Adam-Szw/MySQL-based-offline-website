@@ -39,6 +39,7 @@ public class ScoreRestController {
 				returnScore.setGameName(score.getGameName());
 				returnScore.setScore(score.getScore());
 				returnScore.setId(score.getId());
+				returnScore.setScoringDatetime(score.getScoringDatetime());
 				ReturnData.add(returnScore);
 			}
 
@@ -47,7 +48,7 @@ public class ScoreRestController {
 	}
 	
 	//------------------FOR SCOREBOARD--------------------
-	@GetMapping("/scores/user")
+	/*@GetMapping("/scores/user")
 	public ResponseEntity<?> getUserScores(Principal principal, @RequestParam(name = "gameName") String game,
 			@RequestParam(name = "ownerSort") String ownerSort, @RequestParam(name = "showCount") int showCount,
 			@RequestParam(name = "scoreSort") String scoreSort)
@@ -115,5 +116,5 @@ public class ScoreRestController {
 		}
 		
 		return new ResponseEntity<>(data, HttpStatus.OK);
-	}
+	}*/
 }

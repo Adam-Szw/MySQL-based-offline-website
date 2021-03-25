@@ -63,19 +63,13 @@
             <div class="right-side">
                 <div class="profile-tabs">
                     <ul>
-                        <li onclick="tabs(0)" class="user-stats active">Stats</li>
-                        <li onclick="tabs(1)" class="user-friends">Friends</li>
+                    	<li onclick="tabs(0)" class="user-friends active">Friends</li>
+                        <li onclick="tabs(1), CustomGame()" class="user-stats">Stats</li>
                         <li onclick="tabs(2)" class="user-settings">Settings</li>
                     </ul>
                 </div>
                 <div class="profile-body">
-                    <div class="profile-stats tab">
-                        <h1>Your Statistics</h1>
-                        <p id="StatTable">
-                        
-                        </p>
-
-                    </div>
+                   
                     <div class="profile-friends tab">
                         <h1>Your Friends</h1>
                         <p>Some text Some text Some text
@@ -91,6 +85,13 @@
                         </p>
 
                        
+                    </div>
+                     <div class="profile-stats tab">
+                        <h1>Your Statistics</h1>
+                        <p id="StatTable">
+                        
+                        </p>
+
                     </div>
                     <!--The profile settings tab area-->
                     <div class="profile-settings tab">
