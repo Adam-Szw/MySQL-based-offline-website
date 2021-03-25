@@ -11,10 +11,12 @@ import javax.persistence.OneToMany;
 @Entity
 public class SystemUser {
 	
+	//system
 	@Id
 	private long id;
 	private static long nextId = 0;
 	
+	//basic
 	private String username;
 	private String FName;
 	private String LName;
@@ -22,14 +24,19 @@ public class SystemUser {
 	private long phoneNumber;
 	private String email;
 	
+	//social
+	private List<Long> friendsIds;
+	
+	//leaderboard
+	@OneToMany(mappedBy="scoringPlayer", fetch=FetchType.LAZY, orphanRemoval = true, cascade = CascadeType.ALL)
+	private List<Score> scores;
+	
+	//security
 	private Boolean admin = false;	//admins have access to special functionalities and can give/revoke staff privilige to users
 	private Boolean staff = false;	//staff have access to special functionalities
 									//if both false then default player
 	
 	private String password;
-	
-	@OneToMany(mappedBy="scoringPlayer", fetch=FetchType.LAZY, orphanRemoval = true, cascade = CascadeType.ALL)
-	private List<Score> scores;
 	
 	public SystemUser()
 	{
@@ -121,5 +128,11 @@ public class SystemUser {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public List<Long> getFriendsIds() {
+		return friendsIds;
+	}
+	public void setFriendsIds(List<Long> friendsIds) {
+		this.friendsIds = friendsIds;
 	}
 }

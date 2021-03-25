@@ -24,7 +24,7 @@ import co2201.repo.SystemUserRepository;
 
 @RestController
 @CrossOrigin
-public class GamesController {
+public class GamesRestController {
 
 	@Autowired
 	SystemUserRepository userRepo;
@@ -52,7 +52,6 @@ public class GamesController {
 		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
-	
 	
 	//The save question section of the class
 	@GetMapping("/games/BinaryBlitz")
