@@ -23,15 +23,15 @@
 				<label class="usable">Sort by game:</label>
 				<select class="usable" id="GamesSort" onchange="SortScores()">
 					<option value="0">Select</option>
+					<option value="BitCrush">BitCrush</option>
 				</select>
 			</div>
 			<div class="MenuElement">
 				<label class="usable">Sort by scores:</label>
 				<select class="usable" id="ScoresSort" onchange="SortScores()">
-					<option value="0">Select</option>
-					<option value="1">My Scores</option>
-					<option value="2">Friend Scores</option>
-					<option value="3">All Scores</option>
+					<option value="user">My Scores</option>
+					<option value="friends">Friend Scores</option>
+					<option value="all">All Scores</option>
 				</select>
 			</div>
 			<div class="MenuElement">
@@ -40,19 +40,19 @@
 			<div class="MenuElement">
 				<label class="usable">Only show:</label>
 				<select class="usable" id="ScoresCountSort" onchange="SortScores()">
-					<option value="0">10</option>
-					<option value="1">20</option>
-					<option value="2">40</option>
-					<option value="3">All</option>
+					<option value="10">10</option>
+					<option value="20">20</option>
+					<option value="40">40</option>
+					<option value="1000">All</option>
 				</select>
 			</div>
 			<div class="MenuElement">
 				<label class="usable">Sort by:</label>
 				<select class="usable" id="RiskScores" onchange="SortScores()">
-					<option value="0">Best high-score (default)</option>
-					<option value="1">Lowest high-score</option>
-					<option value="2">Lowest average-score</option>
-					<option value="3">Lowest attempt count</option>
+					<option value="hi-score">Best high-score (default)</option>
+					<option value="low-score">Lowest high-score</option>
+					<option value="avg-score">Lowest average-score</option>
+					<option value="attempt-count">Lowest attempt count</option>
 				</select>
 			</div>
 		</div>
@@ -65,23 +65,7 @@
 				<div class="ScoreItem" id="Attemptcount">Attempt Count</div>
 			</div>
 		</div>
-		<div class="ContentBox" id="ScoreDisplay">
-			<div class="ScoreboardElement">
-				<div class="ScoreItem" id="Rank">1</div>
-				<div class="ScoreItem" id="Username">Adam</div>
-				<div class="ScoreItem" id="Bestscore">25</div>
-				<div class="ScoreItem" id="Attemptcount">11</div>
-				<div class="ScoreItem" id="Averagescore">14</div>
-				<div class="ScoreItem" id="FullDetails"><button>Click here to see all attempts</button></div>
-			</div>
-			<div class="ScoreboardElement">
-				<div class="ScoreItem" id="Rank">2</div>
-				<div class="ScoreItem" id="Username">Alex</div>
-				<div class="ScoreItem" id="Bestscore">25</div>
-				<div class="ScoreItem" id="Attemptcount">23</div>
-				<div class="ScoreItem" id="Averagescore">12</div>
-				<div class="ScoreItem" id="FullDetails"><button>Click here to see all attempts</button></div>
-			</div>
+		<div class="ContentBox" id="ScoreDisplayItems">
 		</div>
 	</div>
 </body>

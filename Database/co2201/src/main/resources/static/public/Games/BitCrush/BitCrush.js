@@ -65,40 +65,38 @@ function startGame() {
 	Http.send();
 
 	Http.onreadystatechange = (e) => {
-	  loggedPlayerId = Http.responseText;
+		loggedPlayerId = Http.responseText;
+		  
+		elementButtons = [];
+		missions = [];
+		clock = startingTime;
+		difficulty = 0;
+		tasks = [];
+		selected = [];
+		gameEnd = false;
+		selectionEnabled = true;
+		score = 0;
+		responseScore = [];
+		questionCount = 0;
+		
+		document.getElementById("img").style.display = "none";
+		document.getElementById("img2").style.display = "block";
+		var introText = document.getElementsByClassName("descriptionText");
+		for(var i = 0; i < introText.length; i++)
+		{
+			introText[i].style.display = "none";
+		}
+		document.getElementById("StartButton").style.display = "none";
+		var introText = document.getElementsByClassName("gameText");
+		for(var i = 0; i < introText.length; i++)
+		{
+			introText[i].style.display = "block";
+		}
+		loadMissions();
+		loadButtons();
+		createMission();
+		updateClock();
 	}
-	
-	console.log(loggedPlayerId.toString());
-
-	elementButtons = [];
-	missions = [];
-	clock = startingTime;
-	difficulty = 0;
-	tasks = [];
-	selected = [];
-	gameEnd = false;
-	selectionEnabled = true;
-	score = 0;
-	responseScore = [];
-	questionCount = 0;
-	
-	document.getElementById("img").style.display = "none";
-	document.getElementById("img2").style.display = "block";
-	var introText = document.getElementsByClassName("descriptionText");
-	for(var i = 0; i < introText.length; i++)
-	{
-		introText[i].style.display = "none";
-	}
-	document.getElementById("StartButton").style.display = "none";
-	var introText = document.getElementsByClassName("gameText");
-	for(var i = 0; i < introText.length; i++)
-	{
-		introText[i].style.display = "block";
-	}
-	loadMissions();
-	loadButtons();
-	createMission();
-	updateClock();
 }
 
 function loadButtons() {

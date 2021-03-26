@@ -67,6 +67,12 @@ public class ScoreRestController {
 			@RequestParam(name = "scoreSort") String scoreSort)
 	{
 		
+		//check if we want any information at all
+		if(game=="0")
+		{
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		
 		//check if user has access to these settings
 		SystemUser user = userRepo.findByUsername(principal.getName()).get();
 		if(showCount!=0 || scoreSort!="10")
@@ -76,7 +82,12 @@ public class ScoreRestController {
 				return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 			}
 		}
-	
+		
+		if(user.getStaff()||user.getAdmin())
+		{
+			//TODO - add button to redirect to user profile
+		}
+		
 		//List of details that will be converted to string
 		ArrayList<PlayerDetails> details = new ArrayList<PlayerDetails>();
 		
@@ -160,12 +171,30 @@ public class ScoreRestController {
 			break;
 		case "low-score":
 			//pick only best score from each user for that game, showing weakest users first
+			Collections.sort(details, new Comparator<PlayerDetails>() {
+				@Override
+				public int compare(PlayerDetails d1, PlayerDetails d2) {
+					return ((Float)(d1.highScore)).compareTo((Float)(d2.highScore));
+				}
+			});
 			break;
 		case "avg-score":
 			//pick only average score for that game of all attempts, showing weakest users
+			Collections.sort(details, new Comparator<PlayerDetails>() {
+				@Override
+				public int compare(PlayerDetails d1, PlayerDetails d2) {
+					return ((Float)(d1.averageScore)).compareTo((Float)(d2.averageScore));
+				}
+			});
 			break;
 		case "attempt-count":
 			//pick users with lowest attempt counts
+			Collections.sort(details, new Comparator<PlayerDetails>() {
+				@Override
+				public int compare(PlayerDetails d1, PlayerDetails d2) {
+					return ((Integer)(d1.attemptCount)).compareTo((Integer)(d2.attemptCount));
+				}
+			});
 			break;
 		}
 		
