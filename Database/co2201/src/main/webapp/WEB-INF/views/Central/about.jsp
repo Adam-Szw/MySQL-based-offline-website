@@ -52,9 +52,9 @@ basic level before moving on to more advanced concepts. It is also designed to s
   </tr>
   <tr>
   <!--Each of the developers has a contact button-->
-    <td><button class="button">Contact</button></td>
-    <td><button class="button">Contact</button></td>
-    <td><button class="button">Contact</button></td>
+    <td><button class="button"><a href="mailto:jp539@student.le.ac.uk">Contact</a></button></td>
+    <td><button class="button"><a href="mailto:aks60@student.le.ac.uk">Contact</a></button></td>
+    <td><button class="button"><a href="mailto:og48@student.le.ac.uk">Contact</a></button></td>
   </tr>
   <!--In total there are 6 developers-->
   <tr>
@@ -73,9 +73,9 @@ basic level before moving on to more advanced concepts. It is also designed to s
     <td>rc451@student.le.ac.uk</td>
   </tr>
   <tr>
-    <td><button class="button">Contact</button></td>
-    <td><button class="button">Contact</button></td>
-    <td><button class="button">Contact</button></td>
+    <td><button href="" class="button"><a href="mailto:ts365@student.le.ac.uk">Contact</a></button></td>
+    <td><button class="button"><a href="mailto:ua36@student.le.ac.uk">Contact</a></button></td>
+    <td><button class="button"><a href="mailto:rc451@student.le.ac.uk">Contact</a></button></td>
   </tr>
 </table>
 </div>

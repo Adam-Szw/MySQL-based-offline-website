@@ -26,7 +26,16 @@
     </div>
 
   <div class="container"id="Game">
+  	<div id="start-content">
+  		<p>Welcome to the Python quiz game!</p>
+  	</div>
+  	<div style="display:none" id="endgame-content">
+  		<p>Thanks for playing the Python quiz game!</p>
+  		<p id="endgamescore">You got a score of 0</p>
+  		<button id="EndGame"><a href="/games" >End Game</a></button>
+  	</div>
     <div id="question-container" class="hide">
+    <p id="right_answers">Score: </p>
       <div id="question">Question</div>
       <div id="answer-buttons" class="btn-grid">
         <button class="btn">Answer 1</button>
@@ -38,9 +47,8 @@
     <div class="controls">
       <button id="start-btn" class="start-btn btn">Start</button>
       <button id="next-btn" class="next-btn btn hide">Next</button>
-      <p id="right_answers">Scores: </p>
-      <p id ="countdown"></p>
-    </div>
+    </div>  
+     <p id ="countdown"><label id="timer">Time:</label></p>
   </div>
 </body>
 </html>

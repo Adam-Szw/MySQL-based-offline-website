@@ -13,8 +13,20 @@ const questionImg = document.getElementById('questionImg')
 const startingMinutes=03;
 const countdownEl = document.getElementById('countdown');
 let time = startingMinutes*60;
-setInterval(updateCountdown, 1000);
-
+const Http = new XMLHttpRequest('GET');
+const url='/games/userId';
+function LogOn() {
+Http.open("GET", url);
+Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+Http.setRequestHeader("Access-Control-Allow-Origin", "*");
+Http.send();
+	
+Http.onreadystatechange = (e) => {
+	loggedPlayerId = Http.responseText;
+}	
+console.log(loggedPlayerId.toString());
+console.log("test");
+}
 let shuffledQuestions, currentQuestionIndex
 let countRightAnswer = 0;
 document.getElementById('right_answers').classList.add('hide')
@@ -30,12 +42,15 @@ function updateCountdown(){
   
   seconds = seconds< 10 ? '0' + seconds : seconds;
 
-  countdownEl.innerHTML = `${minutes}:${seconds}`;
+  countdownEl.innerHTML = `Time: ${minutes}:${seconds}`;
   time--;
   time =  time<0 ? 0:time;
 }
 
 function startGame() {
+  LogOn()
+  document.getElementById('start-content').style.display = "None";
+  setInterval(updateCountdown, 1000);
   countRightAnswer=0;
   startButton.classList.add('hide')
   document.getElementById('right_answers').classList.remove('hide')
@@ -88,7 +103,7 @@ function selectAnswer(e) {
   }
   if (selectedButton.dataset=correct){
     countRightAnswer= countRightAnswer+5;
-    document.getElementById('right_answers').innerHTML = "Scores:"+countRightAnswer;
+    document.getElementById('right_answers').innerHTML = "Score: "+countRightAnswer;
   }
   
 }
@@ -113,7 +128,15 @@ function myFunction() {
 }
 
 function alertFunc() {
-  alert("Timeout!!!");
+	questionContainerElement.classList.add('hide')
+	document.getElementById('endgame-content').style.display = "Block";
+	document.getElementById('endgamescore').textContent = "You got a score of " + countRightAnswer + " Well Done!";
+	const Http = new XMLHttpRequest();
+    const url='/games/save?userId='+(loggedPlayerId).toString()+'&gameName='+'PythonQuiz'+'&gameScore='+(countRightAnswer).toString();
+    Http.open("GET", url);
+    	Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	Http.setRequestHeader("Access-Control-Allow-Origin", "*");
+    Http.send();
 }
 
 

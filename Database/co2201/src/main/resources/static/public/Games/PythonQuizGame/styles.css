@@ -13,7 +13,7 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background-color: hsl(var(--hue), 100%, 20%);
+    background-color: white;
   }
   
   body.correct {
@@ -27,7 +27,7 @@
   .container {
     width: 800px;
     max-width: 80%;
-    background-color: white;
+    background-color: rgb(161, 197, 159);
     justify-content: center;
     align-items: center;
     
@@ -45,25 +45,26 @@
   
   .btn {
     --hue: var(--hue-neutral);
-    border: 1px solid hsl(var(--hue), 100%, 30%);
-    background-color: hsl(var(--hue), 100%, 50%);
+    border: 1px solid rgb(80, 92, 79);
+    background-color: rgb(210, 233, 209);
     border-radius: 5px;
     padding: 5px 10px;
-    color: white;
+    color: rgb(80, 92, 79);
     outline: none;
   }
   
   .btn:hover {
-    border-color: black;
+    background-color: rgb(120, 151, 118);
   }
   
   .btn.correct {
-    --hue: var(--hue-correct);
-    color: black;
+    background-color: rgb(20, 87, 14);
+    color: white;
   }
   
   .btn.wrong {
-    --hue: var(--hue-wrong);
+    background-color: rgb(117, 30, 20);
+    color:white;
   }
   
   .start-btn, .next-btn {
@@ -81,8 +82,40 @@
   .hide {
     display: none;
   }
-  /* #right_answers{
-    position: absolute;
-    margin-left: 230px;
-    margin-top: 1px;
-  } */
+   #right_answers, #countdown{
+    margin-right: 20px;
+    float:right;
+    margin-top: 0px;
+  }
+  #timer {
+  	float:right;
+  	margin-right: 60px;
+  	display: none;
+  }
+  
+  #start-content, #endgame-content {
+  	font-size: 20px;
+  	text-align:center;
+  }
+  
+  #EndGame {
+    margin: 10px 5px 10px 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0px 3px 5px #4b4a4a;
+    border: 1px solid rgb(80, 92, 79);
+    background-color: rgb(210, 233, 209);
+    outline: none;
+    cursor:pointer;
+}
+
+#EndGame:hover {
+	background-color: rgb(120, 151, 118);
+}
+
+a {
+	text-decoration:none ;
+	color: rgb(80, 92, 79);
+}

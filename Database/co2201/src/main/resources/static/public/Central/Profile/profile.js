@@ -103,40 +103,40 @@ function LoadStats() {
 var Reload = false;
 var Data = [];
 function CustomGame() {
-	if (Reload == false) {
-	Reload = true;
 	Data = document.getElementById("StatTable").innerHTML;
-	if (Data == "[]") {
-		document.getElementById("StatTable").innerHTML = "No Statistics Available!";
-	}
-	else {
-		Sorter();
-		HTMLElement = "<table><tr id='Header'><td>Game ID</td><td>Game Name</td><td>Score</td><td>Date</td></tr><tr>"
-		
-		var i;
-		Count = 0;
-		for (i = 0; i < ItemList.length; i++) {
-		/*Each game has a length of 10*/
-			if (Count === 8) {
-				Count = Count+1
-				continue;
-			}
-			else if (Count ===9) {
-				Count = 0;
-				continue;
-			}
-			else if (i%10 ==0 & i !=0) {
-				HTMLElement = HTMLElement + "</tr><tr>"
-			}
-			else if (i != 0 & i%2 ==1) {
-		  			HTMLElement = HTMLElement + "<td>"+ItemList[i]+"</td>";
-		  	}
-		  	Count = Count +1
-		  }	 
+		if (Data == "[]" | Data =="No Statistics Available!") {
+			document.getElementById("StatTable").innerHTML = "No Statistics Available!";
 		}
-		HTMLElement = HTMLElement + "</tr></table>"
-		document.getElementById("StatTable").innerHTML = HTMLElement;
-		}
+		else {
+			if (Reload == false) {
+			Reload = true;
+			Sorter();
+			HTMLElement = "<table><tr id='Header'><td>Game ID</td><td>Game Name</td><td>Score</td><td>Date</td></tr><tr>"
+			
+			var i;
+			Count = 0;
+			for (i = 0; i < ItemList.length; i++) {
+			/*Each game has a length of 10*/
+				if (Count === 8) {
+					Count = Count+1
+					continue;
+				}
+				else if (Count ===9) {
+					Count = 0;
+					continue;
+				}
+				else if (i%10 ==0 & i !=0) {
+					HTMLElement = HTMLElement + "</tr><tr>"
+				}
+				else if (i != 0 & i%2 ==1) {
+			  			HTMLElement = HTMLElement + "<td>"+ItemList[i]+"</td>";
+			  	}
+			  	Count = Count +1
+			  }	 
+			}
+			HTMLElement = HTMLElement + "</tr></table>"
+			document.getElementById("StatTable").innerHTML = HTMLElement;
+			}
 }
  
  

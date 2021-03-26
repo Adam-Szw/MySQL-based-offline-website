@@ -34,16 +34,18 @@
     					<div class="login_icon">
     						<i class="fas fa-user-circle"></i>
     					</div>
-    					<input type="text" placeholder="Username" name="username" class="login_input">
+    					<input type="text" placeholder="Username" name="username" class="login_input" id="SignInUserName">
     				</div>
+    				<label class="ErrorMessage">Incorrect username</label>
     				<!--Password Login Box-->
     				<div class="login_box">
     					<div class="login_icon">
             				<i class="fas fa-lock"></i>
          				</div>
-          				<input type="password" placeholder="Password" name="password" class="login_input">
+          				<input type="password" placeholder="Password" name="password" class="login_input" id="SignInEmail">
         			</div>
-        			<input type="submit" class="login_button" id="signIn_button" value="Sign In"><br/>
+        			<label class="ErrorMessage">Incorrect password</label>
+        			<input type="submit" class="login_button" id="signIn_button" onclick ="SignInEmailChecker('SignInUserName','SignInEmail')" value="Sign In"><br/>
         			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 
         			<a href="#" class="login_forgot" id="forgot">Forgot Password</a>

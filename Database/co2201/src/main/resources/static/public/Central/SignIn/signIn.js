@@ -57,14 +57,11 @@ function SignInEmailChecker(EmailBox, PasswordBox) {
     var UserEmail = document.getElementById(EmailBox).value;
     var UserPassword = document.getElementById(PasswordBox).value;
     //The sign in email checker has two components, their email address and their password.
-    if (EmailCheck(UserEmail) == true) {
-        alert("Good Email")
-        if (UserPassword != '') {
-            alert("Good Password")
-        }
+    if (UserEmail == "") {
+    	document.getElementsByClass("ErrorMessage")[0].style.display = "Block";
     }
-    else {
-        alert("Bad Email")
+    if (UserPassword =="") {
+    	document.getElementsByClass("ErrorMessage")[1].style.display = "Block";
     }
 }
 
