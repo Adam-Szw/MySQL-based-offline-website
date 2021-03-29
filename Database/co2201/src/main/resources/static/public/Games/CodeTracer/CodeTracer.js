@@ -8,7 +8,7 @@ var pythonQuestions = [
     ["Which code outputs 8 as the answer?","eight-correct.png","eight-zero.png","eight-six.png"],
     ["Which program outputs Berries?","fruit-correct.png","fruit-append.png","fruit-pop.png"],
     ["Which code will print 24?","xy-correct.png","xy-y.png","xy-plus.png"],
-    ["Which code will accept Programming!55 as a password?","passwordC-correct.png","passwordC-lower.png","passwordC-num.png"]
+    ["Which code will accept Programming!55 as a password?","passwordC-correct.png","passwordC-lower.png","passwordC-num.png"],
     ["Which line will store the first character?","firstChar-correct.png","firstChar-sub.png","firstChar-subnum.png"],
     ["Given the file dog_breeds.txt what is the correct way to open the file for reading?","fileReader-correct.png","fileReader-rb.png","fileReader-w.png"],
     ["Which code snippet will output the all items and a done?","while-correct.png","while-done.png","while-list.png"],
@@ -36,7 +36,6 @@ var randomPython = [];
     /*List to store the randomly selected Java questions*/
 var randomJava = [];
 
-var loggedPlayerId; 
 
 
 
@@ -92,7 +91,7 @@ function randQ(f,c) {
     Takes one parameter:
     -A array, the randomly selected questions
     */
-    function quiz(f){ 	
+    function quiz(f,loggedPlayerId){ 	
         var questionNumber=0;
         var questionBank= f;
         var stage="#game1";
@@ -102,36 +101,6 @@ function randQ(f,c) {
         var score=0;
         var counter=1;
     
-/*
-        const Http = new XMLHttpRequest();
-        const url='http://localhost:8080/Login';
-        Http.open("GET", url);
-        Http.send();
-    
-        Http.onreadystatechange = (e) => {
-          loggedPlayerId = Http.responseText;
-        }
-
-		console.log(loggedPlayerId.toString());
-		console.log("test");
-    
-*/
-
-		
-		
-        const Http = new XMLHttpRequest('GET');
-		const url='/games/userId';
-		Http.open("GET", url);
-		Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-		Http.setRequestHeader("Access-Control-Allow-Origin", "*");
-		Http.send();
-
-		Http.onreadystatechange = (e) => {
-	  		loggedPlayerId = Http.responseText;
-		}
-	
-		console.log(loggedPlayerId.toString());
-		console.log("test");
     
     /*Calls the fucntion displayQuestion*/
         displayQuestion();
@@ -231,17 +200,45 @@ function randQ(f,c) {
         document.getElementsByClassName("gameMenu");
         $('#pyBtn').click(function(){
             randQ(pythonQuestions,randomPython);
-            quiz(randomPython);
+            getPlayerID(2,quiz);
             $(".gameMenu").remove();
     
         })
         $('#javaBtn').click(function(){
             randQ(javaQuestions,randomJava);
-            quiz(randomJava);
+            getPlayerID(1,quiz);
             $(".gameMenu").remove();
     
         })
     }
+
+function getPlayerID (flag,whenDone){
+	var loggedPlayerId;
+	setTimeout(function () {
+		var logPlayerRequest = new XMLHttpRequest();
+		const urlA='/games/userId';
+		logPlayerRequest.open('GET',urlA);
+		logPlayerRequest.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+		logPlayerRequest.setRequestHeader("Access-Control-Allow-Origin", "*");
+		logPlayerRequest.send();
+		logPlayerRequest.onreadystatechange = function(){
+		if (logPlayerRequest.readyState === 4) {
+			if (logPlayerRequest.status === 200){
+				loggedPlayerId = logPlayerRequest.responseText;
+				if(flag == 1){
+					whenDone(randomJava,loggedPlayerId);
+				}
+				
+				if(flag == 2){
+					whenDone(randomPython,loggedPlayerId);
+				}
+				
+				}
+			} // request is done
+		}
+
+      }, 100);
+}
     
     menu();
     
