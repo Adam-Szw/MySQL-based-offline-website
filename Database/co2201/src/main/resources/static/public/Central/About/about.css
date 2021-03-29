@@ -1,5 +1,5 @@
 /*The developer details are stored inside a table*/
-table {
+#AboutTable {
   text-align: center;
   border: 1px black;
   width: 90%;
@@ -12,20 +12,25 @@ table {
   margin-left: 20px;
   margin-right: 20px;
   text-align: center;
+  margin-bottom: 0px;
 }
 
 /*The green box that contains all of the page's main content*/
-#PageArea {
+#PageAreaAbout {
   padding-bottom: 10px;
   margin-left:15%;
   background-color: rgb(218, 245, 207);
   box-shadow: 0px 3px 5px #4b4a4a;
   color:black;
-  min-height: 70vh;
+  height: 95vh;
 }
 
-td {
-  padding: 12px 20px 12px 20px;
+.Data {
+  padding: 6px 10px 6px 10px;
+}
+
+.Contact {
+	padding: 13px 15px 12px 15px;
 }
 
 /*The contact button styles*/
@@ -38,6 +43,8 @@ button {
   outline: none;
   cursor:pointer;
   padding: 5px 20px 5px 20px;
+  font-size: 15px;
+  background-color: rgb(161, 197, 159);
 }
 
 button a {
@@ -51,4 +58,34 @@ button:hover {
 
 /*The main title styles*/
 h1 {text-align: center;
-margin-top: 10px;}
+margin-top: 10px;
+padding-top:10px}
+
+#PageAreaMainPage {
+  padding-bottom: 10px;
+  margin-left:15%;
+  background-color: rgb(218, 245, 207);
+  box-shadow: 0px 3px 5px #4b4a4a;
+  color:black;
+  min-height: 95.25vh;
+}
+
+#FactTable {
+	margin-left: auto;
+  	margin-right: auto;
+  	width: 60%
+}
+
+#FactTable td {
+	padding: 13px 15px 12px 15px;
+}
+
+#FactTable img {
+	width: 300px;
+	height: 250px;
+	box-shadow: 0px 3px 5px #4b4a4a;
+}
+
+#RandomFact {
+	padding-top: 10px;
+}

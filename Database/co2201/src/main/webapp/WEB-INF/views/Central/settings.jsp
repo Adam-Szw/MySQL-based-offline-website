@@ -38,6 +38,19 @@
         element.classList.toggle("dark-mode");
     }
 
+    function serif() {
+    	var element = document.body;
+    	element.classList.toggle("serif");
+    }
+
+    function sansserif() {
+    	var element = document.body;
+    	element.classList.toggle("sansserif");
+    }
+	function bold() {
+		var element = document.body;
+		element.classList.toggle("bold");
+	}
 </script>   
 </head>
 <body>
@@ -56,7 +69,7 @@
         <h1>Settings</h1>
         <table>
         <!--The colour scheme section-->
-        <tr><td>Colour Scheme:</td><td>
+        <tr><td></td><td>Colour Scheme:</td><td>
         <div onselectstart="return false" class="darkbutton">
             <label class="switch">
                 <label for="mode" id = "light">Light Mode</label>
@@ -64,7 +77,7 @@
                 <input type="checkbox" id = "mode" onclick = "darkmode()">
                 <span class="slider"></span>
             </label>   
-            </div></td>
+            </div></td><td></td>
         </tr>
         <!--The text settings section-->
         <tr>
@@ -72,29 +85,27 @@
             <td>
             <div onselectstart="return false" class="textsize">
                 <button class="dropbtn">Text Size</button>
-                <div class ="content">
+                <div id="size" class ="content">
                     <p onclick = "small()">Small </p>
                     <p onclick = "medium()">medium </p>
                     <p onclick = "large()">large </p>
                 </div>
-            </div></td></tr>
-        <!--The text type settings section-->
-        <tr>
-            <td>Text Type:</td>
+            </div></td>
+             <td>Text Type:</td>
             <td>
                 <div onselectstart="return false" class="textsize">
                     <button class="dropbtn">Text Type</button>
-                    <div class ="content">
-                        <p onclick = "">Serif </p>
-                        <p onclick = "">Sans-Serif </p>
-                        <p onclick = "">Bold </p>
+                    <div id="text" class ="content">
+                        <p onclick = "serif()">Serif </p>
+                        <p onclick = "sansserif()">Sans-Serif </p>
+                        <p onclick = "bold()">Bold </p>
                     </div>
                 </div>
             </td>
-        </tr>  
+            </tr>
         <!--The save settings section-->  
         <tr>
-            <td colspan="2"><button id="SaveSettings">Save Settings</button></td>
+            <td colspan="4"><button id="SaveSettings">Save Settings</button></td>
         </tr>
         </div>
         </table> 

@@ -23,59 +23,59 @@
 
 
 <!--This is the title and the website description section-->    
-<div class="TopBox" id="PageArea">
+<div id="PageAreaAbout">
 <h1>About us</h1>
 <p id="ProjectAbout">This website aims to deliver
 educational games which help beginners to learn basic Computer Science concepts, starting at a
 basic level before moving on to more advanced concepts. It is also designed to support the department in identifying students who are at risk and require additional support.
 </p>
 <!--This table contains the developer details-->
-<table>
+<table id="AboutTable">
   <th colspan="3"><h2>Our Members</h2></th>
   <tr>
   <!--Each of the developers has their name listed-->
-    <td>Jaynik Parsotomo</td>
-    <td>Adam Szwandziak</td>
-    <td>Oliver Gamble</td>
+    <td class="Data">Jaynik Parsotomo</td>
+    <td class="Data">Adam Szwandziak</td>
+    <td class="Data">Oliver Gamble</td>
   </tr>
   <tr>
   <!--Each of the developers has their role listed-->
-    <td>Designer</td>
-    <td>Designer</td>
-    <td>Designer</td>
+    <td class="Data">Designer</td>
+    <td class="Data">Designer</td>
+    <td class="Data">Designer</td>
   </tr>
   <tr>
   <!--Each of the developers has their email listed-->
-    <td>jp539@student.le.ac.uk</td>
-    <td>aks60@student.le.ac.uk</td>
-    <td>og48@student.le.ac.uk</td>
+    <td class="Data">jp539@student.le.ac.uk</td>
+    <td class="Data">aks60@student.le.ac.uk</td>
+    <td class="Data">og48@student.le.ac.uk</td>
   </tr>
   <tr>
   <!--Each of the developers has a contact button-->
-    <td><button class="button"><a href="mailto:jp539@student.le.ac.uk">Contact</a></button></td>
-    <td><button class="button"><a href="mailto:aks60@student.le.ac.uk">Contact</a></button></td>
-    <td><button class="button"><a href="mailto:og48@student.le.ac.uk">Contact</a></button></td>
+    <td class="Contact"><button class="button"><a href="mailto:jp539@student.le.ac.uk">Contact</a></button></td>
+    <td class="Contact"><button class="button"><a href="mailto:aks60@student.le.ac.uk">Contact</a></button></td>
+    <td class="Contact"><button class="button"><a href="mailto:og48@student.le.ac.uk">Contact</a></button></td>
   </tr>
   <!--In total there are 6 developers-->
   <tr>
-    <td>Taranveer Singh</td>
-    <td>Umaid Ahmed</td>
-    <td>Reece Chidwick</td>
+    <td class="Data">Taranveer Singh</td>
+    <td class="Data">Umaid Ahmed</td>
+    <td class="Data">Reece Chidwick</td>
   </tr>
   <tr>
-    <td>Designer</td>
-    <td>Designer</td>
-    <td>Designer</td>
+    <td class="Data">Designer</td>
+    <td class="Data">Designer</td>
+    <td class="Data">Designer</td>
   </tr>
   <tr>
-    <td>ts365@student.le.ac.uk</td>
-    <td>ua36@student.le.ac.uk</td>
-    <td>rc451@student.le.ac.uk</td>
+    <td class="Data">ts365@student.le.ac.uk</td>
+    <td class="Data">ua36@student.le.ac.uk</td>
+    <td class="Data">rc451@student.le.ac.uk</td>
   </tr>
   <tr>
-    <td><button href="" class="button"><a href="mailto:ts365@student.le.ac.uk">Contact</a></button></td>
-    <td><button class="button"><a href="mailto:ua36@student.le.ac.uk">Contact</a></button></td>
-    <td><button class="button"><a href="mailto:rc451@student.le.ac.uk">Contact</a></button></td>
+    <td class="Contact"><button href="" class="button"><a href="mailto:ts365@student.le.ac.uk">Contact</a></button></td>
+    <td class="Contact"><button class="button"><a href="mailto:ua36@student.le.ac.uk">Contact</a></button></td>
+    <td class="Contact"><button class="button"><a href="mailto:rc451@student.le.ac.uk">Contact</a></button></td>
   </tr>
 </table>
 </div>
