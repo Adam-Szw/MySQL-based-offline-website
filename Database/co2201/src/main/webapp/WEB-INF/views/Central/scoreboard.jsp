@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
-<body>
+<body onload="setup()">
     <div class="sidenav">
 	  	<img id="SideBar" src="public/Central/Images/Signin.png"><a href="/signIn">Sign In</a>
 		<img id="SideBar" src="public/Central/Images/Games.png"><a href="/games">Games</a>
@@ -35,11 +35,11 @@
 				</select>
 			</div>
 			<div class="MenuElement">
-				<button>Enable Risk-Assessment Mode</button>
+				<button id="riskButton" onclick="risk()">Enable Risk-Assessment Mode</button>
 			</div>
 			<div class="MenuElement">
-				<label class="usable">Only show:</label>
-				<select class="usable" id="ScoresCountSort" onchange="SortScores()">
+				<label class="usable2">Only show:</label>
+				<select class="usable2" id="ScoresCountSort" onchange="SortScores()">
 					<option value="10">10</option>
 					<option value="20">20</option>
 					<option value="40">40</option>
@@ -47,8 +47,8 @@
 				</select>
 			</div>
 			<div class="MenuElement">
-				<label class="usable">Sort by:</label>
-				<select class="usable" id="RiskScores" onchange="SortScores()">
+				<label class="usable2">Sort by:</label>
+				<select class="usable2" id="RiskScores" onchange="SortScores()">
 					<option value="hi-score">Best high-score (default)</option>
 					<option value="low-score">Lowest high-score</option>
 					<option value="avg-score">Lowest average-score</option>
@@ -58,11 +58,11 @@
 		</div>
 		<div class="ContentBox" id="ScoreDisplay">
 			<div class="ScoreboardElement">
-				<div class="ScoreItem" id="Rank">Rank</div>
-				<div class="ScoreItem" id="Username">Username</div>
-				<div class="ScoreItem" id="Bestscore">Best Score</div>
-				<div class="ScoreItem" id="Averagescore">Average Score</div>
-				<div class="ScoreItem" id="Attemptcount">Attempt Count</div>
+				<div class="ScoreItem" id="RankLabel">Rank</div>
+				<div class="ScoreItem" id="UsernameLabel">Username</div>
+				<div class="ScoreItem" id="BestscoreLabel">Best Score</div>
+				<div class="ScoreItem" id="AveragescoreLabel">Average Score</div>
+				<div class="ScoreItem" id="AttemptcountLabel">Attempt Count</div>
 			</div>
 		</div>
 		<div class="ContentBox" id="ScoreDisplayItems">

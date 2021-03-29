@@ -36,23 +36,35 @@
 	display:inline-block;
 }
 
-#Rank {
+#riskButton {
+	display: none;
+}
+
+#Rank, #RankLabel {
 	width: 10%;
 }
 
-#Username {
+#Username, #UsernameLabel {
 	width: 30%;
 }
 
-#Bestscore {
+#Bestscore, #BestscoreLabel {
 	width: 10%;
 }
 
-#Averagescore {
+#Averagescore, #AveragescoreLabel {
 	width: 10%;
 }
 
-#Attemptcount {
+#AveragescoreLabel {
+	display: none;
+}
+
+#AttemptcountLabel {
+	display: none;
+}
+
+#Attemptcount, #AttemptcountLabel {
 	width: 10%;
 }
 
@@ -63,4 +75,9 @@
 
 .usable {
 	background-color: rgb(232, 211, 237);
+}
+
+.usable2 {
+	background-color: rgb(232, 211, 237);
+	display: none;
 }

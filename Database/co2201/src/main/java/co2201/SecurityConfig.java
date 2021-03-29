@@ -35,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.logoutSuccessUrl("/")
 			.permitAll()
 		.and().authorizeRequests()
-			.antMatchers("/games", "/profile", "/scoreboard", "/settings",
+			.antMatchers("/games", "/profile", "/scoreboard", "/settings", "/games/getRole",
 					"/games/userId", "/games/save**", "/scores**").hasAnyRole("USER","STAFF","ADMIN")
 			.antMatchers("/public/**").permitAll()
 			.anyRequest().authenticated()

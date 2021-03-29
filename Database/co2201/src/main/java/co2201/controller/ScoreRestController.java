@@ -75,7 +75,7 @@ public class ScoreRestController {
 		
 		//check if user has access to these settings
 		SystemUser user = userRepo.findByUsername(principal.getName()).get();
-		if(showCount!=0 || scoreSort!="10")
+		if(showCount!=10 || !scoreSort.equals("hi-score"))
 		{
 			if(!user.getStaff()&&!user.getAdmin())
 			{

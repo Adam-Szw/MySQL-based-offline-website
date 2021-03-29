@@ -39,6 +39,28 @@ public class GamesRestController {
 		return new ResponseEntity<>(user.getId(), HttpStatus.OK);
 	}
 	
+	//will return highest role that user has
+	@GetMapping("/games/getRole")
+	public ResponseEntity<?> getHighestRole(Principal principal)
+	{
+		SystemUser user = userRepo.findByUsername(principal.getName()).get();
+		if(user.getAdmin())
+		{
+			return new ResponseEntity<>("ADMIN", HttpStatus.OK);
+		}
+		else if(user.getStaff())
+		{
+			return new ResponseEntity<>("STAFF", HttpStatus.OK);
+		}
+		else
+		{
+			return new ResponseEntity<>("USER", HttpStatus.OK);
+		}
+	}
+	
+	//will return formatted list of all games
+	//todo
+	
 	@GetMapping("/games/save")
 	public ResponseEntity<?> saveScore(@RequestParam(name = "userId") Long id, @RequestParam(name = "gameName") String game, @RequestParam(name = "gameScore") Integer score)
 	{

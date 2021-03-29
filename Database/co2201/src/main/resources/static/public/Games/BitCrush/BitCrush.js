@@ -64,38 +64,41 @@ function startGame() {
 	Http.setRequestHeader("Access-Control-Allow-Origin", "*");
 	Http.send();
 
-	Http.onreadystatechange = (e) => {
-		loggedPlayerId = Http.responseText;
-		  
-		elementButtons = [];
-		missions = [];
-		clock = startingTime;
-		difficulty = 0;
-		tasks = [];
-		selected = [];
-		gameEnd = false;
-		selectionEnabled = true;
-		score = 0;
-		responseScore = [];
-		questionCount = 0;
-		
-		document.getElementById("img").style.display = "none";
-		document.getElementById("img2").style.display = "block";
-		var introText = document.getElementsByClassName("descriptionText");
-		for(var i = 0; i < introText.length; i++)
+	Http.onreadystatechange = function() {
+		if (this.readyState == 4)
 		{
-			introText[i].style.display = "none";
+			loggedPlayerId = Http.responseText;
+			  
+			elementButtons = [];
+			missions = [];
+			clock = startingTime;
+			difficulty = 0;
+			tasks = [];
+			selected = [];
+			gameEnd = false;
+			selectionEnabled = true;
+			score = 0;
+			responseScore = [];
+			questionCount = 0;
+			
+			document.getElementById("img").style.display = "none";
+			document.getElementById("img2").style.display = "block";
+			var introText = document.getElementsByClassName("descriptionText");
+			for(var i = 0; i < introText.length; i++)
+			{
+				introText[i].style.display = "none";
+			}
+			document.getElementById("StartButton").style.display = "none";
+			var introText = document.getElementsByClassName("gameText");
+			for(var i = 0; i < introText.length; i++)
+			{
+				introText[i].style.display = "block";
+			}
+			loadMissions();
+			loadButtons();
+			createMission();
+			updateClock();
 		}
-		document.getElementById("StartButton").style.display = "none";
-		var introText = document.getElementsByClassName("gameText");
-		for(var i = 0; i < introText.length; i++)
-		{
-			introText[i].style.display = "block";
-		}
-		loadMissions();
-		loadButtons();
-		createMission();
-		updateClock();
 	}
 }
 

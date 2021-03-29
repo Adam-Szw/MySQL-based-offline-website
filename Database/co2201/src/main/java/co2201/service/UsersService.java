@@ -31,7 +31,7 @@ public class UsersService implements UserDetailsService {
 			throw new UsernameNotFoundException("User not found");
 		
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		authorities.add(new SimpleGrantedAuthority("ROLE_PLAYER"));
+		authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
 		if(systemUser.getStaff())
 		{
 			authorities.add(new SimpleGrantedAuthority("ROLE_STAFF"));
