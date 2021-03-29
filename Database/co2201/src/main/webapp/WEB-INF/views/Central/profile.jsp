@@ -42,17 +42,13 @@
                 <div class="profile-side">
                     <h1 id="full-name">John Smith</h1>
                     <div class="user-info">
-                        <i class="fas fa-phone"></i><p id="mobile-no">+447534xxxx546</p><br>
-                        <i class="fas fa-envelope"></i><p id="user-mail">someone@example.com</p>
+                        <i class="fas fa-phone"></i><p id="mobile-no">Add your phone number</p><br>
+                        <i class="fas fa-envelope"></i><p id="user-mail">Add your email</p>
                     </div>
                     <div class="user-bio">
                         <h3>Bio</h3>
                         <p id="bio">
-                            Some text Some text Some text
-                            Some text Some text Some text
-                            Some text Some text Some text
-                            Some text Some text Some text
-                            Some text Some text Some text
+                        	Add your Bio  
                         </p>
 
                     </div>
@@ -97,21 +93,24 @@
                     <div class="profile-settings tab">
                         <div class="profile-settings-body">
                             <h1>Profile Settings</h1>
+
+                            <div class="change-password">
+                            	<h3 class="section-title">Change your password</h3>
+                            	<button type="submit" class="save-details" name="submitBtn" onclick="sendPassword()">Save</button>
+                            	<div class="password-container">
+                            		<div class="form-group">
+                                    	<label class="form-label">New Password</label>
+                                    	<input type="password" id="user-password" class="form-in" placeholder="Password"/>
+                                	</div>
+                            	</div>
+                            </div>
+                            
                             <div class="change-details">
                                 <h3 class="section-title">
                                     Edit Details
                                 </h3>
-                                <button type="submit" class="save-details" name="submitBtn" onclick="saveUserData()">Save</button>
+                                <button type="submit" class="save-details" name="submitBtn" onclick="sendData()">Save</button>
                             <div class="grid-profile-container">
-                                <div class="form-group">
-                                    <label class="form-label">Name</label>
-                                    <input type="text" id="user-name" class="form-in" placeholder="Name"/>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Surname</label>
-                                    <input type="text" id="user-surname" class="form-in" placeholder="Surname"/>
-                                </div>
-                                    
                                 <div class="form-group">
                                     <label class="form-label">Email</label>
                                     <input type="text" id="user-email" class="form-in" placeholder="Email"/>
@@ -122,6 +121,19 @@
                                     <input type="text" id="user-phone" class="form-in" placeholder="Phone"/>
                                 </div>
                             </div>
+                            </div>
+                            <!--The change profile bio section-->    
+                            <div class="change-bio">
+                            	<h3 class="section-title">
+                                    Change your Profile bio
+                                </h3>
+                                <button type="submit" class="save-details" name="submitBtn" onclick="sendBio()">Save</button>
+                            	<div class="bio-container">
+                            		<div class="add-bio">
+                            			 <label class="form-label">150 characters limit for bio</label>
+                            			 <textarea  id="user-bio" class="bio-form" maxlength="150" placeholder="Add Bio"></textarea>
+                            		</div>
+                            	</div>
                             </div>
 							<!--The change profile picture section-->
                             <div class="change-pic">

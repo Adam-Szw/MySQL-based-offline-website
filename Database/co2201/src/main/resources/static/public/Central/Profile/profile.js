@@ -169,3 +169,265 @@ function Sorter() {
  	LogOn();
  	LoadStats();
  }
+
+//Gets the username and displays it
+function getUsername(){
+	var request = new XMLHttpRequest('GET');
+	
+	const url='/profile/username';
+	request.open("GET", url);
+	request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	request.setRequestHeader("Access-Control-Allow-Origin", "*");
+	request.send();
+	
+	
+	request.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+			document.getElementById('username').innerHTML = "";
+			$("#username").append(this.responseText);
+            console.log(this.responseText);
+		
+
+        }
+    };
+	
+}
+
+//Gets the first and last name and displays it
+function getName(){
+
+	var request = new XMLHttpRequest('GET');
+	
+	const url='/profile/name';
+	request.open("GET", url);
+	request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	request.setRequestHeader("Access-Control-Allow-Origin", "*");
+	request.send();
+	
+
+	request.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+			document.getElementById('full-name').innerHTML = "";
+			$("#full-name").append(this.responseText);
+            console.log(this.responseText);
+		
+        }
+    };
+	
+}
+
+//Get the phone number and displays it
+function getPhone(){
+	var request = new XMLHttpRequest('GET');
+	
+	const url='/profile/phone';
+	request.open("GET", url);
+	request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	request.setRequestHeader("Access-Control-Allow-Origin", "*");
+	request.send();
+	
+
+	request.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+			if(this.responseText == 0){
+			
+			}
+			
+			else{
+				document.getElementById('mobile-no').innerHTML = "";
+				$("#mobile-no").append(this.responseText);
+				console.log(this.responseText);
+				
+			}
+
+        }
+    };
+	
+}
+
+//Gets the email and displays it
+function getEmail(){
+	var request = new XMLHttpRequest('GET');
+	
+	const url='/profile/email';
+	request.open("GET", url);
+	request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	request.setRequestHeader("Access-Control-Allow-Origin", "*");
+	request.send();
+	
+	
+	request.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+			if(this.responseText === ""){
+				
+			}
+			else{
+				document.getElementById('user-mail').innerHTML = "";
+				$("#user-mail").append(this.responseText);
+				console.log(this.responseText);
+			}
+			
+			
+
+        }
+    };
+	
+}
+
+//Gets the bio and displays it
+function getBio(){
+	var request = new XMLHttpRequest('GET');
+	
+	const url='/profile/bio';
+	request.open("GET", url);
+	request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	request.setRequestHeader("Access-Control-Allow-Origin", "*");
+	request.send();
+
+	
+	request.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+			if(this.responseText === ""){
+				
+			}
+			else{
+				document.getElementById('bio').innerHTML = "";
+				$("#bio").append(this.responseText);
+				console.log(this.responseText);
+			}
+
+        }
+    };
+	
+}
+
+//functions for retriving and displaying user details being called
+getUsername();
+getName();
+getPhone();
+getEmail();
+getBio();
+
+//Function to save user phone number and email
+function saveUserData(loggedPlayerID){
+    var email = document.getElementById('user-email').value;
+    var phone = document.getElementById('user-phone').value;
+	//console.log(phone);
+	if(phone === ""){
+		phone = 0;
+		
+	}
+	if(email === ""){
+		email = "n";
+	}
+
+	const Http = new XMLHttpRequest();
+	const url='/profile/saveDetails?userId='+loggedPlayerID+'&phoneNo='+phone+'&email='+email;
+	Http.open("GET", url);
+	Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	Http.setRequestHeader("Access-Control-Allow-Origin", "*");
+	Http.send();
+	
+	setTimeout(function(){
+		getPhone();
+		getEmail();
+		document.getElementById('user-email').value = '';
+		document.getElementById('user-phone').value = '';
+	},1000)
+	
+	
+		
+	
+}
+
+//Function to save user bio
+function saveUserBio(loggedPlayerID){
+	
+	
+	var bio = document.getElementById('user-bio').value;
+	//console.log(bio);
+
+	const Http = new XMLHttpRequest();
+	const url='/profile/saveBio?userId='+loggedPlayerID+'&bio='+bio;
+	Http.open("GET", url);
+	Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	Http.setRequestHeader("Access-Control-Allow-Origin", "*");
+	Http.send();
+	
+	setTimeout(function(){
+		getBio();
+	},1000)
+	
+
+	
+
+}
+
+//Function to save the new password
+function saveUserPassword(loggedPlayerID){
+	
+	
+	var password = document.getElementById('user-password').value;
+	//console.log(password);
+
+	const Http = new XMLHttpRequest();
+	const url='/profile/savePassword?userId='+loggedPlayerID+'&password='+password;
+	Http.open("GET", url);
+	Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	Http.setRequestHeader("Access-Control-Allow-Origin", "*");
+	Http.send();
+	
+	setTimeout(function(){
+		location.reload();
+		return false;
+	},1000)
+	
+
+}
+
+
+//Function to get current logged in player ID
+function getPlayerID (whenDone){
+	var loggedPlayerId;
+	setTimeout(function () {
+		var logPlayerRequest = new XMLHttpRequest();
+		const urlA='/games/userId';
+		logPlayerRequest.open('GET',urlA);
+		logPlayerRequest.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+		logPlayerRequest.setRequestHeader("Access-Control-Allow-Origin", "*");
+		logPlayerRequest.send();
+		logPlayerRequest.onreadystatechange = function(){
+		if (logPlayerRequest.readyState === 4) {
+			if (logPlayerRequest.status === 200){
+				loggedPlayerId = logPlayerRequest.responseText;
+				whenDone(loggedPlayerId);
+				}
+			} // request is done
+		}
+
+      }, 10);
+}
+
+//Function to save the data on button click
+function sendData(){
+	getPlayerID(saveUserData);
+}
+
+//Function to save the bio on button click
+function sendBio(){
+	getPlayerID(saveUserBio);
+}
+
+//Function to update the password
+function sendPassword(){
+	getPlayerID(saveUserPassword);	
+}
+
+
+
+
+
+
+
+
+
