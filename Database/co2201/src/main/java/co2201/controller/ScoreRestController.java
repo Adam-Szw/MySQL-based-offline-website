@@ -50,25 +50,34 @@ public class ScoreRestController {
 	}
 	
 	@GetMapping("/Profile/GetVisitorStats/{userName}")
-	public List<Score> getVisitorStats(@PathVariable(name="userName") String username) {
-		SystemUser user = userRepo.findByUsername(username).get();
-		List<Score> UserScores = user.getScores();
+	public List<Score> getVisitorStats(Principal principal, @PathVariable(name="userName") String username) {
 		List<Score> ReturnData = new ArrayList<Score>();
-		for (Score score: UserScores) {
-			Score returnScore = new Score();
-			returnScore.setGameName(score.getGameName());
-			returnScore.setScore(score.getScore());
-			returnScore.setId(score.getId());
-			returnScore.setScoringDatetime(score.getScoringDatetime());
-			ReturnData.add(returnScore);
+		SystemUser userSearching = userRepo.findByUsername(principal.getName()).get();
+		if(!userSearching.getStaff() && !userSearching.getAdmin())
+		{
+			return ReturnData;
 		}
-		return ReturnData;
+		else
+		{
+			SystemUser user = userRepo.findByUsername(username).get();
+			List<Score> UserScores = user.getScores();
+			for (Score score: UserScores) {
+				Score returnScore = new Score();
+				returnScore.setGameName(score.getGameName());
+				returnScore.setScore(score.getScore());
+				returnScore.setId(score.getId());
+				returnScore.setScoringDatetime(score.getScoringDatetime());
+				ReturnData.add(returnScore);
+			}
+			return ReturnData;
+		}
 	}
 	
 	//------------------FOR SCOREBOARD--------------------
 	protected class PlayerDetails {
 		long id = 0;
 		int rank = 0;
+		String userNameProper = null;
 		String userName = null;
 		float highScore = 0.0f;
 		float averageScore = 0.0f;
@@ -120,6 +129,7 @@ public class ScoreRestController {
 				PlayerDetails d = new PlayerDetails();
 				d.id = userItem.getId();
 				d.userName = userItem.getFName()+" "+userItem.getLName();
+				d.userNameProper = userItem.getUsername();
 				details.add(d);
 			}
 			break;
@@ -129,17 +139,20 @@ public class ScoreRestController {
 				PlayerDetails d = new PlayerDetails();
 				d.id = l;
 				d.userName = userRepo.findById(l).get().getFName()+" "+userRepo.findById(l).get().getLName();
+				d.userNameProper = userRepo.findById(l).get().getUsername();
 				details.add(d);
 			}
 			PlayerDetails d = new PlayerDetails();
 			d.id = user.getId();
 			d.userName = user.getFName()+" "+user.getLName();
+			d.userNameProper = user.getUsername();
 			details.add(d);
 			break;
 		case "user":
 			PlayerDetails d1 = new PlayerDetails();
 			d1.id = user.getId();
 			d1.userName = user.getFName()+" "+user.getLName();
+			d1.userNameProper = user.getUsername();
 			details.add(d1);
 			break;
 		}
@@ -234,7 +247,7 @@ public class ScoreRestController {
 		for(PlayerDetails detail : resultDetails)
 		{
 			data+=detail.rank+"|"+detail.userName+"|"+detail.highScore+"|"+detail.averageScore+
-					"|"+detail.attemptCount+"\n";
+					"|"+detail.attemptCount+"|"+detail.userNameProper+"\n";
 		}
 		
 		return new ResponseEntity<>(data, HttpStatus.OK);

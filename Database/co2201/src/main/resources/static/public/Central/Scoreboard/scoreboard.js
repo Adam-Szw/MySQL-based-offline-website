@@ -71,7 +71,7 @@ function SortScores()
 					newSBElement.classList.add("ScoreboardElement");
 					
 					//add all score stats
-					for(var j = 0; j < splitStr.length; j++)
+					for(var j = 0; j < splitStr.length-1; j++)
 					{
 						var newSBsub = document.createElement("div");
 						newSBsub.classList.add("ScoreItem");
@@ -101,6 +101,17 @@ function SortScores()
 						{
 							newSBElement.appendChild(newSBsub);
 						}
+					}
+					if(loggedUserRole!="USER")
+					{
+						var newSBsub = document.createElement("button");
+						newSBsub.setAttribute("id", "FullDetails");
+						newSBsub.classList.add("ScoreItem");
+						var newButtonLink = document.createElement("a");
+						newButtonLink.setAttribute("href", "/profileVisitor?Username="+(splitStr[5]).toString());
+						newButtonLink.innerHTML = "All details";
+						newSBsub.appendChild(newButtonLink);
+						newSBElement.appendChild(newSBsub);
 					}
 					scoreGrid.appendChild(newSBElement);
 				}
