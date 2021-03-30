@@ -23,3 +23,23 @@ How to run the project?
 - You should see landing page. Open login page
 - Use one of default provided test logins or create a new one
 - Test logins can be looked up in 'Co2201Application.java'
+
+-----------NAVIGATION---------------
+Database - This folder contains spring application with all of the content of the website and
+     code that runs it.
+
+Designs - This folder contains old prototypes and Designs
+
+Meetings - QnA sessions with client, and team meeting notes
+
+Scrum_Board_Screenshots - Screenshots of scrum process
+
+Sprint_Retrospection - As the name suggests
+
+Sprint_Zero - Notes from sprint zero
+
+users - Folder with student IDs of team members
+
+Project_Description - Copy of description from blackboard
+
+updatedDOD - Definition of done that we used on user stories
