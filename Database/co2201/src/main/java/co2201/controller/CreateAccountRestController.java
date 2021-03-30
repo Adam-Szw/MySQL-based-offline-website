@@ -1,5 +1,7 @@
 package co2201.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,11 +25,12 @@ public class CreateAccountRestController {
 
 	//Request to create the new user and save to repo
 	@PostMapping("/signIn/newUser")
-	public ResponseEntity<?> saveNewUser(@RequestParam(name = "username") String username, @RequestParam(name = "firstname") String firstName, @RequestParam(name = "lastname") String lastName,@RequestParam(name = "password") String password){
+	public ResponseEntity<?> saveNewUser(@RequestParam(name = "username") String username, @RequestParam(name = "firstname") String firstName, @RequestParam(name = "lastname") String lastName,@RequestParam(name = "email") String email,@RequestParam(name = "password") String password){
 		SystemUser newUser = new SystemUser();
 		newUser.setUsername(username);
 		newUser.setFName(firstName);
 		newUser.setLName(lastName);
+		newUser.setEmail(email);
 		newUser.setAdmin(true);
 		newUser.setPassword(pe.encode(password));
 		playerRepo.save(newUser);
@@ -37,5 +40,24 @@ public class CreateAccountRestController {
 		return new ResponseEntity<>(HttpStatus.OK);
 		
 	}
+	
+	@PostMapping("/signIn/forgot")
+	public ResponseEntity<?> changePassword(@RequestParam(name = "username") String username,@RequestParam(name = "password") String password){
+		
+		SystemUser currentUser = playerRepo.findByUsername2(username);
+		
+		if(currentUser == null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	
+		currentUser.setPassword(pe.encode(password));
+		playerRepo.save(currentUser);
+		
+		System.out.print(currentUser.getUsername());
+		
+		return new ResponseEntity<>(HttpStatus.OK);
+		
+	}
+
 
 }

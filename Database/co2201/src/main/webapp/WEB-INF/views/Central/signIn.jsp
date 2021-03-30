@@ -79,6 +79,13 @@
           				</div>
           				<input type="text" placeholder="Last Name" name="lastname" class="login_input" id="newLastName">
         			</div>
+        			<!--Email Login Box-->
+        			<div class="login_box">
+          				<div class="login_icon">
+          			  		<i class="fas fa-at"></i>
+          				</div>
+          				<input type="text" placeholder="Email" name="email" class="login_input" id="newEmail">
+        			</div>
         			<!--Password Login Box-->
         			<div class="login_box">
           				<div class="login_icon">
@@ -96,16 +103,23 @@
        				</div>
       			</form>
       			<!--The forgotten password section of the webpage-->
-      			<form action="" class="login_forgotten" id="login-fp">
+      			<form action="/signIn/forgot" method="POST" class="login_forgotten" id="login-fp">
         			<h1 class="login_title">Forgot Password</h1>
         			<!--Entry box for the password-->
         			<div class="login_box">
           				<div class="login_icon">
-          			  		<i class="fas fa-at"></i>
+          					<i class="fas fa-user-circle"></i>
           				</div>
-          				<input type="text" placeholder="Email" class="login_input" id="ForgottenEmail">
+          				<input type="text" placeholder="Username" name="username1" class="login_input" id="fusername">
         			</div>
-        				<a href="#" onclick="ForgotEmailChecker('ForgottenEmail')" class="login_button">Send Request</a>
+        			<div class="login_box">
+          				<div class="login_icon">
+          					<i class="fas fa-lock"></i>
+          				</div>
+          				<input type="password" placeholder="Password" name="password1" class="login_input" id="fpassword">
+        			</div>
+        				<input type="submit" class="login_button" onclick="forgetpass()" id="fp" value="Change Password" />
+        				<!--<a href="#" onclick="ForgotEmailChecker('ForgottenEmail')" class="login_button">Send Request</a>-->
         			<div>
         			<!--Links to the other sign up areas-->
           				<span class="login_account">Already have an Account?</span>

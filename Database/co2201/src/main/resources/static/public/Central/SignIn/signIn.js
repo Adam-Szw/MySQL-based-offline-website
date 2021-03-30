@@ -102,14 +102,25 @@ function createNewUser(){
 	var username = document.getElementById('newUsername').value;
 	var firstName = document.getElementById('newFirstName').value;
 	var lastName = document.getElementById('newLastName').value;
+	var email = document.getElementById('newEmail').value;
 	var password = document.getElementById('newPassword').value;
 	
 	console.log(username);
 	
     const Http = new XMLHttpRequest();
-	const url='/signIn/newUser?username='+username+'&firstname='+firstName+'&lastname='+lastName+'&password='+password;
+	const url='/signIn/newUser?username='+username+'&firstname='+firstName+'&lastname='+lastName+'&email='+email+'&password='+password;
 	Http.open("POST", url);
 	Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	Http.setRequestHeader("Access-Control-Allow-Origin", "*");
 	Http.send();
 }
+
+//function forgetpass(){
+//	var username = document.getElementById('').value;
+//}
+
+
+
+
+
+
