@@ -96,3 +96,20 @@ function ForgotEmailChecker(EmailBox) {
         alert("Bad Email")
     }
 }
+
+//Function to create the new user, sends the form details of the user to be created
+function createNewUser(){
+	var username = document.getElementById('newUsername').value;
+	var firstName = document.getElementById('newFirstName').value;
+	var lastName = document.getElementById('newLastName').value;
+	var password = document.getElementById('newPassword').value;
+	
+	console.log(username);
+	
+    const Http = new XMLHttpRequest();
+	const url='/signIn/newUser?username='+username+'&firstname='+firstName+'&lastname='+lastName+'&password='+password;
+	Http.open("POST", url);
+	Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	Http.setRequestHeader("Access-Control-Allow-Origin", "*");
+	Http.send();
+}
