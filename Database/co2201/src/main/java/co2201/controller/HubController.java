@@ -86,4 +86,10 @@ public class HubController {
 		return "Games/CodeTracer/CodeTracerJava";
 	}
 	
+	@GetMapping("/profileVisitor")
+	public String showProfileVisit()
+	{
+		return "Central/profileVisitor";
+	}
+	
 }

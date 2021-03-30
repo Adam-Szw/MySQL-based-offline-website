@@ -30,8 +30,26 @@ public class ProfileController {
 	public ResponseEntity<?> getUsername(Principal principal){
 		Optional<SystemUser> user = userRepo.findByUsername(principal.getName());
 		System.out.print(user.get().getUsername());
-		return new ResponseEntity<>(user.get().getUsername(), HttpStatus.OK);
-		
+		return new ResponseEntity<>(user.get().getUsername(), HttpStatus.OK);		
+	}
+	
+	@GetMapping("/profileVisitor/username")
+	public ResponseEntity<?> getVistorUser(@RequestParam(name = "userName") String username) {
+		SystemUser user = userRepo.findByUsername(username).get();
+		return new ResponseEntity<>(user.getUsername(), HttpStatus.OK);
+	}
+	
+	//Gets the logged in player name
+	@GetMapping("/profile/status")
+	public ResponseEntity<?> getStatus(Principal principal){
+		Optional<SystemUser> user = userRepo.findByUsername(principal.getName());
+		return new ResponseEntity<>(user.get().getStatus(),HttpStatus.OK);	
+	}
+	
+	@GetMapping("/profileVisitor/status")
+	public ResponseEntity<?> getVistorStatus(@RequestParam(name = "userName") String username) {
+		SystemUser user = userRepo.findByUsername(username).get();
+		return new ResponseEntity<>(user.getStatus(), HttpStatus.OK);
 	}
 	
 	//Gets the logged in player name
@@ -42,11 +60,23 @@ public class ProfileController {
 		
 	}
 	
+	@GetMapping("/profileVisitor/name")
+	public ResponseEntity<?> getVistorName(@RequestParam(name = "userName") String username) {
+		SystemUser user = userRepo.findByUsername(username).get();
+		return new ResponseEntity<>(user.getFName()+" "+user.getLName(), HttpStatus.OK);
+	}
+	
 	//Gets the logged in player phone number
 	@GetMapping("/profile/phone")
 	public ResponseEntity<?> getPhoneNo(Principal principal){
 		Optional<SystemUser> user = userRepo.findByUsername(principal.getName());
 		return new ResponseEntity<>(user.get().getPhoneNumber(),HttpStatus.OK);
+	}
+	
+	@GetMapping("/profileVisitor/phone")
+	public ResponseEntity<?> getVistorPhone(@RequestParam(name = "userName") String username) {
+		SystemUser user = userRepo.findByUsername(username).get();
+		return new ResponseEntity<>(user.getPhoneNumber(), HttpStatus.OK);
 	}
 	
 	//Gets the logged in player email
@@ -56,11 +86,23 @@ public class ProfileController {
 		return new ResponseEntity<>(user.get().getEmail(),HttpStatus.OK);
 	}
 	
+	@GetMapping("/profileVisitor/email")
+	public ResponseEntity<?> getVistorEmail(@RequestParam(name = "userName") String username) {
+		SystemUser user = userRepo.findByUsername(username).get();
+		return new ResponseEntity<>(user.getEmail(), HttpStatus.OK);
+	}
+	
 	//Gets the logged in player bio
 	@GetMapping("/profile/bio")
 	public ResponseEntity<?> getBio(Principal principal){
 		Optional<SystemUser> user = userRepo.findByUsername(principal.getName());
 		return new ResponseEntity<>(user.get().getBio(),HttpStatus.OK);
+	}
+	
+	@GetMapping("/profileVisitor/bio")
+	public ResponseEntity<?> getVistorBio(@RequestParam(name = "userName") String username) {
+		SystemUser user = userRepo.findByUsername(username).get();
+		return new ResponseEntity<>(user.getBio(), HttpStatus.OK);
 	}
 	
 	//Saves the logged in player new password
@@ -111,5 +153,18 @@ public class ProfileController {
 		
 		return new ResponseEntity<>(HttpStatus.OK);
 		
+	}
+	
+	//Saves the logged in player bio
+	@GetMapping("/profile/saveStatus")
+	public ResponseEntity<?> saveUserStatus(@RequestParam(name = "userId") Long id, @RequestParam(name = "status") String status){
+	SystemUser user = userRepo.findById(id).get();
+			
+		user.setStatus(status);
+			
+		userRepo.save(user);
+			
+		return new ResponseEntity<>(HttpStatus.OK);
+			
 	}
 }

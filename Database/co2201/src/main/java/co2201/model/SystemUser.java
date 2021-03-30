@@ -25,7 +25,7 @@ public class SystemUser {
 	private String bio;
 	private long phoneNumber;
 	private String email;
-	
+	private String status;
 	//social
 	@ElementCollection
 	private List<Long> friendsIds = new ArrayList<>();
@@ -138,4 +138,11 @@ public class SystemUser {
 	public void setFriendsIds(List<Long> friendsIds) {
 		this.friendsIds = friendsIds;
 	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
 }

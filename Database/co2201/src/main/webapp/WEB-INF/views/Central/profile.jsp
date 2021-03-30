@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
-<body class="profileBody" onload="StartUp()">
+<body class="profileBody" onload="StartUpPersonal()">
 <!--The sidebar has been created here-->
     <div class="sidenav">
 		<img id="SideBar" src="public/Central/Images/Signin.png"><a href="/signIn">Sign In</a>
@@ -52,7 +52,17 @@
                         </p>
 
                     </div>
+                    <div class="user-status">
+                    	<h3>Status</h3>
+                    	<p id="status">
+                    		Add your status
+                    	</p>
+                    </div>
                     
+                    <form action="/profileVisitor" method="GET">
+					    <input type="text" name="Username" /><br>
+					    <input type="submit" value="Submit" />
+					</form>
                 </div>
             </div>
             <!--The right side of the profile page-->
@@ -135,6 +145,20 @@
                             		</div>
                             	</div>
                             </div>
+                            <div class="change-status">
+                            	<h3 class="section-title">Change your status</h3>
+                            	<button type="submit" class="save-status" name="submitBtn" onclick="sendStatus()">Save</button>
+                            	<div class="status-container">
+                            		<div class="form-group">
+                                    	<label class="form-label">New Status</label>
+                                    	<select id="user-status" class="form-in">
+                                    		<option>Add your status</option>
+                                    		<option>Online</option>
+                                    		<option>Offline</option>
+                                    	</select>
+                                	</div>
+                            	</div>
+                            </div>
 							<!--The change profile picture section-->
                             <div class="change-pic">
                                 <h3 class="section-title">Upload a profile picture</h3>
@@ -179,6 +203,7 @@
                 </div>
             </div>
         </div>
+        
         <!--The JavaScript page link-->
     <script src="../public/Central/Profile/profile.js"></script>
 </body>

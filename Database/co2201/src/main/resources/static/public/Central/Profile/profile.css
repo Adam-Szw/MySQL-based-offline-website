@@ -206,7 +206,7 @@ table {
     box-sizing: border-box;
 }
 
-.change-password{
+.change-password, .change-status{
   width: 100%;
   position: relative;
   display: inline-block;
@@ -215,7 +215,7 @@ table {
   box-sizing: border-box;
 }
 
-.password-container{
+.password-container, .status-container{
 	margin-top:45px;
 }
 
@@ -240,7 +240,7 @@ table {
 }
 
 /*Save details button styles*/
-.save-details{
+.save-details, .save-status{
   float: right;
   margin-right: 10px;
   background-color: #25a345;
@@ -431,4 +431,10 @@ table {
   padding: 30px;
   box-sizing: border-box;
   cursor: pointer;
+}
+
+#gamesorter {
+	float: right;
+	font-size: medium;
+	background-color: rgb(233,233,233);
 }

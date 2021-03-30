@@ -71,7 +71,7 @@ function saveUserData(){
 
 loggedPlayerId = 0;
 
-function LogOn() {
+function LogOnPersonal() {
  		//Logon the player
 		const Http = new XMLHttpRequest('GET');
 		const url='/games/userId';
@@ -83,10 +83,13 @@ function LogOn() {
 		
 		Http.onreadystatechange = (e) => {
 		  loggedPlayerId = Http.responseText;
+		  console.log(loggedPlayerId);
 		}
+		
 }
 
 function LoadStats() {
+		x = document.getElementById('username').innerHTML;
         var url2='/Profile/GetUserStats/'+loggedPlayerId;
         var xhttp = new XMLHttpRequest();
         xhttp.open("GET", url2);
@@ -109,14 +112,25 @@ function CustomGame() {
 		}
 		else {
 			if (Reload == false) {
+			document.getElementById("StatTable").innerHTML = "";
 			Reload = true;
 			Sorter();
-			HTMLElement = "<table><tr id='Header'><td>Game ID</td><td>Game Name</td><td>Score</td><td>Date</td></tr><tr>"
+			SelectElement = "<select id='gamesorter' onchange='SortingByGame()'><option>Options</option>";
+			SelectList = []
+			HTMLElement = "<table><tr id='Header'><td>Game ID</td><td>Game Name</td><td>Score</td><td>Date</td></tr><tr class='dataRow'>"
 			
 			var i;
 			Count = 0;
 			for (i = 0; i < ItemList.length; i++) {
 			/*Each game has a length of 10*/
+				if (Count == 3) {
+					if (!SelectList.includes(ItemList[i])) {
+						SelectList.push(ItemList[i]);
+						SelectElement = SelectElement + "<option>"+ItemList[i]+"</option>"
+					}
+				}
+			
+				
 				if (Count === 8) {
 					Count = Count+1
 					continue;
@@ -126,16 +140,22 @@ function CustomGame() {
 					continue;
 				}
 				else if (i%10 ==0 & i !=0) {
-					HTMLElement = HTMLElement + "</tr><tr>"
+					HTMLElement = HTMLElement + "</tr><tr class='dataRow'>"
 				}
 				else if (i != 0 & i%2 ==1) {
+					if (Count == 3) {
+						HTMLElement = HTMLElement + "<td class='gameLine'>"+ItemList[i]+"</td>";
+					}
+					else {
 			  			HTMLElement = HTMLElement + "<td>"+ItemList[i]+"</td>";
+			  		}
 			  	}
 			  	Count = Count +1
 			  }	 
-			}
+			}		
+			SelectElement = SelectElement + "</select>";
 			HTMLElement = HTMLElement + "</tr></table>"
-			document.getElementById("StatTable").innerHTML = HTMLElement;
+			document.getElementById("StatTable").innerHTML = SelectElement +HTMLElement;
 			}
 }
  
@@ -165,10 +185,12 @@ function Sorter() {
  
  
  
- function StartUp() {
- 	LogOn();
+ function StartUpPersonal() {
+ 	LogOnPersonal();
+ 	getUsername();
  	LoadStats();
  }
+ 
 
 //Gets the username and displays it
 function getUsername(){
@@ -176,6 +198,7 @@ function getUsername(){
 	
 	const url='/profile/username';
 	request.open("GET", url);
+	request.timeout = 4000
 	request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	request.setRequestHeader("Access-Control-Allow-Origin", "*");
 	request.send();
@@ -186,8 +209,7 @@ function getUsername(){
 			document.getElementById('username').innerHTML = "";
 			$("#username").append(this.responseText);
             console.log(this.responseText);
-		
-
+            x = this.responseText;
         }
     };
 	
@@ -211,6 +233,30 @@ function getName(){
 			$("#full-name").append(this.responseText);
             console.log(this.responseText);
 		
+        }
+    };
+	
+}
+
+//Gets the status & displays it
+function getStatus(){
+
+	var request = new XMLHttpRequest('GET');
+	
+	const url='/profile/status';
+	request.open("GET", url);
+	request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	request.setRequestHeader("Access-Control-Allow-Origin", "*");
+	request.send();
+	
+
+	request.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+			if (this.responseText != "") {
+	        	document.getElementById('status').innerHTML = "";
+				$("#status").append(this.responseText);
+	            console.log(this.responseText);
+        	}
         }
     };
 	
@@ -302,11 +348,11 @@ function getBio(){
 }
 
 //functions for retriving and displaying user details being called
-getUsername();
 getName();
 getPhone();
 getEmail();
 getBio();
+getStatus();
 
 //Function to save user phone number and email
 function saveUserData(loggedPlayerID){
@@ -385,6 +431,25 @@ function saveUserPassword(loggedPlayerID){
 
 }
 
+//Function to save the new status
+function saveUserStatus(loggedPlayerID){
+	
+	
+	var status = document.getElementById('user-status').value;
+	//console.log(status);
+
+	const Http = new XMLHttpRequest();
+	const url='/profile/saveStatus?userId='+loggedPlayerID+'&status='+status;
+	Http.open("GET", url);
+	Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	Http.setRequestHeader("Access-Control-Allow-Origin", "*");
+	Http.send();
+	
+	setTimeout(function(){
+		location.reload();
+		return false;
+	},1000)
+}
 
 //Function to get current logged in player ID
 function getPlayerID (whenDone){
@@ -423,7 +488,36 @@ function sendPassword(){
 	getPlayerID(saveUserPassword);	
 }
 
+//Function to update the status
+function sendStatus(){
+	getPlayerID(saveUserStatus);
+}
 
+//Sorts the game depending on the selection box
+function SortingByGame() {
+	Reappear()
+	var showngame = document.getElementById("gamesorter").value;
+	if (showngame != "Options") {
+		//Collects the page information
+		var rows = document.getElementsByClassName("dataRow");
+		var rowgames = document.getElementsByClassName("gameLine");
+		//Goes through the rows and hides the invalid rows
+		for (i = 0; i < rows.length; i++) {
+			if (rowgames[i].innerText != showngame) {
+				document.getElementsByClassName("dataRow")[i].style.display = "none";
+			}
+		}
+	}	
+}
+
+//Makes all of the rows visible
+function Reappear() {
+	var rows = document.getElementsByClassName("dataRow");
+	//Goes through each of the rows and makes them appear
+	for (i=0; i<rows.length; i++) {
+		document.getElementsByClassName("dataRow")[i].style.display = "table-row";
+	}
+}
 
 
 
