@@ -62,7 +62,7 @@
                     <h3>Users</h3>
                      <form action="/profileVisitor" method="GET">
 					    <select id="UsernameSelection" name="Username"></select>
-					    <input id="UsernameSubmit" type="submit" value="Submit" />
+					    <input id="UsernameSubmit" type="submit" value="Visit User" />
 					</form>
 					</div>
                 </div>
