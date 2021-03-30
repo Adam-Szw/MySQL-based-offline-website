@@ -1,7 +1,44 @@
 /* Load friends */
 function getFriends()
 {
-	
+	const Http = new XMLHttpRequest();
+	const url='/profile/getFriends';
+	Http.open("GET", url);
+	Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	Http.setRequestHeader("Access-Control-Allow-Origin", "*");
+	Http.send();
+
+	Http.onreadystatechange = function() 
+	{
+		if (this.readyState == 4)
+		{
+			var listString = Http.responseText;
+			var lines = listString.split("\n");
+			for(var i = 0; i < lines.length; i++)
+			{
+				if(lines[i]!="")
+				{
+					var newElement = document.createElement("p");
+					var newElement2 = document.createElement("button");
+					var newElement3 = document.createElement("button");
+					var splitStr = lines[i].split("|");
+					newElement.innerHTML = splitStr[1];
+					var newElement2sub = document.createElement("a");
+					newElement2sub.setAttribute("href", "/profileVisitor?Username="+(splitStr[0]).toString());
+					newElement2sub.innerHTML = "Show profile";
+					newElement2.appendChild(newElement2sub);
+					var newElement3sub = document.createElement("a");
+					newElement3sub.setAttribute("href", "/profile/removeFriend?friendUsername="+(splitStr[0]).toString());
+					newElement3sub.innerHTML = "Remove friend";
+					newElement3.appendChild(newElement3sub);
+					var mainElement = document.getElementById("friendsSection");
+					mainElement.appendChild(newElement);
+					mainElement.appendChild(newElement2);
+					mainElement.appendChild(newElement3);
+				}
+			}
+		}
+	}
 }
 
 /*The profile page JavaScript page*/
@@ -191,6 +228,7 @@ function Sorter() {
  
  function StartUpPersonal() {
  	LogOnPersonal();
+	getFriends();
  	PopulateUsernameDropdown();
  }
  

@@ -1,3 +1,39 @@
+function getFriends(username)
+{
+	const Http = new XMLHttpRequest();
+	const url='/profile/getFriends?user='+username.toString();
+	Http.open("GET", url);
+	Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	Http.setRequestHeader("Access-Control-Allow-Origin", "*");
+	Http.send();
+
+	Http.onreadystatechange = function() 
+	{
+		if (this.readyState == 4)
+		{
+			var listString = Http.responseText;
+			var lines = listString.split("\n");
+			for(var i = 0; i < lines.length; i++)
+			{
+				if(lines[i]!="")
+				{
+					var newElement = document.createElement("p");
+					var newElement2 = document.createElement("button");
+					var splitStr = lines[i].split("|");
+					newElement.innerHTML = splitStr[1];
+					var newElement2sub = document.createElement("a");
+					newElement2sub.setAttribute("href", "/profileVisitor?Username="+(splitStr[0]).toString());
+					newElement2sub.innerHTML = "Show profile";
+					newElement2.appendChild(newElement2sub);
+					var mainElement = document.getElementById("friendsSection");
+					mainElement.appendChild(newElement);
+					mainElement.appendChild(newElement2);
+				}
+			}
+		}
+	}
+}
+
 $('.profile-tabs ul li').click(function() {
     $(this).addClass("active").siblings().removeClass();
 })
@@ -19,6 +55,7 @@ function StartUpOther() {
 	vars = window.location.search;
 	vars = vars.split("=");
  	LogOnOther(vars[1]);
+	getFriends(vars[1]);
  	getName(vars[1]);
 	getPhone(vars[1]);
 	getEmail(vars[1]);

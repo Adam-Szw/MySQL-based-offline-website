@@ -27,6 +27,52 @@ public class ProfileController {
 	@Autowired
 	private PasswordEncoder pe;
 	
+	//gets friends usernames and full names
+	@GetMapping("/profile/getFriends")
+	public ResponseEntity<?> getFriends(Principal principal, @RequestParam(name = "user", required = false) Optional<String> username)
+	{
+		SystemUser user;
+		if(username.isPresent())
+		{
+			user = userRepo.findByUsername(username.get()).get();
+		}
+		else
+		{
+			user = userRepo.findByUsername(principal.getName()).get();
+		}
+		String returnData = "";
+		for(long l : user.getFriendsIds())
+		{
+			SystemUser friend = userRepo.findById(l).get();
+			returnData+=friend.getUsername()+"|"+friend.getFName()+" "+friend.getLName()+"\n";
+		}
+		return new ResponseEntity<>(returnData, HttpStatus.OK);
+	}
+	
+	@GetMapping("/profile/addFriend")
+	public ResponseEntity<?> addNewFriend(Principal principal, @RequestParam(name = "friendUsername") String username) {
+		SystemUser newFriend = userRepo.findByUsername(username).get();
+		SystemUser user = userRepo.findByUsername(principal.getName()).get();
+		List<Long> friendsNew = new ArrayList<Long>();
+		friendsNew.addAll(user.getFriendsIds());
+		friendsNew.add(newFriend.getId());
+		user.setFriendsIds(friendsNew);
+		userRepo.save(user);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+	@GetMapping("/profile/removeFriend")
+	public ResponseEntity<?> removeFriend(Principal principal, @RequestParam(name = "friendUsername") String username) {
+		SystemUser friendRemove = userRepo.findByUsername(username).get();
+		SystemUser user = userRepo.findByUsername(principal.getName()).get();
+		List<Long> friendsNew = new ArrayList<Long>();
+		friendsNew.addAll(user.getFriendsIds());
+		friendsNew.remove(friendRemove.getId());
+		user.setFriendsIds(friendsNew);
+		userRepo.save(user);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
 	@GetMapping("/profile/usernames")
 	public ResponseEntity<?> getAllUsernames() {
 		List<SystemUser> users = userRepo.findAll();

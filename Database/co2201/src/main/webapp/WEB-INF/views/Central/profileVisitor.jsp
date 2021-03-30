@@ -77,21 +77,8 @@
                 </div>
                 <div class="profile-body">
                    
-                    <div class="profile-friends tab">
+                    <div id="friendsSection" class="profile-friends tab">
                         <h1>Your Friends</h1>
-                        <p>Some text Some text Some text
-                            Some text Some text Some text
-                            Some text Some text Some text
-                            Some text Some text Some text
-                            Some text Some text Some text
-                            Some text Some text Some text
-                            Some text Some text Some text
-                            Some text Some text Some text
-                            Some text Some text Some text
-                            Some text Some text Some text
-                        </p>
-
-                       
                     </div>
                      <div class="profile-stats tab">
                         <h1>Your Statistics</h1>
