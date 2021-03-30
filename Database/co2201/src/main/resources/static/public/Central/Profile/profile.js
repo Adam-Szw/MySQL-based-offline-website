@@ -1,3 +1,9 @@
+/* Load friends */
+function getFriends()
+{
+	
+}
+
 /*The profile page JavaScript page*/
 
 $('.profile-tabs ul li').click(function() {

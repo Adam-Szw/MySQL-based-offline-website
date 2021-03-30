@@ -44,7 +44,7 @@ public class CreateAccountRestController {
 	@PostMapping("/signIn/forgot")
 	public ResponseEntity<?> changePassword(@RequestParam(name = "username") String username,@RequestParam(name = "password") String password){
 		
-		SystemUser currentUser = playerRepo.findByUsername2(username);
+		SystemUser currentUser = playerRepo.findByUsername(username).get();
 		
 		if(currentUser == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
