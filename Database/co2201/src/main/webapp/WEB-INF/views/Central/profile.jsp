@@ -62,8 +62,7 @@
                     <h3>Users</h3>
                      <form action="/profileVisitor" method="GET">
 					    <select id="UsernameSelection" name="Username"></select>
-					    <input  id="UsernameSubmit" type="submit" value="Visit User" />
-
+					    <input  id="UsernameSubmit" type="submit" value="Visit User"/>
 					</form>
 					    <select id="UsernameSelection2" name="friendUsername"></select>
 					    <input onclick="AddFriend()" id="AddFriend" type="submit" value="Add Friend"/>

@@ -53,6 +53,10 @@ public class ProfileController {
 	public ResponseEntity<?> addNewFriend(Principal principal, @RequestParam(name = "friendUsername") String username) {
 		SystemUser newFriend = userRepo.findByUsername(username).get();
 		SystemUser user = userRepo.findByUsername(principal.getName()).get();
+		if(((Long)user.getId()).equals(((Long)newFriend.getId())) || user.getFriendsIds().contains((Long)newFriend.getId()))
+		{
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 		List<Long> friendsNew = new ArrayList<Long>();
 		friendsNew.addAll(user.getFriendsIds());
 		friendsNew.add(newFriend.getId());
