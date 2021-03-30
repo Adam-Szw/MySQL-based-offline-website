@@ -76,32 +76,30 @@ function LogOnPersonal() {
 		const Http = new XMLHttpRequest('GET');
 		const url='/games/userId';
 		Http.open("GET", url);
-		
 		Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 		Http.setRequestHeader("Access-Control-Allow-Origin", "*");
 		Http.send();
-		
-		Http.onreadystatechange = (e) => {
-		  loggedPlayerId = Http.responseText;
-		  console.log(loggedPlayerId);
-		}
-		
-}
 
-function LoadStats() {
-		x = document.getElementById('username').innerHTML;
-        var url2='/Profile/GetUserStats/'+loggedPlayerId;
-        var xhttp = new XMLHttpRequest();
-        xhttp.open("GET", url2);
-		xhttp.send();
-		xhttp.onreadystatechange = function() {
-		    if (this.readyState == 4 && this.status == 200) {
-		       console.log(xhttp.responseText);
+		Http.onreadystatechange = function() {
+		if (this.readyState == 4)
+		{
+			loggedPlayerId = Http.responseText;
+			var url2='/Profile/GetUserStats/'+loggedPlayerId;
+	        var xhttp = new XMLHttpRequest();
+	        xhttp.open("GET", url2);
+			xhttp.send();
+			xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+		      	console.log(xhttp.responseText);
 		       document.getElementById("StatTable").innerHTML = "";
 		       $("#StatTable").append(xhttp.responseText);
 		       var Stats = document.getElementById("StatTable").value;
 		    }
-		};
+		}
+		}
+}
+
+
 }
 var Reload = false;
 var Data = [];
@@ -187,8 +185,6 @@ function Sorter() {
  
  function StartUpPersonal() {
  	LogOnPersonal();
- 	getUsername();
- 	LoadStats();
  }
  
 
@@ -348,6 +344,7 @@ function getBio(){
 }
 
 //functions for retriving and displaying user details being called
+getUsername();
 getName();
 getPhone();
 getEmail();

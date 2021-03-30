@@ -33,48 +33,34 @@ public class ScoreRestController {
 	//------------------FOR PROFILE--------------------
 	@GetMapping("/Profile/GetUserStats/{id}")
 	public List<Score> getUserStats(@PathVariable(name="id") Long id) {
-		SystemUser user = userRepo.findById(id).orElse(null);
-		Long x = null;
-		for (Long i = 0L; i < 5000; i++) {
-			if (i == user.getId()) {
-				x = i;
-				break;
-			}
-		}
+		SystemUser user = userRepo.findById(id).get();
+		String username = user.getUsername();
+		SystemUser user2 = userRepo.findByUsername(username).get();
+		List<Score> UserScores = user2.getScores();
 		List<Score> ReturnData = new ArrayList<Score>();
-		List<Score> UserScores = scoreRepo.findAll();
 		for (Score score: UserScores) {
 			Score returnScore = new Score();
-			if (x!=score.getScoringPlayer().getId()) {
-				returnScore.setGameName(score.getGameName());
-				returnScore.setScore(score.getScore());
-				returnScore.setId(user.getId());
-				returnScore.setScoringDatetime(score.getScoringDatetime());
-				ReturnData.add(returnScore);
-				returnScore.setId(x);
-				ReturnData.add(returnScore);
-				returnScore.setId(score.getScoringPlayer().getId());
-				ReturnData.add(returnScore);
-			}
-
+			returnScore.setGameName(score.getGameName());
+			returnScore.setScore(score.getScore());
+			returnScore.setId(score.getId());
+			returnScore.setScoringDatetime(score.getScoringDatetime());
+			ReturnData.add(returnScore);
 		}
 		return ReturnData;
 	}
 	
 	@GetMapping("/Profile/GetVisitorStats/{userName}")
 	public List<Score> getVisitorStats(@PathVariable(name="userName") String username) {
+		SystemUser user = userRepo.findByUsername(username).get();
+		List<Score> UserScores = user.getScores();
 		List<Score> ReturnData = new ArrayList<Score>();
-		List<Score> UserScores = scoreRepo.findAll();
 		for (Score score: UserScores) {
 			Score returnScore = new Score();
-			if (score.getScoringPlayer().getUsername() == username) {
-				returnScore.setGameName(score.getGameName());
-				returnScore.setScore(score.getScore());
-				returnScore.setId(score.getId());
-				returnScore.setScoringDatetime(score.getScoringDatetime());
-				ReturnData.add(returnScore);
-			}
-
+			returnScore.setGameName(score.getGameName());
+			returnScore.setScore(score.getScore());
+			returnScore.setId(score.getId());
+			returnScore.setScoringDatetime(score.getScoringDatetime());
+			ReturnData.add(returnScore);
 		}
 		return ReturnData;
 	}
