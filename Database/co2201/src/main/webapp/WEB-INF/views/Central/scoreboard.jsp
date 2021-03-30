@@ -55,6 +55,9 @@
 					<option value="attempt-count">Lowest attempt count</option>
 				</select>
 			</div>
+			<div class="MenuElement">
+				<button onclick="window.print()">Print results</button>
+			</div>
 		</div>
 		<div class="ContentBox" id="ScoreDisplay">
 			<div class="ScoreboardElement">
