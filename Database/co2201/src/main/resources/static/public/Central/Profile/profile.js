@@ -191,6 +191,7 @@ function Sorter() {
  
  function StartUpPersonal() {
  	LogOnPersonal();
+ 	PopulateUsernameDropdown();
  }
  
 
@@ -522,7 +523,30 @@ function Reappear() {
 	}
 }
 
-
+function PopulateUsernameDropdown() {
+	var url2='/profile/usernames';
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("GET", url2);
+	xhttp.send();
+	xhttp.onreadystatechange = function() {
+	if (this.readyState == 4)
+		{
+		console.log(xhttp.responseText);
+		x= xhttp.responseText;
+		x = x.split(',');
+		for (y=0; y<x.length; y++) {
+			z = x[y].split('"')
+			if (y==0 | y==x.length-1) {
+				HTMLElement += "<option>"+z[1]+"</option>";
+			}
+			else {
+				var result = z.slice(1,-1);
+				HTMLElement += "<option>"+result+"</option>";
+			}
+		}
+		document.getElementById('UsernameSelection').innerHTML = HTMLElement;
+	}
+}}
 
 
 

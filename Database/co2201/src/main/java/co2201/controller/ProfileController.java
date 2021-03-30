@@ -1,6 +1,8 @@
 package co2201.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,16 @@ public class ProfileController {
 	
 	@Autowired
 	private PasswordEncoder pe;
+	
+	@GetMapping("/profile/usernames")
+	public ResponseEntity<?> getAllUsernames() {
+		List<SystemUser> users = userRepo.findAll();
+		List<String> usernames = new ArrayList<String>();
+		for (SystemUser user: users) {
+			usernames.add(user.getUsername());
+		}
+		return new ResponseEntity<>(usernames, HttpStatus.OK);
+	}
 	
 	//Gets the logged in player username
 	@GetMapping("/profile/username")

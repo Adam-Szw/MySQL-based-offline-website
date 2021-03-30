@@ -103,7 +103,7 @@ table {
 /*The profile side styles*/
 .profile-side{
   width: 300px;
-  height: 600px;
+  height: 650px;
   background-color: #daf5cf;
   box-shadow: 0px 3px 5px #4b4a4a;
   padding: 90px 30px 20px;
@@ -438,3 +438,20 @@ table {
 	font-size: medium;
 	background-color: rgb(233,233,233);
 }
+
+#UsernameSelection {
+	padding: 10px 17px 10px 17px;
+	font-size: 16px;
+}
+
+#UsernameSubmit {
+	padding: 10px 15px 10px 15px;
+	margin-top: 20px;
+}
+
+#UsernameSubmit:hover {
+	background-color: rgb(120, 151, 118);
+}
+					
+					
+

@@ -58,10 +58,13 @@
                     		Add your status
                     	</p>
                     </div>
-                       <form action="/profileVisitor" method="GET">
-					    <input type="text" name="Username" />
-					    <input type="submit" value="Submit" />
+                    <div class="other-users">
+                    <h3>Users</h3>
+                     <form action="/profileVisitor" method="GET">
+					    <select id="UsernameSelection" name="Username"></select>
+					    <input id="UsernameSubmit" type="submit" value="Submit" />
 					</form>
+					</div>
                 </div>
             </div>
             <!--The right side of the profile page-->
