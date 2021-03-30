@@ -34,7 +34,7 @@
     					<div class="login_icon">
     						<i class="fas fa-user-circle"></i>
     					</div>
-    					<input type="text" placeholder="Username" name="username" class="login_input" id="SignInUserName">
+    					<input type="text" placeholder="Email" name="email" class="login_input" id="SignInUserName">
     				</div>
     				<label class="ErrorMessage">Incorrect username</label>
     				<!--Password Login Box-->

@@ -206,7 +206,10 @@ function createMission() {
 	}
 	else
 	{
-		scoreScreen();
+		if(!gameEnd)
+		{
+			scoreScreen();
+		}
 	}
 }
 
@@ -221,7 +224,10 @@ function updateClock() {
 	else
 	{
 		console.log("game over");
-		scoreScreen();
+		if(!gameEnd)
+		{
+			scoreScreen();
+		}
 	}
 }
 

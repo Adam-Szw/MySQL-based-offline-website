@@ -20,6 +20,12 @@ public class HubController {
 		return "Central/signIn";
 	}
 	
+	@GetMapping("/logout")
+	public String showMainPage2()
+	{	
+		return "Central/mainPage";
+	}
+	
 	@GetMapping("/games")
 	public String showGamesPage()
 	{	
