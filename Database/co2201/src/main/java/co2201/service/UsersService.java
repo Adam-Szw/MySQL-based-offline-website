@@ -23,9 +23,9 @@ public class UsersService implements UserDetailsService {
 	private SystemUserRepository userRepo;
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		
-		SystemUser systemUser = userRepo.findByUsername(username).get();
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		SystemUser systemUser = userRepo.findByEmail(email);
+		//SystemUser systemUser = userRepo.findByUsername(username).get();
 
 		if (systemUser == null)
 			throw new UsernameNotFoundException("User not found");

@@ -26,7 +26,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	        .antMatchers("/signIn/**").anonymous();
 		http.requiresChannel().anyRequest().requiresSecure()
 		.and().formLogin()
-			.loginPage("/") 
+			.loginPage("/")
+			.usernameParameter("email")
 			.loginProcessingUrl("/login")
 			.defaultSuccessUrl("/games",true)
 			.failureUrl("/signIn")

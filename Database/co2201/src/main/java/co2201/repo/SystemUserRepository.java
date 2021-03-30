@@ -10,4 +10,5 @@ import co2201.model.SystemUser;
 public interface SystemUserRepository extends CrudRepository<SystemUser, Long> {
 	Optional<SystemUser> findByUsername(String username);
 	List<SystemUser> findAll();
+	SystemUser findByEmail(String email);
 }
