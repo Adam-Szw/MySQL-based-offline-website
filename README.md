@@ -25,6 +25,7 @@ How to run the project?
 - Test logins can be looked up in 'Co2201Application.java'
 
 -----------NAVIGATION---------------
+
 Database - This folder contains spring application with all of the content of the website and
      code that runs it.
 
