@@ -9,10 +9,12 @@ function Start() {
     //The created games are loaded for the user to answer
     LoadQuestions();
     CustomGame();
+     GetUserRole()
 }
 
 /*This is the function to start the game and hide the initial view*/
 function HideShow(Number, Value, Section, Label) {
+	Custom = false;
     document.getElementById("PregameContent").style.display = "None";
     document.getElementById(Section).style.display = "Block"
     //A random practice number is generated
@@ -338,10 +340,7 @@ function UpdateClock() {
         document.getElementById("EndGameDiv").style.display = "Block"
 		document.getElementById("FinalScore").textContent = UserScore;
         //Depending on the custom variable difference pieces of data will be written
-        if (Custom == false) {
-            SaveGame("BinaryBlitz Practice")
-        }
-        else {
+        if (Custom == true) {
             SaveGame("BinaryBlitz")
         }
 	}
@@ -501,7 +500,23 @@ function SaveGame(type) {
     const Http = new XMLHttpRequest();
     const url='/games/save?userId='+(loggedPlayerId).toString()+'&gameName='+type+'&gameScore='+(UserScore).toString();
     Http.open("GET", url);
-    	Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	Http.setRequestHeader("Access-Control-Allow-Origin", "*");
     Http.send();
+}
+
+function GetUserRole() {
+	var url2='/games/getRole';
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("GET", url2);
+	xhttp.send();
+	xhttp.onreadystatechange = function() {
+	if (this.readyState == 4)
+		{
+		x= xhttp.responseText;
+		if (x=="STAFF") {
+			document.getElementById('CustomGame2').style.display = "inline";
+		}
+	}
+}
 }

@@ -48,7 +48,7 @@ button {
     background-color: #f03d31;
 }
 
-#CustomGame:hover {
+#CustomGame:hover, #CustomGame2:hover {
     background-color:#ff0000 ;
 }
 

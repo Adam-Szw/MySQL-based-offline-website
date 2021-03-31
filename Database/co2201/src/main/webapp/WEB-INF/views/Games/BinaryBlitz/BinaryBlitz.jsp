@@ -76,7 +76,7 @@
         <button id="MediumGame" onclick="HideShow('MediumNumber',8,'MediumGameDiv','AnswerLabelMedium')">Medium: 8 Bit Conversions</button>
         <button id="HardGame" onclick="HideShow('HardNumber',12,'HardGameDiv','AnswerLabelHard')">Hard: 12 Bit Conversions</button>
         <button id="CustomGame" onclick="HideShowCustom()">Custom: Lecturer Created Mode</button>
-        <button id="CustomGame" onclick="HideShowLecturerOption()">Lecturer: Change Settings</button>
+        <button style="display:none"id="CustomGame2" onclick="HideShowLecturerOption()">Lecturer: Change Settings</button>
         <!--In the pregame area is some details about how to complete Binary conversions-->
         <div id="ExampleQuestion"><label id="ExampleQuestionTitle">Example Conversion: 10110111 to Decimal:</label>
             <p>
