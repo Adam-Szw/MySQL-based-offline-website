@@ -7,6 +7,7 @@ CO2201 Semester 2 Group 14 Repository
 - Spring Tools Suite
 - MySQL Workbench
 - MySQL community server (setup below)
+- Firefox Browser, Desktop (preferably, most tested)
 
 -----------INSTALLATION---------------
 
