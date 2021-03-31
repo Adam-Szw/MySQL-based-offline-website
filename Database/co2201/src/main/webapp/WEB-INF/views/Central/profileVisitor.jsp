@@ -61,9 +61,15 @@
                     <div class="other-users">
                     <h3>Users</h3>
                      <form action="/profileVisitor" method="GET">
-					    <select id="UsernameSelection" name="Username"></select>
+					    <select style="display:none" id="UsernameSelection" name="Username"></select>
+					    <input type="text" placeholder="Username" name="Username"/>
 					    <input id="UsernameSubmit" type="submit" value="Visit User" />
 					</form>
+					</div>
+					<div style="display:none" id="AdminButton">
+					<h3 id="PermissionHeader">Permissions</h3>
+					<button onclick="PermissionChange()" id="PermissionBtn">Add Role</button>
+					<br><label id="Outcome"></label>
 					</div>
                 </div>
             </div>

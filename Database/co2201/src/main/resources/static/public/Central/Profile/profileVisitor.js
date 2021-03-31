@@ -62,6 +62,7 @@ function StartUpOther() {
 	getBio(vars[1]);
 	getStatus(vars[1]);
 	LoadStats(vars[1]);
+	GetUserRole()
 }
 
 var id;
@@ -333,3 +334,32 @@ function PopulateUsernameDropdown() {
 	}
 }
 }
+
+function GetUserRole() {
+	var url2='/games/getRole';
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("GET", url2);
+	xhttp.send();
+	xhttp.onreadystatechange = function() {
+	if (this.readyState == 4)
+		{
+		x= xhttp.responseText;
+		if (x=="ADMIN") {
+			document.getElementById('AdminButton').style.display = "block";
+		}
+	}
+}
+}
+
+function PermissionChange() {
+	var VisitUser = document.getElementById('username').innerHTML;
+	var url2='/profile/ChangeVisitorRole?username='+VisitUser;
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("GET", url2);
+	xhttp.send();
+	xhttp.onreadystatechange = function() {
+	if (this.readyState == 4)
+		{
+		document.getElementById('Outcome').textContent = xhttp.responseText;
+	}
+}}

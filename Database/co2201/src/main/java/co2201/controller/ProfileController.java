@@ -229,4 +229,23 @@ public class ProfileController {
 		return new ResponseEntity<>(HttpStatus.OK);
 			
 	}
+	
+	@GetMapping("/profile/ChangeVisitorRole")
+	public ResponseEntity<?> changeVisitorRole(@RequestParam(name="username") String username) {
+		SystemUser user = userRepo.findByUsername(username).get();
+		if(user.getAdmin())
+		{
+			return new ResponseEntity<>(username+" is already an admin", HttpStatus.OK);
+		}
+		else if(user.getStaff())
+		{
+			return new ResponseEntity<>(username+" is already a member of staff", HttpStatus.OK);
+		}
+		else
+		{	
+			user.setStaff(true);
+			userRepo.save(user);
+			return new ResponseEntity<>(username+" is now a member of staff", HttpStatus.OK);
+		}	
+	}
 }
