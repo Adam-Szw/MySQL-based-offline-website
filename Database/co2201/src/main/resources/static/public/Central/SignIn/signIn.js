@@ -127,7 +127,7 @@ function forgetpass(){
 	console.log(username);
 	
 	const Http = new XMLHttpRequest();
-	const url='/signIn/forgot?username='+username+'&password='+password;
+	const url='/forgotPassword?username='+username+'&password='+password;
 	Http.open("GET", url);
 	Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	Http.setRequestHeader("Access-Control-Allow-Origin", "*");
