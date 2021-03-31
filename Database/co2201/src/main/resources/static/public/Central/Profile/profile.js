@@ -27,10 +27,11 @@ function getFriends()
 					newElement2sub.setAttribute("href", "/profileVisitor?Username="+(splitStr[0]).toString());
 					newElement2sub.innerHTML = "Show profile";
 					newElement2.appendChild(newElement2sub);
-					var newElement3sub = document.createElement("a");
-					newElement3sub.setAttribute("href", "/profile/removeFriend?friendUsername="+(splitStr[0]).toString());
-					newElement3sub.innerHTML = "Remove friend";
-					newElement3.appendChild(newElement3sub);
+					newElement3.onclick = function(){
+						RemoveFriend(this.id);
+					};
+					newElement3.innerHTML = "Remove friend";
+					newElement3.setAttribute("id", (splitStr[0]).toString());
 					var mainElement = document.getElementById("friendsSection");
 					mainElement.appendChild(newElement);
 					mainElement.appendChild(newElement2);
@@ -590,6 +591,18 @@ function PopulateUsernameDropdown() {
 function AddFriend() {
 	var x = document.getElementById('UsernameBox').value;
 	var url2='/profile/addFriend?friendUsername='+x;
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("GET", url2);
+	xhttp.send();
+	xhttp.onload = function(){
+        if(this.readyState === 4){
+            window.location.href = "/profile";
+        }
+    }
+}
+
+function RemoveFriend(username) {
+	var url2="/profile/removeFriend?friendUsername="+username;
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("GET", url2);
 	xhttp.send();
