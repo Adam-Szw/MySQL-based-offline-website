@@ -60,16 +60,14 @@
                     </div>
                     <div class="other-users">
                     <h3>Users</h3>
-                     <form action="/profileVisitor" method="GET">
-                     	<input type="text" placeholder="Username" name="Username"/>
+                     <form id="VisitorPage" action="/profileVisitor" method="GET">
+                     	<input id="Visitor" type="text" placeholder="Username" name="Username"/>
 					    <select style="display:none" id="UsernameSelection" name="Username"></select>
 					    <input  id="UsernameSubmit" type="submit" value="Visit User"/>
 					</form>
-					<form>
-						<input type="text" placeholder="Username" name="friendUsername"/>
-					    <select style="display:none" id="UsernameSelection2" name="friendUsername"></select>
+						<input type="text" id="UsernameBox" placeholder="Username" name="friendUsername"/>
+					     <select style="display:none" id="UsernameSelection2" name="friendUsername"></select>
 					    <input onclick="AddFriend()" id="AddFriend" type="submit" value="Add Friend"/>
-					</form>
 					</div>
                 </div>
             </div>

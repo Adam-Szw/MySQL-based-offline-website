@@ -588,19 +588,16 @@ function PopulateUsernameDropdown() {
 }}
 
 function AddFriend() {
-	var x = document.getElementById('UsernameSelection2').value;
+	var x = document.getElementById('UsernameBox').value;
 	var url2='/profile/addFriend?friendUsername='+x;
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("GET", url2);
 	xhttp.send();
-	xhttp.onreadystatechange = function() {
-	if (this.readyState == 4)
-		{
-		console.log(xhttp.responseText);
-		}	
-	}
-	document.getElementById('friendsSection').innerHTML = "<h1>Your Friends</h1>"
-	getFriends();
+	xhttp.onload = function(){
+        if(this.readyState === 4){
+            window.location.href = "/profile";
+        }
+    }
 }
 
 
