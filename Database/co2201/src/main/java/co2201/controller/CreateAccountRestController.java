@@ -1,13 +1,12 @@
 package co2201.controller;
 
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,24 +23,29 @@ public class CreateAccountRestController {
 	private PasswordEncoder pe;
 
 	//Request to create the new user and save to repo
-	@PostMapping("/signIn/newUser")
+	@GetMapping("/signIn/newUser")
 	public ResponseEntity<?> saveNewUser(@RequestParam(name = "username") String username, @RequestParam(name = "firstname") String firstName, @RequestParam(name = "lastname") String lastName,@RequestParam(name = "email") String email,@RequestParam(name = "password") String password){
+		if(username.equals(null) || firstName.equals(null) || lastName.equals(null) || email.equals(null) || password.equals(null))
+		{
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		if(playerRepo.findByUsername(username).isPresent())
+		{
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 		SystemUser newUser = new SystemUser();
 		newUser.setUsername(username);
 		newUser.setFName(firstName);
 		newUser.setLName(lastName);
 		newUser.setEmail(email);
-		newUser.setAdmin(true);
 		newUser.setPassword(pe.encode(password));
 		playerRepo.save(newUser);
-		
-		System.out.print(newUser.getUsername());
 		
 		return new ResponseEntity<>(HttpStatus.OK);
 		
 	}
 	
-	@PostMapping("/signIn/forgot")
+	@GetMapping("/signIn/forgot")
 	public ResponseEntity<?> changePassword(@RequestParam(name = "username") String username,@RequestParam(name = "password") String password){
 		if(playerRepo.findByUsername(username).isEmpty()) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

@@ -28,7 +28,7 @@
     	<div class="login_content">
     	<!--The log in section of the page-->
     		<div class="login-form">
-    			<form action="/login" method="post" class="login_register" id="login-in">
+    			<form action="/login" method="POST" class="login_register" id="login-in">
     				<h1 class="login_title">Sign In</h1>
     				<!--Login Box for the username-->
     				<div class="login_box">
@@ -57,7 +57,7 @@
         			</div>
       			</form>
       			<!--The sign up section of the webpage-->
-      			<form action="/signIn/newUser"  method="POST" class="login_create" id="login-up">
+      			<div class="login_create" id="login-up">
         			<h1 class="login_title">Create Account</h1>
         			<!--Username Login Box-->
         			<div class="login_box">
@@ -102,9 +102,9 @@
         		    	<span class="login_account">Already have an Account?</span>
         		    	<span class="login_signup" id="sign-in">Sign In</span>
        				</div>
-      			</form>
+      			</div>
       			<!--The forgotten password section of the webpage-->
-      			<form action="/signIn/forgot" method="POST" class="login_forgotten" id="login-fp">
+      			<div class="login_forgotten" id="login-fp">
         			<h1 class="login_title">Forgot Password</h1>
         			<!--Entry box for the password-->
         			<div class="login_box">
@@ -126,7 +126,7 @@
           				<span class="login_account">Already have an Account?</span>
           				<span class="login_signup" id="sign-inFP">Sign In</span>
         			</div>
-      			</form>
+      			</div>
     		</div>
   		</div>
 	</div>

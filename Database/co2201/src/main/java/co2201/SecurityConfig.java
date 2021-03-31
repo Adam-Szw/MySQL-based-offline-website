@@ -39,7 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.and().authorizeRequests()
 			.antMatchers("/games", "/profile", "/scoreboard", "/settings", "/games/getRole",
 					"/games/userId", "/games/save**", "/scores**").hasAnyRole("USER","STAFF","ADMIN")
-			.antMatchers("/public/**").permitAll()
+			.antMatchers("/public/**", "/signIn/newUser").permitAll()
 			.anyRequest().authenticated()
 		.and().exceptionHandling().accessDeniedPage("/");
 		http.cors();

@@ -109,10 +109,15 @@ function createNewUser(){
 	
     const Http = new XMLHttpRequest();
 	const url='/signIn/newUser?username='+username+'&firstname='+firstName+'&lastname='+lastName+'&email='+email+'&password='+password;
-	Http.open("POST", url);
+	Http.open("GET", url);
 	Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	Http.setRequestHeader("Access-Control-Allow-Origin", "*");
 	Http.send();
+	Http.onload = function(){
+		if(this.readyState === 4){
+			window.location.href = "/signIn";
+		}
+	}
 }
 
 function forgetpass(){
@@ -123,18 +128,15 @@ function forgetpass(){
 	
 	const Http = new XMLHttpRequest();
 	const url='/signIn/forgot?username='+username+'&password='+password;
-	Http.open("POST", url);
+	Http.open("GET", url);
 	Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	Http.setRequestHeader("Access-Control-Allow-Origin", "*");
 	Http.send();
 	
 	Http.onload = function(){
 		if(this.readyState === 4){
-			if(this.status === 404){
-				console.log("hi");
-			}
+			window.location.href = "/signIn";
 		}
-		
 	}
 	
 }
