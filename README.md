@@ -2,6 +2,14 @@
 
 CO2201 Semester 2 Group 14 Repository
 
+-----------REQUIREMENTS---------------
+- Java JDK newest stable version
+- Spring Tools Suite
+- MySQL Workbench
+- MySQL community server (setup below)
+
+-----------INSTALLATION---------------
+
 How to setup database?
 - Open MySQL Workbench
 - Create schema 'CO2101db'
