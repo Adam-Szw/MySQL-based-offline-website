@@ -23,6 +23,7 @@
         <img id="SideBar" src="public/Central/Images/About.png"><a href="/about">About</a>
     </div>
 <!--The content of the website-->
+<div class="lwrapper"><input class="lbutton" onclick="location.href='https://localhost:8443/logout';" value="Log Out"/></div>
 <div class="login">
     	<div class="login_content">
     	<!--The log in section of the page-->
@@ -32,7 +33,7 @@
     				<!--Login Box for the username-->
     				<div class="login_box">
     					<div class="login_icon">
-    						<i class="fas fa-user-circle"></i>
+    						<i class="fas fa-at"></i>
     					</div>
     					<input type="text" placeholder="Email" name="email" class="login_input" id="SignInUserName">
     				</div>
@@ -110,13 +111,13 @@
           				<div class="login_icon">
           					<i class="fas fa-user-circle"></i>
           				</div>
-          				<input type="text" placeholder="Username" name="username1" class="login_input" id="fusername">
+          				<input type="text" placeholder="Username" name="username" class="login_input" id="fusername">
         			</div>
         			<div class="login_box">
           				<div class="login_icon">
           					<i class="fas fa-lock"></i>
           				</div>
-          				<input type="password" placeholder="Password" name="password1" class="login_input" id="fpassword">
+          				<input type="password" placeholder="Password" name="password" class="login_input" id="fpassword">
         			</div>
         				<input type="submit" class="login_button" onclick="forgetpass()" id="fp" value="Change Password" />
         				<!--<a href="#" onclick="ForgotEmailChecker('ForgottenEmail')" class="login_button">Send Request</a>-->

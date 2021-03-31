@@ -115,10 +115,29 @@ function createNewUser(){
 	Http.send();
 }
 
-//function forgetpass(){
-//	var username = document.getElementById('').value;
-//}
-
+function forgetpass(){
+	var username = document.getElementById('fusername').value;
+	var password = document.getElementById('fpassword').value;
+	
+	console.log(username);
+	
+	const Http = new XMLHttpRequest();
+	const url='/signIn/forgot?username='+username+'&password='+password;
+	Http.open("POST", url);
+	Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	Http.setRequestHeader("Access-Control-Allow-Origin", "*");
+	Http.send();
+	
+	Http.onload = function(){
+		if(this.readyState === 4){
+			if(this.status === 404){
+				console.log("hi");
+			}
+		}
+		
+	}
+	
+}
 
 
 
